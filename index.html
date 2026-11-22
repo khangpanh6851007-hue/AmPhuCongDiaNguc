@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNDERWORLD OS 7.0 | Hệ Thống Quản Lý Âm Phủ & Phán Quyết Nghiệp Lực</title>
+    <title>UNDERWORLD OS 8.0 | Hệ Thống Quản Lý Âm Phủ & Phán Quyết Nghiệp Lực</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -127,13 +127,13 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="font-cinzel font-extrabold text-base sm:text-xl tracking-wider bg-gradient-to-r from-rose-500 via-amber-300 to-cyan-400 bg-clip-text text-transparent">
-                            UNDERWORLD OS 7.0
+                            UNDERWORLD OS 8.0
                         </h1>
                         <span class="text-[10px] font-mono-tech px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 border border-rose-500/40 animate-pulse">
                             LIVE • AI-CORE
                         </span>
                     </div>
-                    <p class="text-[11px] text-slate-400 font-mono-tech">UNDERWORLD OS 6.0 • Quản lý hồ sơ & phán quyết</p>
+                    <p class="text-[11px] text-slate-400 font-mono-tech">UNDERWORLD OS 8.0 • Hệ điều hành quản lý âm phủ</p>
                 </div>
             </div>
 
@@ -145,9 +145,6 @@
                 </div>
                 <button onclick="toggleAudio()" id="audio-btn" class="px-3 py-1.5 rounded-lg glass-panel border border-cyan-500/30 text-xs font-mono-tech text-cyan-300 hover:bg-cyan-500/10 transition flex items-center gap-1.5">
                     <span id="audio-icon">🔇</span> <span class="hidden sm:inline">Âm Thanh Địa Phủ</span>
-                </button>
-                <button onclick="openDeployModal()" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/20 to-rose-500/20 border border-amber-400/50 text-xs font-mono-tech text-amber-300 hover:brightness-125 transition">
-                    ⚙️ Acode / GitHub
                 </button>
             </div>
         </div>
@@ -181,7 +178,7 @@
 
             <div class="glass-panel rounded-xl p-4 border border-purple-500/30 relative overflow-hidden">
                 <div class="text-xs font-mono-tech text-purple-400 uppercase">Tra Cứu Nhanh Toàn Cục</div>
-                <input type="text" id="global-search" oninput="handleGlobalSearch(this.value)" placeholder="Nhập tên hoặc mã số..." 
+                <input type="text" id="global-search" oninput="handleGlobalSearch(this.value)" placeholder="Tìm tên, mã, tội danh hoặc lời khai..." 
                     class="w-full mt-2 bg-slate-950/80 border border-purple-500/40 rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400">
                 <div class="text-[10px] text-slate-400 mt-1">Tự động lọc Sổ Sinh Tử</div>
             </div>
@@ -209,12 +206,12 @@
             </button>
         </nav>
 
-        <!-- TAB 0: TRUNG TÂM ĐIỀU HÀNH 7.0 -->
+        <!-- TAB 0: TRUNG TÂM ĐIỀU HÀNH 8.0 -->
         <section id="view-dashboard" class="space-y-5">
             <div class="glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
-                        <p class="text-[10px] font-mono-tech text-cyan-300 tracking-[.25em]">COMMAND CENTER / RELEASE 7.0</p>
+                        <p class="text-[10px] font-mono-tech text-cyan-300 tracking-[.25em]">COMMAND CENTER / RELEASE 8.0</p>
                         <h2 class="font-cinzel text-xl sm:text-2xl font-extrabold text-white mt-1">TRUNG TÂM ĐIỀU HÀNH ĐỊA PHỦ</h2>
                         <p class="text-xs text-slate-400 mt-1">Theo dõi hồ sơ, trạng thái thi hành án và lịch sử thao tác trên thiết bị</p>
                     </div>
@@ -283,6 +280,7 @@
                 <div>
                     <label class="block text-xs font-mono-tech text-slate-300 mb-2">Chọn Nhanh Tội Danh Khi Còn Sống (Có thể chọn nhiều):</label>
                     <div id="sin-presets" class="flex flex-wrap gap-2"></div>
+                    <p class="mt-2 text-[10px] leading-relaxed text-slate-500">Các mức Karma và thời hạn án là dữ liệu giả lập trong trò chơi, không phải kết luận pháp lý hay đánh giá con người. Mục “Tự sát” chỉ là nhãn phân loại trong mô phỏng, không hàm ý người gặp khủng hoảng có lỗi hoặc đáng bị trừng phạt.</p>
                 </div>
 
                 <div>
@@ -375,6 +373,13 @@
                         <option value="READY_REBORN">✨ Đủ điều kiện đầu thai</option>
                         <option value="REBORN">🍵 Đã đầu thai</option>
                     </select>
+                    <select id="ledger-sort" onchange="renderLedger()" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400" aria-label="Sắp xếp hồ sơ">
+                        <option value="newest">Mới nhất trước</option>
+                        <option value="oldest">Cũ nhất trước</option>
+                        <option value="karma">Nghiệp lực cao trước</option>
+                        <option value="years">Án dài trước</option>
+                        <option value="name">Tên A–Z</option>
+                    </select>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="exportDatabase()" class="px-3 py-2 rounded-xl bg-cyan-950/60 hover:bg-cyan-900/60 text-xs text-cyan-300 border border-cyan-500/30 transition">
@@ -407,6 +412,7 @@
                     <button onclick="exportLedgerCSV()" class="px-3 py-2 rounded-lg bg-emerald-900/40 border border-emerald-500/40 text-xs text-emerald-200">Xuất CSV</button>
                 </div>
             </div>
+            <div class="flex items-center justify-between gap-2 text-xs text-slate-400"><span>📚 Kết quả phù hợp</span><strong id="ledger-result-count" class="text-cyan-300 font-mono-tech">0 hồ sơ</strong></div>
             <div id="ledger-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </section>
 
@@ -414,7 +420,7 @@
         <section id="view-hells" class="hidden space-y-4">
             <div class="glass-panel rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 neon-border-crimson">
                 <div>
-                    <h2 class="font-cinzel font-bold text-lg text-rose-400">THẬP BÁT TẦNG ĐỊA NGỤC HỆ THỐNG 7.0</h2>
+                    <h2 class="font-cinzel font-bold text-lg text-rose-400">THẬP BÁT TẦNG ĐỊA NGỤC HỆ THỐNG 8.0</h2>
                     <p class="text-xs text-slate-400">Nhấn vào từng tầng để xem Cai Ngục AI phụ trách, cơ chế trừng phạt và danh sách phạm nhân đang giam giữ</p>
                 </div>
                 <span class="text-xs font-mono-tech px-3 py-1 rounded-full bg-rose-500/15 text-rose-300 border border-rose-500/30">
@@ -464,7 +470,7 @@
 
             <div class="lg:col-span-6 glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan space-y-4">
                 <div class="border-b border-slate-800 pb-3">
-                    <h2 class="font-cinzel font-bold text-lg text-cyan-400">🍵 QUÁN TRÀ MẠNH BÀ 7.0 (XÓA KÝ ỨC)</h2>
+                    <h2 class="font-cinzel font-bold text-lg text-cyan-400">🍵 QUÁN TRÀ MẠNH BÀ 8.0 (XÓA KÝ ỨC)</h2>
                     <p class="text-xs text-slate-400">Chỉ dành cho linh hồn đã mãn hạn hình phạt (0 năm còn lại)</p>
                 </div>
 
@@ -525,7 +531,7 @@
             <div class="bg-rose-950/30 border border-rose-500/30 p-3.5 rounded-xl space-y-1">
                 <div class="text-xs font-bold text-rose-300">Tội Danh Áp Dụng:</div>
                 <p class="text-xs text-slate-300" id="modal-hell-crime">...</p>
-                <div class="text-xs font-bold text-amber-300 pt-2">Cơ Chế Trừng Phạt 7.0:</div>
+                <div class="text-xs font-bold text-amber-300 pt-2">Cơ Chế Trừng Phạt 8.0:</div>
                 <p class="text-xs text-slate-300" id="modal-hell-punish">...</p>
             </div>
             <div>
@@ -548,12 +554,12 @@
             <p class="text-[10px] text-slate-500">Nhật ký chỉ lưu cục bộ trên trình duyệt này, không đồng bộ giữa các thiết bị.</p>
         </section>
 
-    <!-- MODAL HỒ SƠ LINH HỒN 6.0 -->
+    <!-- MODAL HỒ SƠ LINH HỒN 8.0 -->
     <div id="profile-modal" class="hidden fixed inset-0 z-[60] bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
         <div class="glass-panel neon-border-cyan w-full max-w-xl max-h-[92vh] overflow-y-auto rounded-2xl p-4 sm:p-6 space-y-4">
             <div class="flex items-center justify-between gap-3 border-b border-slate-700 pb-3">
                 <div>
-                    <p class="text-[10px] font-mono-tech text-cyan-400">HỒ SƠ LINH HỒN • VERSION 7.0</p>
+                    <p class="text-[10px] font-mono-tech text-cyan-400">HỒ SƠ LINH HỒN • VERSION 8.0</p>
                     <h3 id="profile-title" class="font-cinzel text-lg font-bold text-white">Chi tiết hồ sơ</h3>
                 </div>
                 <button onclick="closeProfileModal()" class="rounded-lg px-3 py-2 bg-slate-800 text-slate-300">✕ Đóng</button>
@@ -595,30 +601,6 @@
                 <button onclick="deleteCurrentProfile()" class="rounded-xl py-3 px-4 bg-rose-950 border border-rose-500/40 text-rose-300">🗑️ Xóa hồ sơ</button>
             </div>
             <p class="text-[10px] text-slate-500">Mọi thay đổi được lưu cục bộ trên thiết bị này. Hãy sao lưu JSON để chuyển dữ liệu sang thiết bị khác.</p>
-        </div>
-    </div>
-
-    <!-- MODAL HƯỚNG DẪN ACODE / TREBEDIT / GITHUB -->
-    <div id="deploy-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="glass-panel neon-border-gold max-w-xl w-full rounded-2xl p-6 space-y-4 relative">
-            <button onclick="closeDeployModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">✕</button>
-            <h3 class="font-cinzel font-bold text-xl text-amber-400">🚀 TRIỂN KHAI TRÊN ACODE • TREBEDIT • GITHUB</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                Toàn bộ giao diện, hệ thống 18 tầng địa ngục, cơ sở dữ liệu LocalStorage và hiệu ứng âm thanh đã được đóng gói gọn trong <strong>1 file duy nhất (index.html)</strong> để bạn chạy mượt trên điện thoại:
-            </p>
-            <div class="space-y-2.5 text-xs">
-                <div class="bg-slate-950/90 p-3 rounded-xl border border-slate-800">
-                    <div class="font-bold text-cyan-400">1. Chạy trên Acode / TrebEdit (Android):</div>
-                    <p class="text-slate-400 mt-1">Tạo thư mục mới <code>underworld-os-6.0</code> → Tạo file <code>index.html</code> → Dán toàn bộ mã nguồn vào → Nhấn nút <strong>Play (▶)</strong> góc trên cùng để chạy ngay lập tức.</p>
-                </div>
-                <div class="bg-slate-950/90 p-3 rounded-xl border border-slate-800">
-                    <div class="font-bold text-amber-400">2. Đưa lên GitHub Pages miễn phí:</div>
-                    <p class="text-slate-400 mt-1">Tạo Repository mới trên GitHub → Upload file <code>index.html</code> → Vào <strong>Settings → Pages → Branch: main</strong> → Lưu lại để nhận link web chia sẻ cho bạn bè.</p>
-                </div>
-            </div>
-            <button onclick="copyFullSource()" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-rose-600 text-slate-950 font-bold text-xs uppercase tracking-wider hover:brightness-110 transition">
-                📋 SAO CHÉP TOÀN BỘ MÃ NGUỒN INDEX.HTML
-            </button>
         </div>
     </div>
 
@@ -700,7 +682,7 @@
             { level: 9, name: "Địa Ngục Du Oa", warden: "Dạ Xoa Chảo Dầu", minKarma: -1100, crime: "Lừa đảo chiếm đoạt tài sản, buôn bán hàng giả độc hại.", punish: "Tắm trong chảo dầu sôi sục có sục khí oxy." },
             { level: 10, name: "Địa Ngục Ngưu Khanh", warden: "Ngưu Ma Vương Cyber", minKarma: -1250, crime: "Ngược đãi động vật, săn bắt trái phép.", punish: "Bị đàn trâu sắt húc liên hoàn không ngừng nghỉ." },
             { level: 11, name: "Địa Ngục Thạch Áp", warden: "Cự Linh Thần Đá", minKarma: -1400, crime: "Vứt bỏ con cái, vô trách nhiệm với sinh mạng.", punish: "Bị tảng đá thiên thạch 100 tấn đè nén trọng lực." },
-            { level: 12, name: "Địa Ngục Thung Cối", warden: "Quỷ Giã Gạo 7.0", minKarma: -1600, crime: "Lãng phí lương thực, khinh miệt người nghèo khổ.", punish: "Bị cối giã thủy lực nghiền nát rồi tái tạo lại." },
+            { level: 12, name: "Địa Ngục Thung Cối", warden: "Quỷ Giã Gạo 8.0", minKarma: -1600, crime: "Lãng phí lương thực, khinh miệt người nghèo khổ.", punish: "Bị cối giã thủy lực nghiền nát rồi tái tạo lại." },
             { level: 13, name: "Địa Ngục Huyết Trì", warden: "Huyết Quỷ Vương", minKarma: -1800, crime: "Gây thương tích nghiêm trọng, bất kính bậc tiền bối.", punish: "Ngâm mình trong hồ axit đỏ đặc quánh." },
             { level: 14, name: "Địa Ngục Uổng Tử", warden: "Hắc Bạch Vô Thường", minKarma: -2000, crime: "Tự hủy hoại bản thân, coi thường sinh mạng cha mẹ ban cho.", punish: "Đứng giữa tâm bão từ trường xé rách linh thể." },
             { level: 15, name: "Địa Ngục Khuynh Phủ", warden: "Quỷ Cắt Xén", minKarma: -2300, crime: "Đào trộm cổ mộ, xâm phạm mồ mả người khuất.", punish: "Bị máy cắt plasma phân tách từng phân tử." },
@@ -716,7 +698,20 @@ const SIN_PRESETS = [
             { label: "Lãng phí đồ ăn thức uống", karma: -1650, years: 220, hell: 12 },
             { label: "Thức khuya lướt TikTok tới 4h sáng", karma: -120, years: 15, hell: 14 },
             { label: "Tham ô tiền quỹ chung", karma: -2700, years: 500, hell: 16 },
-            { label: "Xem chùa không thả tim/like", karma: -150, years: 18, hell: 4 }
+            { label: "Xem chùa không thả tim/like", karma: -150, years: 18, hell: 4 },
+            { label: "Nói dối, vu khống, tung tin đồn", description: "Làm hại danh dự người khác, xuyên tạc sự thật.", karma: -520, years: 65, hell: 5 },
+            { label: "Gây chia rẽ", description: "Ly gián người thân, phá hoại hòa khí gia đình và cộng đồng.", karma: -620, years: 80, hell: 6 },
+            { label: "Chửi tục, phỉ báng", description: "Dùng lời lẽ thô bỉ, phỉ báng người khác hoặc thần linh.", karma: -360, years: 45, hell: 4 },
+            { label: "Giết người, sát sinh", description: "Tước đoạt mạng sống con người, phóng hỏa gây hại hoặc giết hại động vật bừa bãi.", karma: -3200, years: 700, hell: 18 },
+            { label: "Tự sát", description: "Mục hỗ trợ nhận diện và lưu ý cần quan tâm, hỗ trợ người đang gặp khủng hoảng; không xem đây là tội danh hay hành vi đáng bị trừng phạt.", karma: 0, years: 0, hell: 1 },
+            { label: "Hành hạ, giết con", description: "Bỏ mặc, làm hại con cái vì định kiến trọng nam khinh nữ hoặc sự khuyết tật.", karma: -3000, years: 650, hell: 18 },
+            { label: "Bất hiếu", description: "Không phụng dưỡng, kính trọng cha mẹ, làm cha mẹ đau lòng.", karma: -850, years: 120, hell: 7 },
+            { label: "Ngoại tình, tà dâm", description: "Phản bội hôn nhân, sống buông thả, xúi giục người khác làm trái đạo đức.", karma: -900, years: 140, hell: 8 },
+            { label: "Trộm cắp, cướp bóc", description: "Chiếm đoạt tài sản của người khác trái phép.", karma: -1250, years: 190, hell: 10 },
+            { label: "Tham nhũng, ăn bớt, gian lận", description: "Lạm dụng chức quyền, cân đong gian dối, làm ăn bất chính.", karma: -1850, years: 280, hell: 16 },
+            { label: "Đào trộm mộ", description: "Xâm phạm mồ mả, làm nhiễu loạn nơi an nghỉ của người đã khuất.", karma: -1450, years: 220, hell: 15 },
+            { label: "Lãng phí lương thực", description: "Coi thường hạt gạo, dẫm đạp ngũ cốc hoặc phung phí của cải.", karma: -700, years: 100, hell: 12 },
+            { label: "Sử dụng chất gây nghiện / chất cấm / ma túy (kể cả ma túy đá)", description: "Mục phân loại trong trò chơi, mô phỏng hành vi sử dụng chất gây nghiện và ma túy; không phải kết luận pháp lý hay đánh giá người đang gặp vấn đề lệ thuộc chất.", karma: -1600, years: 240, hell: 13 }
         ];
 
         const SAMPLE_NAMES = ["Trần Văn Báo Thủ", "Đặng Thị Trễ Deadline", "Vũ Hoàng Xù Kèo", "Bùi Minh Ngủ Quên Báo Thức"];
@@ -863,7 +858,7 @@ const SIN_PRESETS = [
                 icon.textContent = "🔊";
                 btn.classList.add("border-cyan-400", "bg-cyan-500/20");
                 playSound("gong");
-                showToast("🔊 Đã bật hiệu ứng âm thanh Địa Phủ 7.0");
+                showToast("🔊 Đã bật hiệu ứng âm thanh Địa Phủ 8.0");
             } else {
                 icon.textContent = "🔇";
                 btn.classList.remove("border-cyan-400", "bg-cyan-500/20");
@@ -1018,20 +1013,31 @@ const SIN_PRESETS = [
 
         function renderSinPresets() {
             const container = document.getElementById("sin-presets");
-            container.innerHTML = SIN_PRESETS.map((s, idx) => {
+            container.innerHTML = `<div class="w-full flex flex-wrap items-center justify-between gap-2 mb-1">
+                <span class="text-[11px] text-slate-400">Đã chọn: <strong class="text-rose-300">${selectedPresets.size}</strong> tội danh</span>
+                <button type="button" onclick="clearSinPresets()" class="text-[11px] text-cyan-300 underline">Bỏ chọn tất cả</button>
+            </div>` + SIN_PRESETS.map((s, idx) => {
                 const active = selectedPresets.has(idx);
-                return `<button type="button" onclick="togglePreset(${idx})" class="px-3 py-1.5 rounded-xl text-xs font-medium border transition ${
+                const description = s.description || "";
+                return `<button type="button" title="${escapeHTML(description)}" aria-pressed="${active}" onclick="togglePreset(${idx})" class="text-left px-3 py-2 rounded-xl text-xs font-medium border transition ${
                     active
                         ? "bg-rose-600/30 border-rose-400 text-white shadow-sm shadow-rose-500/30"
                         : "bg-slate-900/90 border-slate-700 text-slate-300 hover:border-slate-500"
-                }">${s.label} <span class="font-mono-tech text-[10px] text-rose-300">(${s.karma})</span></button>`;
+                }"><span class="block">${escapeHTML(s.label)} <span class="font-mono-tech text-[10px] text-rose-300">(${s.karma})</span></span>${description ? `<span class="block mt-1 text-[10px] leading-relaxed text-slate-400">${escapeHTML(description)}</span>` : ""}</button>`;
             }).join("");
         }
       function togglePreset(idx) {
+            if (!Number.isInteger(idx) || !SIN_PRESETS[idx]) return;
             if (selectedPresets.has(idx)) selectedPresets.delete(idx);
             else selectedPresets.add(idx);
             playSound("laser");
             renderSinPresets();
+        }
+
+        function clearSinPresets() {
+            selectedPresets.clear();
+            renderSinPresets();
+            showToast("Đã bỏ chọn toàn bộ tội danh.");
         }
 
         function fillRandomSoul() {
@@ -1048,7 +1054,7 @@ const SIN_PRESETS = [
             nameInput.classList.remove("border-amber-400");
             document.getElementById("blocked-name-hint").classList.add("hidden");
             document.getElementById("soul-age").value = age;
-            document.getElementById("soul-confession").value = "Khai báo thành khẩn trước Gương Nghiệp Kính 7.0.";
+            document.getElementById("soul-confession").value = "Khai báo thành khẩn trước Gương Nghiệp Kính 8.0.";
             renderSinPresets();
             playSound("laser");
         }
@@ -1126,7 +1132,7 @@ const SIN_PRESETS = [
                     yearsLeft: totalYears,
                     totalYears,
                     hellLevel: targetHell,
-                    status: "PUNISHING",
+                    status: totalYears > 0 ? "PUNISHING" : "READY_REBORN",
                     rebornDest: null,
                     createdAt: new Date().toLocaleDateString('vi-VN')
                 };
@@ -1174,11 +1180,20 @@ const SIN_PRESETS = [
                 if (isRestrictedSoulName(s.name)) return false;
                 const matchHell = hellFilter === "ALL" || String(s.hellLevel) === hellFilter;
                 const matchStatus = statusFilter === "ALL" || s.status === statusFilter;
-                const matchQuery = !globalSearchQuery ||
-                    s.name.toLowerCase().includes(globalSearchQuery) ||
-                    s.id.toLowerCase().includes(globalSearchQuery);
+                const searchable = [s.name, s.id, ...(Array.isArray(s.sins) ? s.sins : []), s.confession || ""].join(" ").toLocaleLowerCase("vi");
+                const matchQuery = !globalSearchQuery || searchable.includes(globalSearchQuery);
                 return matchHell && matchStatus && matchQuery;
             });
+            const sortMode = document.getElementById("ledger-sort")?.value || "newest";
+            filtered.sort((a,b) => {
+                if (sortMode === "oldest") return String(a.createdAt || "").localeCompare(String(b.createdAt || ""));
+                if (sortMode === "karma") return Math.abs(Number(b.karma)||0)-Math.abs(Number(a.karma)||0);
+                if (sortMode === "years") return (Number(b.yearsLeft)||0)-(Number(a.yearsLeft)||0);
+                if (sortMode === "name") return String(a.name||"").localeCompare(String(b.name||""),"vi");
+                return String(b.id||"").localeCompare(String(a.id||""));
+            });
+            const resultCount = document.getElementById("ledger-result-count");
+            if (resultCount) resultCount.textContent = `${filtered.length} hồ sơ`;
 
             const existingIds = new Set(soulsDB.map(s => String(s.id)));
             selectedSoulIds.forEach(id => { if (!existingIds.has(id)) selectedSoulIds.delete(id); });
@@ -1287,7 +1302,7 @@ const SIN_PRESETS = [
         function exportDatabase() {
             const payload = {
                 app: "UNDERWORLD OS",
-                version: "6.0",
+                version: "8.0",
                 exportedAt: new Date().toISOString(),
                 souls: soulsDB.filter(s => !isRestrictedSoulName(s.name))
             };
@@ -1493,9 +1508,6 @@ const SIN_PRESETS = [
             renderDashboard();
             renderActivityLog();
         }
-      function openDeployModal() { document.getElementById("deploy-modal").classList.remove("hidden"); }
-        function closeDeployModal() { document.getElementById("deploy-modal").classList.add("hidden"); }
-
         function copyFullSource() {
             const fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
             navigator.clipboard.writeText(fullHtml).then(() => {

@@ -1,180 +1,91 @@
-🔥 UNDERWORLD OS 8.0 — HỆ THỐNG ĐỊA PHỦ
+# 🔥 UNDERWORLD OS 8.0
 
-<p align="center">
-  <strong>Hệ thống quản lý linh hồn · Phán quyết nghiệp lực · Luân hồi</strong>
-</p><p align="center">
-  ![Version](https://img.shields.io/badge/version-8.0-gold?style=for-the-badge)
-  ![Platform](https://img.shields.io/badge/platform-Web-blue?style=for-the-badge)
-  ![Language](https://img.shields.io/badge/language-HTML%20%7C%20CSS%20%7C%20JavaScript-orange?style=for-the-badge)
-  ![Status](https://img.shields.io/badge/status-Development-success?style=for-the-badge)
-</p>📖 Giới thiệu
+**Hệ điều hành quản lý Âm phủ & mô phỏng phán quyết nghiệp lực**  
+Phiên bản: **8.0** · Cập nhật tài liệu: **2026** · Ngôn ngữ giao diện: **Tiếng Việt**
 
-UNDERWORLD OS 8.0 là ứng dụng web mô phỏng hệ thống quản lý Địa Phủ với giao diện tối, phong cách Cyberpunk kết hợp chủ đề thần thoại phương Đông.
+UNDERWORLD OS là ứng dụng web mô phỏng thế giới Âm phủ theo phong cách cyberpunk. Ứng dụng cung cấp bảng điều khiển, màn hình xét xử giả lập, sổ sinh tử, bản đồ 18 tầng địa ngục, khu vực Mạnh Bà và nhật ký hoạt động.
 
-Ứng dụng hỗ trợ quản lý hồ sơ linh hồn, theo dõi nghiệp lực, phán quyết, quản lý các tầng địa ngục, nhiệm vụ công đức và kho lưu trữ.
+> **Lưu ý:** Đây là dự án mô phỏng/giải trí. Điểm nghiệp lực, tội danh, thời hạn và hình phạt trong ứng dụng là dữ liệu hư cấu, không phải đánh giá đạo đức, kết luận pháp lý hay tư vấn chuyên môn về bất kỳ cá nhân nào.
 
-«Đây là ứng dụng mô phỏng và giải trí, không phải hệ thống tôn giáo hay công cụ đánh giá con người ngoài đời thực.»
+## ✨ Tính năng
 
-✨ Tính năng chính
+- **Tổng quan:** hiển thị số liệu linh hồn, trạng thái và chỉ số nghiệp lực.
+- **Tòa Án Diêm Vương AI:** nhập thông tin và thực hiện quy trình phán quyết mô phỏng.
+- **Sổ Sinh Tử điện tử:** tạo, xem, chỉnh sửa và quản lý hồ sơ; tìm kiếm theo tên, mã hồ sơ, tội danh hoặc lời khai.
+- **Lọc & sắp xếp:** lọc theo tầng địa ngục/trạng thái; sắp xếp theo mới nhất, cũ nhất, nghiệp lực, thời hạn hoặc tên.
+- **Quản lý hàng loạt:** chọn nhiều hồ sơ và cập nhật trạng thái cùng lúc.
+- **Bản đồ 18 tầng địa ngục:** xem thông tin từng tầng, cai ngục và hình phạt mô phỏng.
+- **Quán Trà Mạnh Bà:** khu vực mô phỏng quy trình uống trà và đầu thai.
+- **Nhật ký hệ thống:** theo dõi hoạt động và xuất nhật ký.
+- **Sao lưu & khôi phục:** xuất/nhập dữ liệu hồ sơ bằng JSON; xuất danh sách hồ sơ dạng CSV.
+- **Giao diện responsive:** hỗ trợ màn hình máy tính và thiết bị di động.
 
-🏛️ Trung tâm điều hành
+## 🚀 Chạy ứng dụng
 
-- Tổng quan số lượng hồ sơ linh hồn.
-- Thống kê trạng thái xử lý.
-- Theo dõi nghiệp lực.
-- Hiển thị hoạt động gần đây.
+### Cách 1: Mở trực tiếp
 
-⚖️ Phán quyết nghiệp lực
+1. Tải hoặc clone repository về máy.
+2. Mở file `index.html` bằng trình duyệt hiện đại.
+3. Cho phép trình duyệt tải các tài nguyên bên ngoài nếu muốn hiển thị đầy đủ giao diện.
 
-- Tạo hồ sơ linh hồn.
-- Ghi nhận thông tin và nghiệp lực.
-- Cập nhật trạng thái xử lý.
-- Theo dõi quá trình phán quyết.
+### Cách 2: Chạy bằng máy chủ local
 
-📚 Sổ Sinh Tử
+Nếu trình duyệt hạn chế một số chức năng khi mở file trực tiếp, hãy chạy một máy chủ web tĩnh trong thư mục dự án. Ví dụ với Python:
 
-- Xem danh sách hồ sơ.
-- Tìm kiếm và quản lý hồ sơ.
-- Chỉnh sửa thông tin.
-- Chọn nhiều hồ sơ cùng lúc.
-- Cập nhật trạng thái hàng loạt.
-- Xuất dữ liệu CSV.
+```bash
+python -m http.server 8000
+```
 
-🔥 18 tầng Địa Ngục
+Sau đó truy cập `http://localhost:8000`.
 
-- Khu vực mô phỏng 18 tầng địa ngục.
-- Hiển thị thông tin từng tầng.
-- Quản lý nội dung phán quyết theo giao diện ứng dụng.
+## 🌐 Triển khai bằng GitHub Pages (2026)
 
-🍵 Quán trà Mạnh Bà
+1. Tạo một repository trên GitHub.
+2. Đưa `index.html` và `README.md` vào thư mục gốc của repository.
+3. Mở **Settings → Pages** trong repository.
+4. Trong phần **Build and deployment**, chọn **Deploy from a branch**.
+5. Chọn nhánh muốn triển khai (thường là `main`) và thư mục `/(root)`, sau đó lưu.
+6. Chờ GitHub Pages hoàn tất triển khai; mở URL được hiển thị trong phần Pages.
 
-- Khu vực mô phỏng luân hồi.
-- Theo dõi trạng thái chuyển kiếp.
+Mỗi lần cập nhật mã nguồn và push lên nhánh đã chọn, GitHub Pages sẽ triển khai phiên bản mới theo cấu hình repository.
 
-✨ Nhiệm vụ công đức
+## 🧰 Công nghệ
 
-- Danh sách nhiệm vụ hằng ngày.
-- Đánh dấu nhiệm vụ đã hoàn thành.
-- Tính điểm công đức.
-- Tạo nhiệm vụ tùy chỉnh.
-- Theo dõi tiến độ trong ngày.
+- HTML5
+- CSS3
+- JavaScript thuần
+- Tailwind CSS qua CDN
+- Google Fonts: Cinzel, JetBrains Mono và Space Grotesk
+- `localStorage` của trình duyệt để lưu dữ liệu trên thiết bị
 
-🗄️ Kho lưu trữ
+## 💾 Dữ liệu & quyền riêng tư
 
-- Chuyển hồ sơ sang kho lưu trữ.
-- Khôi phục hồ sơ.
-- Xóa hồ sơ lưu trữ vĩnh viễn.
-- Xuất dữ liệu kho lưu trữ.
+- Hồ sơ được lưu cục bộ trong `localStorage` của trình duyệt; ứng dụng không cần máy chủ cơ sở dữ liệu để chạy các chức năng chính.
+- Dữ liệu trên một trình duyệt/thiết bị không tự động đồng bộ sang trình duyệt/thiết bị khác.
+- Xóa dữ liệu trang web, dùng chế độ ẩn danh hoặc đổi trình duyệt có thể khiến dữ liệu cục bộ không còn truy cập được.
+- Hãy dùng chức năng **Sao lưu dữ liệu** để tải JSON định kỳ và lưu ở nơi an toàn.
+- Khi khôi phục JSON, dữ liệu hiện tại sẽ bị thay thế sau khi người dùng xác nhận. Hãy sao lưu trước khi nhập tệp.
+- Ứng dụng tải Tailwind CSS và Google Fonts từ CDN; cần kết nối Internet để tải các tài nguyên này.
 
-🧾 Nhật ký hệ thống
+## 📁 Cấu trúc repository
 
-- Ghi nhận các hoạt động.
-- Theo dõi thao tác quản lý.
-- Xuất nhật ký.
-- Quản lý lịch sử hoạt động.
+```text
+.
+├── index.html   # Ứng dụng UNDERWORLD OS
+└── README.md    # Tài liệu dự án
+```
 
-💾 Sao lưu và dữ liệu
+## 📝 Ghi chú phiên bản 8.0
 
-- Lưu dữ liệu bằng LocalStorage.
-- Xuất dữ liệu JSON.
-- Nhập dữ liệu từ bản sao lưu.
-- Hỗ trợ tiếp tục sử dụng dữ liệu trên cùng trình duyệt và thiết bị.
+- Cập nhật nhận diện giao diện lên UNDERWORLD OS 8.0.
+- Loại bỏ phần hướng dẫn triển khai Acode/TrebEdit/GitHub tích hợp trong giao diện ứng dụng.
+- Mở rộng tìm kiếm sổ sinh tử và bổ sung bộ lọc/sắp xếp hồ sơ.
+- Bổ sung đếm số kết quả phù hợp và giữ các chức năng sao lưu/khôi phục dữ liệu.
 
-🛠️ Công nghệ sử dụng
+## ⚖️ Tuyên bố miễn trừ
 
-Công nghệ| Vai trò
-HTML5| Cấu trúc ứng dụng
-CSS3| Giao diện và hiệu ứng
-JavaScript| Xử lý chức năng
-LocalStorage| Lưu dữ liệu cục bộ
-Tailwind CSS| Hỗ trợ giao diện nếu CDN được tải
-
-📱 Cài đặt và sử dụng
-
-Cách 1: Chạy trên điện thoại Android
-
-1. Tải mã nguồn dự án về thiết bị.
-2. Mở ứng dụng Acode hoặc TrebEdit.
-3. Mở tệp "index.html".
-4. Chạy bằng trình xem trước hoặc trình duyệt.
-5. Sử dụng các mục chức năng trên giao diện.
-
-Cách 2: Chạy trên máy tính
-
-1. Tải hoặc Clone repository.
-2. Mở thư mục dự án.
-3. Mở "index.html" bằng trình duyệt.
-4. Không cần cài đặt máy chủ riêng cho phiên bản chạy cục bộ.
-
-Clone repository
-
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-cd YOUR_REPOSITORY
-
-Sau đó mở "index.html" bằng trình duyệt.
-
-📁 Cấu trúc dự án
-
-UNDERWORLD-OS/
-│
-├── index.html
-├── README.md
-├── LICENSE
-└── assets/
-    ├── images/
-    ├── icons/
-    └── styles/
-
-Các thư mục "assets/" và "LICENSE" là cấu trúc đề xuất nếu bạn muốn tách tài nguyên hoặc bổ sung giấy phép.
-
-🔐 Lưu ý bảo mật và dữ liệu
-
-- Dữ liệu phiên bản hiện tại được lưu trong trình duyệt bằng LocalStorage.
-- Dữ liệu không tự động đồng bộ giữa nhiều thiết bị.
-- Xóa dữ liệu trình duyệt có thể làm mất dữ liệu ứng dụng.
-- Nên xuất bản sao lưu JSON thường xuyên.
-- Không lưu mật khẩu, API Key hoặc thông tin bí mật trong mã nguồn công khai.
-- Đây chưa phải hệ thống máy chủ có xác thực tài khoản và phân quyền bảo mật thực sự.
-- Một số thành phần giao diện có thể cần Internet nếu sử dụng thư viện CDN.
-
-🧭 Định hướng phát triển
-
-- [ ] Hệ thống tài khoản và đăng nhập an toàn.
-- [ ] Phân quyền quản trị viên.
-- [ ] Cơ sở dữ liệu trực tuyến.
-- [ ] Đồng bộ dữ liệu nhiều thiết bị.
-- [ ] Thống kê và biểu đồ nâng cao.
-- [ ] Hệ thống thông báo.
-- [ ] Tìm kiếm và lọc hồ sơ nâng cao.
-- [ ] Giao diện quản trị trên điện thoại.
-- [ ] Nâng cấp hệ thống nhiệm vụ và thành tích.
-
-🤝 Đóng góp
-
-Bạn có thể đề xuất tính năng, báo lỗi hoặc gửi Pull Request để cải thiện dự án.
-
-Khi gửi đóng góp, hãy mô tả rõ:
-
-- Chức năng được thêm hoặc thay đổi.
-- Lỗi đã sửa.
-- Cách kiểm tra kết quả.
-
-📜 Giấy phép
-
-Chưa xác định giấy phép phân phối cho dự án. Hãy bổ sung tệp "LICENSE" và lựa chọn giấy phép phù hợp trước khi cho phép người khác sử dụng hoặc phân phối lại mã nguồn.
-
-👨‍💻 Thông tin dự án
-
-Tên dự án: UNDERWORLD OS
-Phiên bản: 8.0
-Nền tảng: Web / Android Browser / Desktop Browser
-Ngôn ngữ giao diện: Tiếng Việt
-Trạng thái: Đang phát triển
+UNDERWORLD OS được xây dựng cho mục đích học tập, thử nghiệm giao diện và giải trí. Nội dung mô phỏng không đại diện cho hệ thống pháp luật, tôn giáo hay quan điểm chính thức của bất kỳ tổ chức nào. Không sử dụng ứng dụng để đưa ra quyết định thật về con người.
 
 ---
 
-<p align="center">
-  <strong>🔥 UNDERWORLD OS — PHÁN QUYẾT NGHIỆP LỰC 🔥</strong>
-  <br>
-  <sub>Quản lý · Phán quyết · Công đức · Luân hồi</sub>
-</p>
+<p align="center">🔥 <strong>UNDERWORLD OS 8.0</strong> · Fictional Underworld Simulation · 2026 🔥</p>
