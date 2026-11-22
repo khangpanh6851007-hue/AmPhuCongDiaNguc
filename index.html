@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNDERWORLD OS 5.0 | Hệ Thống Quản Lý Âm Phủ & Phán Quyết Nghiệp Lực</title>
+    <title>UNDERWORLD OS 7.0 | Hệ Thống Quản Lý Âm Phủ & Phán Quyết Nghiệp Lực</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -66,6 +66,44 @@
             box-shadow: 0 0 15px rgba(255, 30, 86, 0.35);
         }
 
+
+
+        html { -webkit-text-size-adjust: 100%; }
+        :focus-visible { outline: 2px solid var(--soul-cyan); outline-offset: 2px; }
+        .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+        body { min-width: 320px; }
+        button, input, select, textarea { touch-action: manipulation; }
+        button { min-height: 40px; }
+        input, select, textarea { max-width: 100%; font-size: 16px; }
+        .tab-btn { white-space: nowrap; }
+        @media (max-width: 640px) {
+            main { padding-left: 12px !important; padding-right: 12px !important; padding-top: 16px !important; }
+            header { padding-left: 12px !important; padding-right: 12px !important; }
+            nav { overflow-x: auto; flex-wrap: nowrap !important; padding-bottom: 10px; scrollbar-width: none; }
+            nav::-webkit-scrollbar { display: none; }
+            .tab-btn { flex: 0 0 auto; padding: 10px 12px !important; }
+            .glass-panel { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+            #ledger-grid { grid-template-columns: minmax(0,1fr) !important; }
+            .mobile-stack { width: 100%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+        }
+
+
+        .v7-stat { background: linear-gradient(145deg, rgba(17,24,39,.96), rgba(8,12,24,.92)); }
+        .v7-meter { height: 8px; border-radius: 99px; overflow: hidden; background: #1e293b; }
+        .v7-meter > span { display:block; height:100%; border-radius:99px; background:linear-gradient(90deg,#fb7185,#22d3ee); }
+        .v7-activity { border-left: 2px solid rgba(34,211,238,.35); padding-left: 12px; }
+        .v7-chip { display:inline-flex; align-items:center; gap:6px; border:1px solid rgba(148,163,184,.25); background:rgba(15,23,42,.7); border-radius:999px; padding:5px 9px; font-size:11px; }
+        @media print {
+            body { background:#fff !important; color:#111 !important; }
+            body * { visibility:hidden !important; }
+            #profile-modal, #profile-modal * { visibility:visible !important; }
+            #profile-modal { position:absolute !important; inset:0 !important; display:block !important; background:#fff !important; }
+            #profile-modal > div { max-height:none !important; overflow:visible !important; box-shadow:none !important; border:0 !important; color:#111 !important; }
+            #profile-modal button { display:none !important; }
+        }
         .stamp-verdict {
             transform: rotate(-11deg);
             border: 3px double #ff1e56;
@@ -89,13 +127,13 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="font-cinzel font-extrabold text-base sm:text-xl tracking-wider bg-gradient-to-r from-rose-500 via-amber-300 to-cyan-400 bg-clip-text text-transparent">
-                            UNDERWORLD OS 5.0
+                            UNDERWORLD OS 7.0
                         </h1>
                         <span class="text-[10px] font-mono-tech px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 border border-rose-500/40 animate-pulse">
                             LIVE • AI-CORE
                         </span>
                     </div>
-                    <p class="text-[11px] text-slate-400 font-mono-tech">Cổng Quỷ Môn Quan • Thập Điện Diêm Vương Cloud</p>
+                    <p class="text-[11px] text-slate-400 font-mono-tech">UNDERWORLD OS 6.0 • Quản lý hồ sơ & phán quyết</p>
                 </div>
             </div>
 
@@ -151,7 +189,10 @@
 
         <!-- Navigation Tabs -->
         <nav class="flex flex-wrap gap-2 border-b border-slate-800 pb-3">
-            <button onclick="switchTab('court')" id="tab-court" class="tab-btn active px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold transition flex items-center gap-2">
+            <button onclick="switchTab('dashboard')" id="tab-dashboard" class="tab-btn active px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold transition flex items-center gap-2">
+                <span>📊</span> Tổng Quan
+            </button>
+            <button onclick="switchTab('court')" id="tab-court" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold transition flex items-center gap-2">
                 <span>⚖️</span> Tòa Án Diêm Vương AI
             </button>
             <button onclick="switchTab('ledger')" id="tab-ledger" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
@@ -163,15 +204,60 @@
             <button onclick="switchTab('mengpo')" id="tab-mengpo" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
                 <span>🍵</span> Quán Trà Mạnh Bà & Nạp Công Đức
             </button>
+            <button onclick="switchTab('activity')" id="tab-activity" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
+                <span>🧾</span> Nhật Ký Hệ Thống
+            </button>
         </nav>
 
+        <!-- TAB 0: TRUNG TÂM ĐIỀU HÀNH 7.0 -->
+        <section id="view-dashboard" class="space-y-5">
+            <div class="glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <p class="text-[10px] font-mono-tech text-cyan-300 tracking-[.25em]">COMMAND CENTER / RELEASE 7.0</p>
+                        <h2 class="font-cinzel text-xl sm:text-2xl font-extrabold text-white mt-1">TRUNG TÂM ĐIỀU HÀNH ĐỊA PHỦ</h2>
+                        <p class="text-xs text-slate-400 mt-1">Theo dõi hồ sơ, trạng thái thi hành án và lịch sử thao tác trên thiết bị</p>
+                    </div>
+                    <div class="flex gap-2 flex-wrap">
+                        <button onclick="switchTab('court')" class="rounded-xl px-4 py-2.5 bg-rose-600/20 border border-rose-500/40 text-rose-200 text-xs font-bold">⚖️ Lập phán quyết</button>
+                        <button onclick="exportDatabase()" class="rounded-xl px-4 py-2.5 bg-cyan-600/20 border border-cyan-500/40 text-cyan-200 text-xs font-bold">⬇️ Sao lưu ngay</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">TỔNG HỒ SƠ</div><div id="dash-total" class="text-3xl font-extrabold text-white mt-1">0</div><div class="text-[10px] text-cyan-300 mt-1">Hồ sơ hợp lệ</div></div>
+                <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">ĐANG THI HÀNH ÁN</div><div id="dash-punishing" class="text-3xl font-extrabold text-rose-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đang ở 18 tầng</div></div>
+                <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">CHỜ ĐẦU THAI</div><div id="dash-ready" class="text-3xl font-extrabold text-amber-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đã hoàn tất thời hạn án</div></div>
+                <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">ĐÃ ĐẦU THAI</div><div id="dash-reborn" class="text-3xl font-extrabold text-emerald-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đã qua Cầu Nại Hà</div></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="glass-panel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <div class="flex items-center justify-between"><h3 class="font-cinzel text-base text-cyan-300 font-bold">PHÂN BỔ TRẠNG THÁI</h3><span class="v7-chip">Tự cập nhật</span></div>
+                    <div id="dash-status-bars" class="space-y-3"></div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs"><span class="text-slate-400">Tổng nghiệp lực tích tụ</span><strong id="dash-karma" class="text-amber-300 font-mono-tech">0</strong></div>
+                </div>
+                <div class="glass-panel rounded-2xl p-4 sm:p-5 space-y-3">
+                    <div class="flex items-center justify-between"><h3 class="font-cinzel text-base text-rose-300 font-bold">HOẠT ĐỘNG GẦN ĐÂY</h3><button onclick="switchTab('activity')" class="text-[11px] text-cyan-300">Xem nhật ký →</button></div>
+                    <div id="dash-recent" class="space-y-3 text-xs text-slate-300"><p class="text-slate-500">Chưa có hoạt động.</p></div>
+                </div>
+            </div>
+            <div class="glass-panel rounded-2xl p-4 flex flex-wrap gap-2 items-center justify-between">
+                <div><h3 class="font-bold text-white text-sm">Công cụ nhanh</h3><p class="text-[11px] text-slate-400">Truy cập các nghiệp vụ thường dùng</p></div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="switchTab('ledger')" class="v7-chip text-cyan-200">📜 Sổ sinh tử</button>
+                    <button onclick="switchTab('hells')" class="v7-chip text-rose-200">🌋 18 tầng địa ngục</button>
+                    <button onclick="switchTab('mengpo')" class="v7-chip text-amber-200">🍵 Công đức & đầu thai</button>
+                </div>
+            </div>
+        </section>
+
         <!-- TAB 1: TÒA ÁN DIÊM VƯƠNG AI -->
-        <section id="view-court" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <section id="view-court" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-6">
             <div class="lg:col-span-7 glass-panel rounded-2xl p-5 sm:p-6 neon-border-crimson space-y-5">
                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                     <div>
                         <h2 class="font-cinzel font-bold text-lg sm:text-xl text-rose-400">GƯƠNG NGHIỆP KÍNH HOLOGRAM</h2>
-                        <p class="text-xs text-slate-400">Khai báo thông tin linh hồn để AI Diêm Vương định tội & phân tầng</p>
+                        <p class="text-xs text-slate-400">Quản lý hồ sơ, ghi nhận lời khai và tạo phán quyết mô phỏng</p>
                     </div>
                     <button onclick="fillRandomSoul()" class="text-xs font-mono-tech px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 transition">
                         🎲 Tạo Mẫu Thử
@@ -291,15 +377,36 @@
                     </select>
                 </div>
                 <div class="flex items-center gap-2">
+                    <button onclick="exportDatabase()" class="px-3 py-2 rounded-xl bg-cyan-950/60 hover:bg-cyan-900/60 text-xs text-cyan-300 border border-cyan-500/30 transition">
+                        ⬇️ Sao lưu dữ liệu
+                    </button>
+                    <button onclick="document.getElementById('import-file').click()" class="px-3 py-2 rounded-xl bg-indigo-950/60 hover:bg-indigo-900/60 text-xs text-indigo-300 border border-indigo-500/30 transition">
+                        ⬆️ Khôi phục dữ liệu
+                    </button>
+                    <input id="import-file" type="file" accept=".json,application/json" class="hidden" onchange="importDatabase(event)">
                     <button onclick="seedSampleData(true)" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs text-cyan-300 border border-cyan-500/30 transition">
-                        + Nạp Thêm Dữ Liệu Mẫu
+                        + Dữ liệu mẫu
                     </button>
                     <button onclick="clearAllLedger()" class="px-3 py-2 rounded-xl bg-rose-950/60 hover:bg-rose-900/60 text-xs text-rose-300 border border-rose-500/30 transition">
-                        🗑️ Xóa Sạch Sổ
+                        🗑️ Xóa sạch
                     </button>
                 </div>
             </div>
 
+            <div class="glass-panel rounded-2xl p-3 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-2 flex-wrap">
+                    <button onclick="selectAllVisibleSouls()" class="px-3 py-2 rounded-lg bg-slate-800 text-xs text-cyan-200 border border-slate-600">☑ Chọn tất cả đang hiển thị</button>
+                    <button onclick="clearSoulSelection()" class="px-3 py-2 rounded-lg bg-slate-800 text-xs text-slate-300 border border-slate-600">Bỏ chọn</button>
+                    <span class="text-xs text-slate-400">Đã chọn: <strong id="selected-count" class="text-cyan-300">0</strong></span>
+                </div>
+                <div class="flex gap-2 flex-wrap">
+                    <select id="bulk-status" class="bg-slate-950 border border-slate-700 rounded-lg px-2 py-2 text-xs text-white">
+                        <option value="PUNISHING">Đang chịu phạt</option><option value="READY_REBORN">Chờ đầu thai</option><option value="REBORN">Đã đầu thai</option>
+                    </select>
+                    <button onclick="applyBulkStatus()" class="px-3 py-2 rounded-lg bg-cyan-900/50 border border-cyan-500/40 text-xs text-cyan-200">Áp dụng trạng thái</button>
+                    <button onclick="exportLedgerCSV()" class="px-3 py-2 rounded-lg bg-emerald-900/40 border border-emerald-500/40 text-xs text-emerald-200">Xuất CSV</button>
+                </div>
+            </div>
             <div id="ledger-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </section>
 
@@ -307,7 +414,7 @@
         <section id="view-hells" class="hidden space-y-4">
             <div class="glass-panel rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 neon-border-crimson">
                 <div>
-                    <h2 class="font-cinzel font-bold text-lg text-rose-400">THẬP BÁT TẦNG ĐỊA NGỤC HỆ THỐNG 5.0</h2>
+                    <h2 class="font-cinzel font-bold text-lg text-rose-400">THẬP BÁT TẦNG ĐỊA NGỤC HỆ THỐNG 7.0</h2>
                     <p class="text-xs text-slate-400">Nhấn vào từng tầng để xem Cai Ngục AI phụ trách, cơ chế trừng phạt và danh sách phạm nhân đang giam giữ</p>
                 </div>
                 <span class="text-xs font-mono-tech px-3 py-1 rounded-full bg-rose-500/15 text-rose-300 border border-rose-500/30">
@@ -357,7 +464,7 @@
 
             <div class="lg:col-span-6 glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan space-y-4">
                 <div class="border-b border-slate-800 pb-3">
-                    <h2 class="font-cinzel font-bold text-lg text-cyan-400">🍵 QUÁN TRÀ MẠNH BÀ 5.0 (XÓA KÝ ỨC)</h2>
+                    <h2 class="font-cinzel font-bold text-lg text-cyan-400">🍵 QUÁN TRÀ MẠNH BÀ 7.0 (XÓA KÝ ỨC)</h2>
                     <p class="text-xs text-slate-400">Chỉ dành cho linh hồn đã mãn hạn hình phạt (0 năm còn lại)</p>
                 </div>
 
@@ -418,13 +525,76 @@
             <div class="bg-rose-950/30 border border-rose-500/30 p-3.5 rounded-xl space-y-1">
                 <div class="text-xs font-bold text-rose-300">Tội Danh Áp Dụng:</div>
                 <p class="text-xs text-slate-300" id="modal-hell-crime">...</p>
-                <div class="text-xs font-bold text-amber-300 pt-2">Cơ Chế Trừng Phạt 5.0:</div>
+                <div class="text-xs font-bold text-amber-300 pt-2">Cơ Chế Trừng Phạt 7.0:</div>
                 <p class="text-xs text-slate-300" id="modal-hell-punish">...</p>
             </div>
             <div>
                 <div class="text-xs font-mono-tech text-slate-400 mb-2">Phạm Nhân Đang Giam Giữ Tại Tầng Này:</div>
                 <div id="modal-hell-inmates" class="max-h-36 overflow-y-auto space-y-1.5 text-xs"></div>
             </div>
+        </div>
+    </div>
+
+        <!-- TAB 5: NHẬT KÝ HỆ THỐNG -->
+        <section id="view-activity" class="hidden space-y-4">
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3">
+                <div><h2 class="font-cinzel text-lg text-cyan-300 font-bold">NHẬT KÝ VẬN HÀNH</h2><p class="text-xs text-slate-400">Ghi lại thao tác quan trọng trên ứng dụng và thiết bị hiện tại</p></div>
+                <div class="flex gap-2 flex-wrap">
+                    <button onclick="exportActivityLog()" class="px-3 py-2 rounded-lg bg-cyan-900/50 border border-cyan-500/40 text-xs text-cyan-200">⬇️ Xuất nhật ký</button>
+                    <button onclick="clearActivityLog()" class="px-3 py-2 rounded-lg bg-rose-950/60 border border-rose-500/40 text-xs text-rose-200">Xóa nhật ký</button>
+                </div>
+            </div>
+            <div id="activity-list" class="glass-panel rounded-2xl p-4 sm:p-5 space-y-4"><p class="text-sm text-slate-500">Chưa có hoạt động.</p></div>
+            <p class="text-[10px] text-slate-500">Nhật ký chỉ lưu cục bộ trên trình duyệt này, không đồng bộ giữa các thiết bị.</p>
+        </section>
+
+    <!-- MODAL HỒ SƠ LINH HỒN 6.0 -->
+    <div id="profile-modal" class="hidden fixed inset-0 z-[60] bg-black/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+        <div class="glass-panel neon-border-cyan w-full max-w-xl max-h-[92vh] overflow-y-auto rounded-2xl p-4 sm:p-6 space-y-4">
+            <div class="flex items-center justify-between gap-3 border-b border-slate-700 pb-3">
+                <div>
+                    <p class="text-[10px] font-mono-tech text-cyan-400">HỒ SƠ LINH HỒN • VERSION 7.0</p>
+                    <h3 id="profile-title" class="font-cinzel text-lg font-bold text-white">Chi tiết hồ sơ</h3>
+                </div>
+                <button onclick="closeProfileModal()" class="rounded-lg px-3 py-2 bg-slate-800 text-slate-300">✕ Đóng</button>
+            </div>
+            <input type="hidden" id="profile-id">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label class="text-xs text-slate-300">Họ tên
+                    <input id="profile-name" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white" maxlength="100">
+                </label>
+                <label class="text-xs text-slate-300">Tuổi
+                    <input id="profile-age" type="number" min="1" max="150" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white">
+                </label>
+                <label class="text-xs text-slate-300">Tầng địa ngục
+                    <select id="profile-hell" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white"></select>
+                </label>
+                <label class="text-xs text-slate-300">Trạng thái
+                    <select id="profile-status" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white">
+                        <option value="PUNISHING">Đang chịu phạt</option>
+                        <option value="READY_REBORN">Đủ điều kiện đầu thai</option>
+                        <option value="REBORN">Đã đầu thai</option>
+                    </select>
+                </label>
+                <label class="text-xs text-slate-300">Nghiệp lực
+                    <input id="profile-karma" type="number" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white">
+                </label>
+                <label class="text-xs text-slate-300">Số năm còn lại
+                    <input id="profile-years" type="number" min="0" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white">
+                </label>
+            </div>
+            <label class="block text-xs text-slate-300">Tội danh / ghi chú (mỗi dòng một mục)
+                <textarea id="profile-sins" rows="3" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white"></textarea>
+            </label>
+            <label class="block text-xs text-slate-300">Lời khai / nội dung hồ sơ
+                <textarea id="profile-confession" rows="4" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white"></textarea>
+            </label>
+            <div class="flex flex-col sm:flex-row gap-2">
+                <button onclick="saveProfileChanges()" class="flex-1 rounded-xl py-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold">💾 Lưu thay đổi</button>
+                <button onclick="window.print()" class="rounded-xl py-3 px-4 bg-slate-800 border border-slate-600 text-slate-200">🖨️ In hồ sơ</button>
+                <button onclick="deleteCurrentProfile()" class="rounded-xl py-3 px-4 bg-rose-950 border border-rose-500/40 text-rose-300">🗑️ Xóa hồ sơ</button>
+            </div>
+            <p class="text-[10px] text-slate-500">Mọi thay đổi được lưu cục bộ trên thiết bị này. Hãy sao lưu JSON để chuyển dữ liệu sang thiết bị khác.</p>
         </div>
     </div>
 
@@ -439,7 +609,7 @@
             <div class="space-y-2.5 text-xs">
                 <div class="bg-slate-950/90 p-3 rounded-xl border border-slate-800">
                     <div class="font-bold text-cyan-400">1. Chạy trên Acode / TrebEdit (Android):</div>
-                    <p class="text-slate-400 mt-1">Tạo thư mục mới <code>am-phu-5.0</code> → Tạo file <code>index.html</code> → Dán toàn bộ mã nguồn vào → Nhấn nút <strong>Play (▶)</strong> góc trên cùng để chạy ngay lập tức.</p>
+                    <p class="text-slate-400 mt-1">Tạo thư mục mới <code>underworld-os-6.0</code> → Tạo file <code>index.html</code> → Dán toàn bộ mã nguồn vào → Nhấn nút <strong>Play (▶)</strong> góc trên cùng để chạy ngay lập tức.</p>
                 </div>
                 <div class="bg-slate-950/90 p-3 rounded-xl border border-slate-800">
                     <div class="font-bold text-amber-400">2. Đưa lên GitHub Pages miễn phí:</div>
@@ -455,7 +625,6 @@
     <!-- TOAST NOTIFICATION -->
     <div id="toast" class="fixed bottom-5 right-5 z-50 hidden glass-panel border-l-4 border-cyan-400 px-4 py-3 rounded-xl shadow-2xl text-xs font-semibold text-white max-w-xs"></div>
     <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden glass-panel border-l-4 border-cyan-400 px-4 py-3 rounded-xl shadow-2xl text-xs font-semibold text-white max-w-xs"></div>
 
     <script>
         // ================= DANH SÁCH CẤM GHI & KHÔNG HIỂN THỊ CHỊU PHẠT =================
@@ -477,7 +646,9 @@
             "phạm thị vân",
             "Nguyễn Hoàng sang",
             "Nguyễn Văn Hùng",
-            "Huỳnh Thị mộng thuý"
+            "Huỳnh Thị mộng thuý",
+            "Phùng Thanh Độ",
+            "Tô Lâm"
         ];
 
         function normalizeVietnameseName(str) {
@@ -529,7 +700,7 @@
             { level: 9, name: "Địa Ngục Du Oa", warden: "Dạ Xoa Chảo Dầu", minKarma: -1100, crime: "Lừa đảo chiếm đoạt tài sản, buôn bán hàng giả độc hại.", punish: "Tắm trong chảo dầu sôi sục có sục khí oxy." },
             { level: 10, name: "Địa Ngục Ngưu Khanh", warden: "Ngưu Ma Vương Cyber", minKarma: -1250, crime: "Ngược đãi động vật, săn bắt trái phép.", punish: "Bị đàn trâu sắt húc liên hoàn không ngừng nghỉ." },
             { level: 11, name: "Địa Ngục Thạch Áp", warden: "Cự Linh Thần Đá", minKarma: -1400, crime: "Vứt bỏ con cái, vô trách nhiệm với sinh mạng.", punish: "Bị tảng đá thiên thạch 100 tấn đè nén trọng lực." },
-            { level: 12, name: "Địa Ngục Thung Cối", warden: "Quỷ Giã Gạo 5.0", minKarma: -1600, crime: "Lãng phí lương thực, khinh miệt người nghèo khổ.", punish: "Bị cối giã thủy lực nghiền nát rồi tái tạo lại." },
+            { level: 12, name: "Địa Ngục Thung Cối", warden: "Quỷ Giã Gạo 7.0", minKarma: -1600, crime: "Lãng phí lương thực, khinh miệt người nghèo khổ.", punish: "Bị cối giã thủy lực nghiền nát rồi tái tạo lại." },
             { level: 13, name: "Địa Ngục Huyết Trì", warden: "Huyết Quỷ Vương", minKarma: -1800, crime: "Gây thương tích nghiêm trọng, bất kính bậc tiền bối.", punish: "Ngâm mình trong hồ axit đỏ đặc quánh." },
             { level: 14, name: "Địa Ngục Uổng Tử", warden: "Hắc Bạch Vô Thường", minKarma: -2000, crime: "Tự hủy hoại bản thân, coi thường sinh mạng cha mẹ ban cho.", punish: "Đứng giữa tâm bão từ trường xé rách linh thể." },
             { level: 15, name: "Địa Ngục Khuynh Phủ", warden: "Quỷ Cắt Xén", minKarma: -2300, crime: "Đào trộm cổ mộ, xâm phạm mồ mả người khuất.", punish: "Bị máy cắt plasma phân tách từng phân tử." },
@@ -562,6 +733,8 @@ const SIN_PRESETS = [
         let selectedPresets = new Set();
         let soulsDB = [];
         let globalSearchQuery = "";
+        let selectedSoulIds = new Set();
+        let activityLog = [];
         let audioEnabled = false;
         let audioCtx = null;
 
@@ -570,8 +743,104 @@ const SIN_PRESETS = [
             renderSinPresets();
             populateHellFilter();
             loadDatabase();
+            loadActivityLog();
             refreshAllUI();
+            switchTab("dashboard");
         });
+
+        const ACTIVITY_STORAGE_KEY = "UNDERWORLD_OS_7_ACTIVITY";
+        function loadActivityLog() {
+            try {
+                const raw = localStorage.getItem(ACTIVITY_STORAGE_KEY);
+                activityLog = raw ? JSON.parse(raw) : [];
+                if (!Array.isArray(activityLog)) activityLog = [];
+            } catch (e) { activityLog = []; }
+        }
+        function recordActivity(action, detail) {
+            const item = { id: "LOG-" + Date.now() + "-" + Math.floor(Math.random()*1000), action: String(action), detail: String(detail || ""), at: new Date().toISOString() };
+            activityLog.unshift(item);
+            activityLog = activityLog.slice(0, 500);
+            try { localStorage.setItem(ACTIVITY_STORAGE_KEY, JSON.stringify(activityLog)); } catch (e) {}
+            renderActivityLog();
+            renderDashboard();
+        }
+        function formatActivityTime(value) {
+            const d = new Date(value);
+            return Number.isNaN(d.getTime()) ? String(value || "") : d.toLocaleString("vi-VN");
+        }
+        function renderActivityLog() {
+            const el = document.getElementById("activity-list");
+            if (!el) return;
+            if (!activityLog.length) { el.innerHTML = '<p class="text-sm text-slate-500">Chưa có hoạt động được ghi nhận.</p>'; return; }
+            el.innerHTML = activityLog.map(item => `<div class="v7-activity py-1"><div class="flex flex-wrap justify-between gap-2"><strong class="text-cyan-200 text-xs">${escapeHTML(item.action)}</strong><time class="text-[10px] text-slate-500">${escapeHTML(formatActivityTime(item.at))}</time></div><p class="text-xs text-slate-300 mt-1">${escapeHTML(item.detail)}</p></div>`).join("");
+        }
+        function exportActivityLog() {
+            const blob = new Blob([JSON.stringify(activityLog, null, 2)], {type:"application/json;charset=utf-8"});
+            downloadBlob(blob, "underworld-os-activity.json");
+        }
+        function clearActivityLog() {
+            if (!confirm("Xóa toàn bộ nhật ký hoạt động?")) return;
+            activityLog = [];
+            try { localStorage.removeItem(ACTIVITY_STORAGE_KEY); } catch(e) {}
+            renderActivityLog(); renderDashboard();
+            showToast("Đã xóa nhật ký hoạt động.");
+        }
+        function downloadBlob(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+        function renderDashboard() {
+            const valid = soulsDB.filter(s => !isRestrictedSoulName(s.name));
+            const counts = {
+                PUNISHING: valid.filter(s => s.status === "PUNISHING").length,
+                READY_REBORN: valid.filter(s => s.status === "READY_REBORN").length,
+                REBORN: valid.filter(s => s.status === "REBORN").length
+            };
+            const put = (id, value) => { const el=document.getElementById(id); if(el) el.textContent=value; };
+            put("dash-total", valid.length); put("dash-punishing", counts.PUNISHING); put("dash-ready", counts.READY_REBORN); put("dash-reborn", counts.REBORN);
+            put("dash-karma", valid.reduce((n,s)=>n+Math.abs(Number(s.karma)||0),0).toLocaleString("vi-VN"));
+            const total = Math.max(1, valid.length);
+            const bars = document.getElementById("dash-status-bars");
+            if (bars) bars.innerHTML = [
+                ["Đang chịu phạt",counts.PUNISHING,"#fb7185"],
+                ["Chờ đầu thai",counts.READY_REBORN,"#fbbf24"],
+                ["Đã đầu thai",counts.REBORN,"#34d399"]
+            ].map(([label,count,color])=>`<div><div class="flex justify-between text-xs mb-1"><span class="text-slate-300">${label}</span><strong class="text-white">${count}</strong></div><div class="v7-meter"><span style="width:${Math.round(count/total*100)}%;background:${color}"></span></div></div>`).join("");
+            const recent = document.getElementById("dash-recent");
+            if (recent) recent.innerHTML = activityLog.slice(0,5).map(x=>`<div class="v7-activity"><div class="flex justify-between gap-2"><strong class="text-cyan-200">${escapeHTML(x.action)}</strong><span class="text-[10px] text-slate-500">${escapeHTML(formatActivityTime(x.at))}</span></div><p class="text-slate-400 mt-1">${escapeHTML(x.detail)}</p></div>`).join("") || '<p class="text-slate-500">Chưa có hoạt động.</p>';
+        }
+        function toggleSoulSelection(id, checked) {
+            if (checked) selectedSoulIds.add(String(id)); else selectedSoulIds.delete(String(id));
+            const el=document.getElementById("selected-count"); if(el) el.textContent=selectedSoulIds.size;
+        }
+        function selectAllVisibleSouls() {
+            document.querySelectorAll("#ledger-grid input[data-soul-select]").forEach(el => { el.checked=true; selectedSoulIds.add(String(el.value)); });
+            const count=document.getElementById("selected-count"); if(count) count.textContent=selectedSoulIds.size;
+        }
+        function clearSoulSelection() {
+            selectedSoulIds.clear();
+            document.querySelectorAll("#ledger-grid input[data-soul-select]").forEach(el=>el.checked=false);
+            const count=document.getElementById("selected-count"); if(count) count.textContent="0";
+        }
+        function applyBulkStatus() {
+            if (!selectedSoulIds.size) return showToast("Hãy chọn ít nhất một hồ sơ.");
+            const status=document.getElementById("bulk-status").value;
+            let changed=0;
+            soulsDB.forEach(s=>{ if(selectedSoulIds.has(String(s.id)) && !isRestrictedSoulName(s.name)){ s.status=status; if(status==="READY_REBORN") s.yearsLeft=0; changed++; }});
+            if (!changed) return showToast("Không có hồ sơ hợp lệ được chọn.");
+            recordActivity("Cập nhật hàng loạt", `${changed} hồ sơ → ${status}`);
+            clearSoulSelection(); saveDatabase();
+            showToast(`Đã cập nhật ${changed} hồ sơ.`);
+        }
+        function exportLedgerCSV() {
+            const rows=[["Mã hồ sơ","Họ tên","Tuổi","Tầng","Nghiệp lực","Án còn lại","Trạng thái","Ngày tạo","Tội danh","Lời khai"]];
+            soulsDB.filter(s=>!isRestrictedSoulName(s.name)).forEach(s=>rows.push([s.id,s.name,s.age,s.hellLevel,s.karma,s.yearsLeft,s.status,s.createdAt,(s.sins||[]).join("; "),s.confession||""]));
+            const csv="\\uFEFF"+rows.map(row=>row.map(v=>'"'+String(v==null?"":v).replace(/"/g,'""')+'"').join(",")).join("\\r\\n");
+            downloadBlob(new Blob([csv],{type:"text/csv;charset=utf-8"}),"underworld-os-ledger.csv");
+            recordActivity("Xuất dữ liệu CSV",`${rows.length-1} hồ sơ`);
+        }
 
         function initClock() {
             const earthlyBranches = ["Tý (23h-1h)", "Sửu (1h-3h)", "Dần (3h-5h)", "Mão (5h-7h)", "Thìn (7h-9h)", "Tỵ (9h-11h)", "Ngọ (11h-13h)", "Mùi (13h-15h)", "Thân (15h-17h)", "Dậu (17h-19h)", "Tuất (19h-21h)", "Hợi (21h-23h)"];
@@ -594,7 +863,7 @@ const SIN_PRESETS = [
                 icon.textContent = "🔊";
                 btn.classList.add("border-cyan-400", "bg-cyan-500/20");
                 playSound("gong");
-                showToast("🔊 Đã bật hiệu ứng âm thanh Địa Phủ 5.0");
+                showToast("🔊 Đã bật hiệu ứng âm thanh Địa Phủ 7.0");
             } else {
                 icon.textContent = "🔇";
                 btn.classList.remove("border-cyan-400", "bg-cyan-500/20");
@@ -638,31 +907,60 @@ const SIN_PRESETS = [
 
         function sanitizeDatabase() {
             const before = soulsDB.length;
-            soulsDB = soulsDB.filter(s => s && !isRestrictedSoulName(s.name));
+            const seen = new Set();
+            soulsDB = soulsDB.filter(s => {
+                if (!s || typeof s !== "object" || !s.id || !s.name || isRestrictedSoulName(s.name)) return false;
+                if (seen.has(String(s.id))) return false;
+                seen.add(String(s.id));
+                s.age = Math.max(1, Math.min(150, Number(s.age) || 30));
+                s.karma = Number(s.karma) || 0;
+                s.yearsLeft = Math.max(0, Number(s.yearsLeft) || 0);
+                s.totalYears = Math.max(s.yearsLeft, Number(s.totalYears) || s.yearsLeft);
+                s.hellLevel = Math.max(1, Math.min(18, Number(s.hellLevel) || 1));
+                s.sins = Array.isArray(s.sins) ? s.sins.map(String) : [];
+                s.confession = String(s.confession || "");
+                s.status = ["PUNISHING", "READY_REBORN", "REBORN"].includes(s.status) ? s.status : (s.yearsLeft > 0 ? "PUNISHING" : "READY_REBORN");
+                return true;
+            });
             if (soulsDB.length !== before) {
-                localStorage.setItem("UNDERWORLD_OS_5_SOULS", JSON.stringify(soulsDB));
+                try { localStorage.setItem("UNDERWORLD_OS_SOULS", JSON.stringify(soulsDB)); } catch (e) {}
             }
         }
 
         function loadDatabase() {
-            const raw = localStorage.getItem("UNDERWORLD_OS_5_SOULS");
-            if (raw) {
-                soulsDB = JSON.parse(raw);
-                sanitizeDatabase();
-            } else {
-                seedSampleData(false);
+            try {
+                const raw = localStorage.getItem("UNDERWORLD_OS_SOULS") || localStorage.getItem("UNDERWORLD_OS_SOULS");
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    soulsDB = Array.isArray(parsed) ? parsed : [];
+                    sanitizeDatabase();
+                    localStorage.setItem("UNDERWORLD_OS_SOULS", JSON.stringify(soulsDB));
+                } else {
+                    soulsDB = [];
+                    seedSampleData(false);
+                }
+            } catch (error) {
+                console.error("Không thể đọc dữ liệu:", error);
+                soulsDB = [];
+                showToast("⚠️ Dữ liệu lưu bị lỗi. Hãy thử khôi phục từ bản sao lưu JSON.");
             }
         }
 
         function saveDatabase() {
             sanitizeDatabase();
-            localStorage.setItem("UNDERWORLD_OS_5_SOULS", JSON.stringify(soulsDB));
-            refreshAllUI();
+            try {
+                localStorage.setItem("UNDERWORLD_OS_SOULS", JSON.stringify(soulsDB));
+                localStorage.setItem("UNDERWORLD_OS_BACKUP_TIME", new Date().toISOString());
+                refreshAllUI();
+            } catch (error) {
+                console.error("Không thể lưu dữ liệu:", error);
+                showToast("⚠️ Bộ nhớ trình duyệt đầy hoặc bị chặn. Hãy xuất bản sao lưu và giải phóng dung lượng.");
+            }
         }
       function seedSampleData(notify = true) {
             const samples = [
                 {
-                    id: "UW-" + Math.floor(1000 + Math.random() * 9000),
+                    id: "UW-" + Date.now().toString(36).toUpperCase() + "-" + Math.floor(100 + Math.random() * 900),
                     name: "Trần Văn Bùng Kèo",
                     age: 27,
                     sins: ["Hứa trả nợ rồi sủi", "Bùng hàng shipper"],
@@ -676,7 +974,7 @@ const SIN_PRESETS = [
                     createdAt: new Date().toLocaleDateString('vi-VN')
                 },
                 {
-                    id: "UW-" + Math.floor(1000 + Math.random() * 9000),
+                    id: "UW-" + Date.now().toString(36).toUpperCase() + "-" + Math.floor(100 + Math.random() * 900),
                     name: "Lê Thị Kem Trộn",
                     age: 35,
                     sins: ["Bán hàng giả / kem trộn"],
@@ -690,7 +988,7 @@ const SIN_PRESETS = [
                     createdAt: new Date().toLocaleDateString('vi-VN')
                 },
                 {
-                    id: "UW-" + Math.floor(1000 + Math.random() * 9000),
+                    id: "UW-" + Date.now().toString(36).toUpperCase() + "-" + Math.floor(100 + Math.random() * 900),
                     name: "Phạm Minh Thức Đêm",
                     age: 22,
                     sins: ["Thức khuya lướt TikTok tới 4h sáng"],
@@ -711,7 +1009,9 @@ const SIN_PRESETS = [
 
         function clearAllLedger() {
             if (!confirm("Xóa toàn bộ hồ sơ trong Sổ Sinh Tử?")) return;
+            const oldCount = soulsDB.length;
             soulsDB = [];
+            recordActivity("Xóa toàn bộ sổ", `${oldCount} hồ sơ đã bị xóa`);
             saveDatabase();
             showToast("🗑️ Đã xóa sạch Sổ Sinh Tử.");
         }
@@ -748,7 +1048,7 @@ const SIN_PRESETS = [
             nameInput.classList.remove("border-amber-400");
             document.getElementById("blocked-name-hint").classList.add("hidden");
             document.getElementById("soul-age").value = age;
-            document.getElementById("soul-confession").value = "Khai báo thành khẩn trước Gương Nghiệp Kính 5.0.";
+            document.getElementById("soul-confession").value = "Khai báo thành khẩn trước Gương Nghiệp Kính 7.0.";
             renderSinPresets();
             playSound("laser");
         }
@@ -817,7 +1117,7 @@ const SIN_PRESETS = [
                 playSound("gong");
               const hellInfo = EIGHTEEN_HELLS[targetHell - 1];
                 const record = {
-                    id: "UW-" + Math.floor(1000 + Math.random() * 9000),
+                    id: "UW-" + Date.now().toString(36).toUpperCase() + "-" + Math.floor(100 + Math.random() * 900),
                     name: nameInput,
                     age,
                     sins: chosen.length ? chosen.map(c => c.label) : ["Lời khai chưa rõ ràng trên Nghiệp Kính"],
@@ -832,6 +1132,7 @@ const SIN_PRESETS = [
                 };
 
                 soulsDB.unshift(record);
+                recordActivity("Phán quyết mới", `${record.name} • ${record.id} • Tầng ${record.hellLevel}`);
                 saveDatabase();
 
                 document.getElementById("verdict-placeholder").classList.add("hidden");
@@ -879,6 +1180,10 @@ const SIN_PRESETS = [
                 return matchHell && matchStatus && matchQuery;
             });
 
+            const existingIds = new Set(soulsDB.map(s => String(s.id)));
+            selectedSoulIds.forEach(id => { if (!existingIds.has(id)) selectedSoulIds.delete(id); });
+            const selectedCount = document.getElementById("selected-count");
+            if (selectedCount) selectedCount.textContent = selectedSoulIds.size;
             if (filtered.length === 0) {
                 grid.innerHTML = `<div class="col-span-full glass-panel rounded-2xl p-8 text-center text-xs text-slate-400">Không tìm thấy hồ sơ linh hồn nào phù hợp.</div>`;
                 return;
@@ -897,21 +1202,22 @@ const SIN_PRESETS = [
                 <div class="glass-panel rounded-2xl p-4 border border-slate-800 flex flex-col justify-between space-y-3">
                     <div class="space-y-2">
                         <div class="flex items-center justify-between gap-2">
-                            <span class="text-[11px] font-mono-tech text-cyan-400">#${s.id} • ${s.age}t</span>
+                            <label class="flex items-center gap-2 min-w-0"><input data-soul-select type="checkbox" value="${escapeHTML(s.id)}" ${selectedSoulIds.has(String(s.id)) ? "checked" : ""} onchange="toggleSoulSelection(this.value,this.checked)" class="accent-cyan-400 w-4 h-4"><span class="text-[11px] font-mono-tech text-cyan-400">#${escapeHTML(s.id)} • ${s.age}t</span></label>
                             ${badge}
                         </div>
-                        <h3 class="text-base font-bold text-white">${s.name}</h3>
+                        <h3 class="text-base font-bold text-white">${escapeHTML(s.name)}</h3>
                         <div class="text-xs text-rose-300 font-medium">Tầng ${hell.level}: ${hell.name}</div>
                         <div class="flex flex-wrap gap-1">
-                            ${s.sins.map(sin => `<span class="text-[10px] px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-700">${sin}</span>`).join("")}
+                            ${s.sins.map(sin => `<span class="text-[10px] px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-700">${escapeHTML(sin)}</span>`).join("")}
                         </div>
-                        <p class="text-xs text-slate-400 italic line-clamp-2">"${s.confession}"</p>
-                        ${s.rebornDest ? `<div class="text-[11px] text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 rounded-lg p-2">Kiếp sau: ${s.rebornDest}</div>` : ""}
+                        <p class="text-xs text-slate-400 italic line-clamp-2">"${escapeHTML(s.confession)}"</p>
+                        ${s.rebornDest ? `<div class="text-[11px] text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 rounded-lg p-2">Kiếp sau: ${escapeHTML(s.rebornDest)}</div>` : ""}
                     </div>
                     <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs font-mono-tech">
                         <span class="text-rose-400">${s.karma} Karma</span>
                         <span class="text-amber-300">Còn: ${s.yearsLeft} năm</span>
-                        <button onclick="deleteSoul('${s.id}')" class="text-slate-500 hover:text-rose-400 transition" title="Xóa hồ sơ">✕</button>
+                        <button onclick="openProfileModal('${s.id}')" class="text-cyan-300 border border-cyan-500/30 rounded-lg px-2 py-1" title="Xem và chỉnh sửa hồ sơ">Chi tiết / Sửa</button>
+                        <button onclick="deleteSoul('${s.id}')" class="text-slate-500 hover:text-rose-400 transition px-2" title="Xóa hồ sơ">✕</button>
                     </div>
                 </div>`;
             }).join("");
@@ -920,6 +1226,113 @@ const SIN_PRESETS = [
             soulsDB = soulsDB.filter(s => s.id !== id);
             saveDatabase();
             showToast(`Đã xóa hồ sơ #${id}`);
+        }
+
+        function openProfileModal(id) {
+            const s = soulsDB.find(item => String(item.id) === String(id));
+            if (!s) return;
+            document.getElementById("profile-id").value = s.id;
+            document.getElementById("profile-title").textContent = `Hồ sơ ${s.id}`;
+            document.getElementById("profile-name").value = s.name || "";
+            document.getElementById("profile-age").value = s.age || 30;
+            document.getElementById("profile-karma").value = s.karma || 0;
+            document.getElementById("profile-years").value = s.yearsLeft || 0;
+            document.getElementById("profile-status").value = s.status || "PUNISHING";
+            document.getElementById("profile-sins").value = (s.sins || []).join("\\n");
+            document.getElementById("profile-confession").value = s.confession || "";
+            const hellSelect = document.getElementById("profile-hell");
+            hellSelect.innerHTML = EIGHTEEN_HELLS.map(h => `<option value="${h.level}">Tầng ${h.level}: ${escapeHTML(h.name)}</option>`).join("");
+            hellSelect.value = s.hellLevel || 1;
+            document.getElementById("profile-modal").classList.remove("hidden");
+        }
+
+        function closeProfileModal() {
+            document.getElementById("profile-modal").classList.add("hidden");
+        }
+
+        function saveProfileChanges() {
+            const id = document.getElementById("profile-id").value;
+            const s = soulsDB.find(item => String(item.id) === String(id));
+            if (!s) return showToast("⚠️ Không tìm thấy hồ sơ cần sửa.");
+            const name = document.getElementById("profile-name").value.trim();
+            const age = Number(document.getElementById("profile-age").value);
+            const years = Number(document.getElementById("profile-years").value);
+            if (!name || isRestrictedSoulName(name)) return showToast("🛡️ Tên trống hoặc thuộc danh sách cấm, không thể lưu.");
+            if (!Number.isFinite(age) || age < 1 || age > 150) return showToast("⚠️ Tuổi phải từ 1 đến 150.");
+            if (!Number.isFinite(years) || years < 0) return showToast("⚠️ Số năm còn lại không hợp lệ.");
+            s.name = name;
+            s.age = age;
+            s.hellLevel = Number(document.getElementById("profile-hell").value);
+            s.status = document.getElementById("profile-status").value;
+            s.karma = Number(document.getElementById("profile-karma").value) || 0;
+            s.yearsLeft = years;
+            s.totalYears = Math.max(Number(s.totalYears) || 0, years);
+            s.sins = document.getElementById("profile-sins").value.split("\\n").map(v => v.trim()).filter(Boolean);
+            s.confession = document.getElementById("profile-confession").value.trim();
+            s.updatedAt = new Date().toLocaleString("vi-VN");
+            if (s.status === "PUNISHING" && s.yearsLeft === 0) s.status = "READY_REBORN";
+            recordActivity("Chỉnh sửa hồ sơ", `${s.name} • ${s.id}`);
+            saveDatabase();
+            closeProfileModal();
+            showToast(`💾 Đã cập nhật hồ sơ ${s.id}.`);
+        }
+
+        function deleteCurrentProfile() {
+            const id = document.getElementById("profile-id").value;
+            if (!confirm(`Bạn có chắc muốn xóa hồ sơ ${id}?`)) return;
+            deleteSoul(id);
+            closeProfileModal();
+        }
+
+        function exportDatabase() {
+            const payload = {
+                app: "UNDERWORLD OS",
+                version: "6.0",
+                exportedAt: new Date().toISOString(),
+                souls: soulsDB.filter(s => !isRestrictedSoulName(s.name))
+            };
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `underworld-os-backup-${new Date().toISOString().slice(0,10)}.json`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+            recordActivity("Sao lưu dữ liệu JSON", `${soulsDB.length} hồ sơ`);
+            showToast("⬇️ Đã tạo file sao lưu dữ liệu JSON.");
+        }
+
+        function importDatabase(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    const parsed = JSON.parse(reader.result);
+                    const imported = Array.isArray(parsed) ? parsed : parsed.souls;
+                    if (!Array.isArray(imported)) throw new Error("Tệp không có danh sách hồ sơ hợp lệ.");
+                    if (!confirm(`Khôi phục ${imported.length} hồ sơ? Dữ liệu hiện tại sẽ được thay thế.`)) return;
+                    soulsDB = imported.filter(s => s && s.name && !isRestrictedSoulName(s.name));
+                    sanitizeDatabase();
+                    recordActivity("Khôi phục dữ liệu", `${soulsDB.length} hồ sơ đã nhập`);
+                    saveDatabase();
+                    showToast("⬆️ Khôi phục dữ liệu thành công.");
+                } catch (error) {
+                    showToast("⚠️ Không thể đọc tệp sao lưu JSON: " + error.message);
+                } finally {
+                    event.target.value = "";
+                }
+            };
+            reader.onerror = () => showToast("⚠️ Không thể đọc tệp đã chọn.");
+            reader.readAsText(file);
+        }
+
+        function escapeHTML(value) {
+            return String(value == null ? "" : value).replace(/[&<>"']/g, ch => ({
+                "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+            }[ch]));
         }
 
         function renderHellsMap() {
@@ -1011,6 +1424,7 @@ const SIN_PRESETS = [
                 s.status = "READY_REBORN";
             }
             playSound("merit");
+            recordActivity("Nạp công đức", `${s.name} • ${deedTitle} • còn ${s.yearsLeft} năm`);
             saveDatabase();
             showToast(`✨ ${deedTitle}: ${s.name} còn ${s.yearsLeft} năm thụ án.`);
         }
@@ -1033,6 +1447,7 @@ const SIN_PRESETS = [
             s.status = "REBORN";
             s.rebornDest = dest;
             playSound("merit");
+            recordActivity("Đầu thai", `${s.name} • ${dest}`);
             saveDatabase();
 
             const ticket = document.getElementById("reborn-ticket");
@@ -1045,7 +1460,7 @@ const SIN_PRESETS = [
         }
 
         function switchTab(tabName) {
-            ["court", "ledger", "hells", "mengpo"].forEach(t => {
+            ["dashboard", "court", "ledger", "hells", "mengpo", "activity"].forEach(t => {
                 document.getElementById(`view-${t}`).classList.add("hidden");
                 document.getElementById(`tab-${t}`).classList.remove("active");
                 document.getElementById(`tab-${t}`).classList.add("text-slate-300");
@@ -1054,6 +1469,8 @@ const SIN_PRESETS = [
             document.getElementById(`tab-${tabName}`).classList.add("active");
             document.getElementById(`tab-${tabName}`).classList.remove("text-slate-300");
 
+            if (tabName === "dashboard") renderDashboard();
+            if (tabName === "activity") renderActivityLog();
             if (tabName === "ledger") renderLedger();
             if (tabName === "hells") renderHellsMap();
             if (tabName === "mengpo") populateMeritSelect();
@@ -1073,6 +1490,8 @@ const SIN_PRESETS = [
             renderLedger();
             renderHellsMap();
             populateMeritSelect();
+            renderDashboard();
+            renderActivityLog();
         }
       function openDeployModal() { document.getElementById("deploy-modal").classList.remove("hidden"); }
         function closeDeployModal() { document.getElementById("deploy-modal").classList.add("hidden"); }
