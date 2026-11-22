@@ -155,7 +155,7 @@
                 <span>⚖️</span> Tòa Án Diêm Vương AI
             </button>
             <button onclick="switchTab('ledger')" id="tab-ledger" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
-                <span>📜</span> Sổ Sinh Tử Điện Tử <span id="badge-count" class="px-1.5 py-0.2 rounded-full bg-rose-600 text-[10px] text-white">0</span>
+                <span>📜</span> Sổ Sinh Tử Điện Tử <span id="badge-count" class="px-1.5 py-0.5 rounded-full bg-rose-600 text-[10px] text-white">0</span>
             </button>
             <button onclick="switchTab('hells')" id="tab-hells" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
                 <span>🌋</span> Bản Đồ 18 Tầng Địa Ngục
@@ -167,7 +167,6 @@
 
         <!-- TAB 1: TÒA ÁN DIÊM VƯƠNG AI -->
         <section id="view-court" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <!-- Left Form -->
             <div class="lg:col-span-7 glass-panel rounded-2xl p-5 sm:p-6 neon-border-crimson space-y-5">
                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                     <div>
@@ -182,8 +181,11 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div class="sm:col-span-2">
                         <label class="block text-xs font-mono-tech text-slate-300 mb-1.5">Họ Tên Linh Hồn *</label>
-                        <input type="text" id="soul-name" placeholder="VD: Nguyễn Văn Lươn Lẹo" 
+                        <input type="text" id="soul-name" oninput="handleSoulNameInput(this)" placeholder="VD: Trần Văn Báo Thủ" 
                             class="w-full bg-slate-950/90 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-rose-500">
+                        <p id="blocked-name-hint" class="hidden text-[11px] font-mono-tech text-amber-400 mt-1">
+                            🛡️ Họ tên này nằm trong danh sách cấm ghi sổ phán quyết — không thể ghi và không bị liệt kê chịu phạt.
+                        </p>
                     </div>
                     <div>
                         <label class="block text-xs font-mono-tech text-slate-300 mb-1.5">Dương Thọ (Tuổi)</label>
@@ -208,7 +210,6 @@
                 </button>
             </div>
 
-            <!-- Right Hologram Verdict Output -->
             <div class="lg:col-span-5 glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan relative overflow-hidden flex flex-col justify-between min-h-[430px]">
                 <div id="scanner-overlay" class="hidden absolute inset-0 pointer-events-none z-20 bg-cyan-950/20">
                     <div class="w-full laser-scanner"></div>
@@ -303,7 +304,7 @@
         </section>
 
         <!-- TAB 3: BẢN ĐỒ 18 TẦNG ĐỊA NGỤC -->
-        <section id="view-hells" class="space-y-4">
+        <section id="view-hells" class="hidden space-y-4">
             <div class="glass-panel rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 neon-border-crimson">
                 <div>
                     <h2 class="font-cinzel font-bold text-lg text-rose-400">THẬP BÁT TẦNG ĐỊA NGỤC HỆ THỐNG 5.0</h2>
@@ -316,10 +317,8 @@
 
             <div id="hells-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </section>
-
         <!-- TAB 4: QUÁN TRÀ MẠNH BÀ & NẠP CÔNG ĐỨC -->
         <section id="view-mengpo" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <!-- Nạp Công Đức Giải Nghiệp -->
             <div class="lg:col-span-6 glass-panel rounded-2xl p-5 sm:p-6 neon-border-gold space-y-4">
                 <div class="border-b border-slate-800 pb-3">
                     <h2 class="font-cinzel font-bold text-lg text-amber-400">✨ TRẠM NẠP CÔNG ĐỨC & CẢI TẠO</h2>
@@ -356,7 +355,6 @@
                 </div>
             </div>
 
-            <!-- Quán Trà Mạnh Bà 5.0 -->
             <div class="lg:col-span-6 glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan space-y-4">
                 <div class="border-b border-slate-800 pb-3">
                     <h2 class="font-cinzel font-bold text-lg text-cyan-400">🍵 QUÁN TRÀ MẠNH BÀ 5.0 (XÓA KÝ ỨC)</h2>
@@ -389,7 +387,6 @@
                     🍵 MỜI UỐNG TRÀ & CẤP VÉ ĐẦU THAI
                 </button>
 
-                <!-- Reincarnation Ticket Preview -->
                 <div id="reborn-ticket" class="hidden bg-gradient-to-br from-slate-900 via-cyan-950/50 to-slate-950 border-2 border-dashed border-cyan-400/60 rounded-2xl p-4 space-y-2">
                     <div class="flex justify-between items-center">
                         <span class="font-cinzel font-bold text-cyan-300 text-sm">VÉ THÔNG HÀNH LUÂN HỒI</span>
@@ -402,7 +399,6 @@
             </div>
         </section>
     </main>
-
     <!-- MODAL CHI TIẾT TẦNG ĐỊA NGỤC -->
     <div id="hell-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="glass-panel neon-border-crimson max-w-lg w-full rounded-2xl p-6 space-y-4 relative">
@@ -458,9 +454,69 @@
 
     <!-- TOAST NOTIFICATION -->
     <div id="toast" class="fixed bottom-5 right-5 z-50 hidden glass-panel border-l-4 border-cyan-400 px-4 py-3 rounded-xl shadow-2xl text-xs font-semibold text-white max-w-xs"></div>
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden glass-panel border-l-4 border-cyan-400 px-4 py-3 rounded-xl shadow-2xl text-xs font-semibold text-white max-w-xs"></div>
 
     <script>
-      // ================= DỮ LIỆU 18 TẦNG ĐỊA NGỤC =================
+        // ================= DANH SÁCH CẤM GHI & KHÔNG HIỂN THỊ CHỊU PHẠT =================
+        const RESTRICTED_SOUL_NAMES_RAW = [
+            "Nguyễn duy khang",
+            "phạm đặng phương anh",
+            "phạm đặng hồng anh",
+            "Nguyễn Văn Tùng",
+            "Nguyễn Thị Hường",
+            "phạm hữu hoà",
+            "đặng thị hồng lạc",
+            "Nguyễn Văn cộng",
+            "Huỳnh Thị đồng",
+            "phạm văn minh",
+            "đặng thị hộp",
+            "triệu thị nuôi",
+            "đinh Thị Anh Thư",
+            "phạm minh tâm",
+            "phạm thị vân",
+            "Nguyễn Hoàng sang",
+            "Nguyễn Văn Hùng",
+            "Huỳnh Thị mộng thuý"
+        ];
+
+        function normalizeVietnameseName(str) {
+            return (str || "")
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/đ/gi, "d")
+                .replace(/\s+/g, " ")
+                .trim()
+                .toLowerCase();
+        }
+
+        const RESTRICTED_SOUL_SET = new Set(
+            RESTRICTED_SOUL_NAMES_RAW.map(normalizeVietnameseName)
+        );
+
+        function isRestrictedSoulName(name) {
+            const norm = normalizeVietnameseName(name);
+            return Boolean(norm) && RESTRICTED_SOUL_SET.has(norm);
+        }
+
+        let lastBlockedToastTime = 0;
+        function handleSoulNameInput(inputEl) {
+            const hint = document.getElementById("blocked-name-hint");
+            if (isRestrictedSoulName(inputEl.value)) {
+                inputEl.value = "";
+                inputEl.classList.add("border-amber-400");
+                hint.classList.remove("hidden");
+                const now = Date.now();
+                if (now - lastBlockedToastTime > 1200) {
+                    lastBlockedToastTime = now;
+                    showToast("🛡️ Họ tên này nằm trong danh sách cấm ghi sổ phán quyết — không thể ghi!");
+                }
+            } else {
+                inputEl.classList.remove("border-amber-400");
+                hint.classList.add("hidden");
+            }
+        }
+
         const EIGHTEEN_HELLS = [
             { level: 1, name: "Địa Ngục Bạt Thiệt", warden: "Đầu Trâu AI-01", minKarma: -100, crime: "Nói dối, đâm chọc thị phi, hứa lèo không trả nợ.", punish: "Kẹp lưỡi bằng kìm laser nóng chảy 1000°C mỗi khi nói sai sự thật." },
             { level: 2, name: "Địa Ngục Tiễn Đao", warden: "Mặt Ngựa AI-02", minKarma: -200, crime: "Phá hoại hạnh phúc gia đình người khác, xúi giục chia rẽ.", punish: "Kéo thép tự động cắt đứt từng ngón tay giả tạo." },
@@ -481,9 +537,7 @@
             { level: 17, name: "Địa Ngục Thạch Ma", warden: "Cối Xay Hư Vô", minKarma: -3000, crime: "Lợi dụng lòng tin tâm linh để trục lợi bất chính.", punish: "Bị cối đá khổng lồ nghiền thành bụi lượng tử." },
             { level: 18, name: "Địa Ngục Đao Cư (A Tỳ)", warden: "Diêm La Vương Tối Cao", minKarma: -3500, crime: "Tội ác tày trời, phản bội đại nghĩa, gây họa cho nhân loại.", punish: "Chịu toàn bộ hình phạt tổng hợp của 17 tầng trên không có ngày ra." }
         ];
-
-        // ================= DANH SÁCH TỘI DANH MẪU =================
-        const SIN_PRESETS = [
+const SIN_PRESETS = [
             { label: "Hứa trả nợ rồi sủi", karma: -250, years: 35, hell: 1 },
             { label: "Bùng hàng shipper", karma: -180, years: 20, hell: 1 },
             { label: "Nói xấu sau lưng đồng nghiệp", karma: -420, years: 50, hell: 5 },
@@ -493,6 +547,8 @@
             { label: "Tham ô tiền quỹ chung", karma: -2700, years: 500, hell: 16 },
             { label: "Xem chùa không thả tim/like", karma: -150, years: 18, hell: 4 }
         ];
+
+        const SAMPLE_NAMES = ["Trần Văn Báo Thủ", "Đặng Thị Trễ Deadline", "Vũ Hoàng Xù Kèo", "Bùi Minh Ngủ Quên Báo Thức"];
 
         const REBORN_DESTINATIONS = [
             "Con nhà tài phiệt đời thứ 3 tại Thụy Sĩ",
@@ -505,14 +561,13 @@
 
         let selectedPresets = new Set();
         let soulsDB = [];
+        let globalSearchQuery = "";
         let audioEnabled = false;
         let audioCtx = null;
 
-        // ================= KHỞI TẠO HỆ THỐNG =================
         document.addEventListener("DOMContentLoaded", () => {
             initClock();
             renderSinPresets();
-            renderHellsMap();
             populateHellFilter();
             loadDatabase();
             refreshAllUI();
@@ -529,7 +584,6 @@
             }, 1000);
         }
 
-        // ================= ÂM THANH WEB AUDIO API (KHÔNG CẦN FILE MP3) =================
         function toggleAudio() {
             if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             audioEnabled = !audioEnabled;
@@ -546,8 +600,7 @@
                 btn.classList.remove("border-cyan-400", "bg-cyan-500/20");
             }
         }
-
-        function playSound(type) {
+      function playSound(type) {
             if (!audioEnabled || !audioCtx) return;
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
@@ -583,21 +636,30 @@
             }
         }
 
-        // ================= QUẢN LÝ DATABASE LOCALSTORAGE =================
+        function sanitizeDatabase() {
+            const before = soulsDB.length;
+            soulsDB = soulsDB.filter(s => s && !isRestrictedSoulName(s.name));
+            if (soulsDB.length !== before) {
+                localStorage.setItem("UNDERWORLD_OS_5_SOULS", JSON.stringify(soulsDB));
+            }
+        }
+
         function loadDatabase() {
             const raw = localStorage.getItem("UNDERWORLD_OS_5_SOULS");
             if (raw) {
                 soulsDB = JSON.parse(raw);
+                sanitizeDatabase();
             } else {
                 seedSampleData(false);
             }
         }
-    function saveDatabase() {
+
+        function saveDatabase() {
+            sanitizeDatabase();
             localStorage.setItem("UNDERWORLD_OS_5_SOULS", JSON.stringify(soulsDB));
             refreshAllUI();
         }
-
-        function seedSampleData(notify = true) {
+      function seedSampleData(notify = true) {
             const samples = [
                 {
                     id: "UW-" + Math.floor(1000 + Math.random() * 9000),
@@ -641,118 +703,128 @@
                     rebornDest: null,
                     createdAt: new Date().toLocaleDateString('vi-VN')
                 }
-            ];
+            ].filter(s => !isRestrictedSoulName(s.name));
             soulsDB = [...samples, ...soulsDB];
             saveDatabase();
-            if (notify) showToast("✨ Đã nạp thêm 3 hồ sơ phạm nhân mẫu vào Sổ Sinh Tử!");
+            if (notify) showToast("📜 Đã nạp thêm hồ sơ linh hồn mẫu vào Sổ Sinh Tử!");
         }
 
         function clearAllLedger() {
-            if (confirm("Ngài Diêm Vương có chắc chắn muốn xóa toàn bộ hồ sơ trong Sổ Sinh Tử?")) {
-                soulsDB = [];
-                saveDatabase();
-                showToast("🗑️ Đã xóa sạch toàn bộ dữ liệu Sổ Sinh Tử.");
-            }
+            if (!confirm("Xóa toàn bộ hồ sơ trong Sổ Sinh Tử?")) return;
+            soulsDB = [];
+            saveDatabase();
+            showToast("🗑️ Đã xóa sạch Sổ Sinh Tử.");
         }
 
-        // ================= TÒA ÁN DIÊM VƯƠNG AI =================
         function renderSinPresets() {
             const container = document.getElementById("sin-presets");
-            container.innerHTML = SIN_PRESETS.map((item, idx) => `
-                <button type="button" onclick="togglePreset(${idx})" id="preset-btn-${idx}"
-                    class="px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-900/80 text-xs text-slate-300 hover:border-rose-500/60 transition">
-                    ${item.label} <span class="text-rose-400 font-mono-tech">(${item.karma})</span>
-                </button>
-            `).join("");
+            container.innerHTML = SIN_PRESETS.map((s, idx) => {
+                const active = selectedPresets.has(idx);
+                return `<button type="button" onclick="togglePreset(${idx})" class="px-3 py-1.5 rounded-xl text-xs font-medium border transition ${
+                    active
+                        ? "bg-rose-600/30 border-rose-400 text-white shadow-sm shadow-rose-500/30"
+                        : "bg-slate-900/90 border-slate-700 text-slate-300 hover:border-slate-500"
+                }">${s.label} <span class="font-mono-tech text-[10px] text-rose-300">(${s.karma})</span></button>`;
+            }).join("");
         }
-
-        function togglePreset(idx) {
-            const btn = document.getElementById(`preset-btn-${idx}`);
-            if (selectedPresets.has(idx)) {
-                selectedPresets.delete(idx);
-                btn.classList.remove("border-rose-500", "bg-rose-500/20", "text-white");
-            } else {
-                selectedPresets.add(idx);
-                btn.classList.add("border-rose-500", "bg-rose-500/20", "text-white");
-            }
+      function togglePreset(idx) {
+            if (selectedPresets.has(idx)) selectedPresets.delete(idx);
+            else selectedPresets.add(idx);
+            playSound("laser");
+            renderSinPresets();
         }
 
         function fillRandomSoul() {
-            const names = ["Hoàng Văn Lươn", "Đỗ Thị Drama", "Ngô Bá Gáy Sớm", "Vũ Văn Quên Trả Nợ", "Bùi Thị Sống Ảo"];
-            document.getElementById("soul-name").value = names[Math.floor(Math.random() * names.length)];
-            document.getElementById("soul-age").value = Math.floor(19 + Math.random() * 45);
+            const safePool = SAMPLE_NAMES.filter(n => !isRestrictedSoulName(n));
+            const name = safePool[Math.floor(Math.random() * safePool.length)];
+            const age = Math.floor(18 + Math.random() * 45);
             selectedPresets.clear();
+            const count = 1 + Math.floor(Math.random() * 3);
+            while (selectedPresets.size < count) {
+                selectedPresets.add(Math.floor(Math.random() * SIN_PRESETS.length));
+            }
+            const nameInput = document.getElementById("soul-name");
+            nameInput.value = name;
+            nameInput.classList.remove("border-amber-400");
+            document.getElementById("blocked-name-hint").classList.add("hidden");
+            document.getElementById("soul-age").value = age;
+            document.getElementById("soul-confession").value = "Khai báo thành khẩn trước Gương Nghiệp Kính 5.0.";
             renderSinPresets();
-            const r1 = Math.floor(Math.random() * SIN_PRESETS.length);
-            const r2 = (r1 + 2) % SIN_PRESETS.length;
-            togglePreset(r1);
-            togglePreset(r2);
-            document.getElementById("soul-confession").value = "Từng thề độc nhưng không làm, hay mượn đồ bạn bè rồi coi như của mình.";
             playSound("laser");
         }
 
+        function resetCourtForm() {
+            const nameInput = document.getElementById("soul-name");
+            nameInput.value = "";
+            nameInput.classList.remove("border-amber-400");
+            document.getElementById("blocked-name-hint").classList.add("hidden");
+            document.getElementById("soul-confession").value = "";
+            selectedPresets.clear();
+            renderSinPresets();
+            document.getElementById("verdict-result").classList.add("hidden");
+            document.getElementById("verdict-placeholder").classList.remove("hidden");
+        }
+
         function executeJudgment() {
-            const name = document.getElementById("soul-name").value.trim();
-            const age = parseInt(document.getElementById("soul-age").value) || 25;
+            const nameInputEl = document.getElementById("soul-name");
+            const nameInput = nameInputEl.value.trim();
+            const age = parseInt(document.getElementById("soul-age").value, 10) || 30;
             const confession = document.getElementById("soul-confession").value.trim();
 
-            if (!name) {
-                showToast("⚠️ Vui lòng nhập Họ Tên Linh Hồn trước khi chiếu Gương Nghiệp Kính!");
-                return;
-            }
-            if (selectedPresets.size === 0 && !confession) {
-                showToast("⚠️ Hãy chọn ít nhất 1 tội danh hoặc nhập lời khai!");
+            if (isRestrictedSoulName(nameInput)) {
+                nameInputEl.value = "";
+                document.getElementById("blocked-name-hint").classList.remove("hidden");
+                showToast("🛡️ Họ tên này nằm trong danh sách cấm ghi sổ phán quyết — không thể ghi và không bị chịu phạt!");
                 return;
             }
 
-            // Bật hiệu ứng quét laser
-            const scanner = document.getElementById("scanner-overlay");
-            scanner.classList.remove("hidden");
+            if (!nameInput) {
+                showToast("⚠️ Vui lòng nhập Họ Tên Linh Hồn trước khi phán quyết!");
+                return;
+            }
+
+            const chosen = Array.from(selectedPresets).map(i => SIN_PRESETS[i]);
+            let totalKarma = chosen.reduce((sum, item) => sum + item.karma, 0);
+            let totalYears = chosen.reduce((sum, item) => sum + item.years, 0);
+            let targetHell = chosen.length ? Math.max(...chosen.map(item => item.hell)) : 4;
+
+            if (confession.length > 0) {
+                const extra = Math.min(350, Math.floor(confession.length * 4));
+                totalKarma -= extra;
+                totalYears += Math.max(5, Math.floor(extra / 8));
+            }
+            if (chosen.length === 0 && confession.length === 0) {
+                totalKarma = -140;
+                totalYears = 20;
+                targetHell = 4;
+            }
+
+            const hellByKarma = EIGHTEEN_HELLS.slice().reverse().find(h => totalKarma <= h.minKarma);
+            if (hellByKarma && hellByKarma.level > targetHell) {
+                targetHell = hellByKarma.level;
+            }
+
+            const overlay = document.getElementById("scanner-overlay");
+            overlay.classList.remove("hidden");
             playSound("laser");
 
             setTimeout(() => {
-                scanner.classList.add("hidden");
+                overlay.classList.add("hidden");
+                if (isRestrictedSoulName(nameInput)) {
+                    showToast("🛡️ Họ tên nằm trong diện cấm ghi sổ — hủy lưu hồ sơ!");
+                    return;
+                }
                 playSound("gong");
-
-                let totalKarma = 0;
-                let totalYears = 0;
-                let chosenSins = [];
-                let targetHell = 1;
-
-                selectedPresets.forEach(idx => {
-                    const p = SIN_PRESETS[idx];
-                    totalKarma += p.karma;
-                    totalYears += p.years;
-                    chosenSins.push(p.label);
-                    if (p.hell > targetHell) targetHell = p.hell;
-                });
-
-                // Phân tích từ khóa trong lời khai tự do
-                if (confession) {
-                    chosenSins.push("Khai báo thêm: " + confession.slice(0, 45) + (confession.length > 45 ? "..." : ""));
-                    const lower = confession.toLowerCase();
-                    if (lower.includes("giết") || lower.includes("đánh")) { totalKarma -= 900; totalYears += 120; targetHell = Math.max(targetHell, 7); }
-                    else if (lower.includes("lừa") || lower.includes("tiền") || lower.includes("nợ")) { totalKarma -= 600; totalYears += 80; targetHell = Math.max(targetHell, 9); }
-                    else if (lower.includes("tham") || lower.includes("trộm")) { totalKarma -= 1500; totalYears += 250; targetHell = Math.max(targetHell, 16); }
-                    else { totalKarma -= 180; totalYears += 25; }
-                }
-
-                // Tự động nâng tầng nếu nghiệp lực quá nặng
-                const hellByKarma = EIGHTEEN_HELLS.slice().reverse().find(h => totalKarma <= h.minKarma);
-                if (hellByKarma && hellByKarma.level > targetHell) {
-                    targetHell = hellByKarma.level;
-                }
-
-                const hellInfo = EIGHTEEN_HELLS[targetHell - 1];
+              const hellInfo = EIGHTEEN_HELLS[targetHell - 1];
                 const record = {
                     id: "UW-" + Math.floor(1000 + Math.random() * 9000),
-                    name,
+                    name: nameInput,
                     age,
-                    sins: chosenSins,
+                    sins: chosen.length ? chosen.map(c => c.label) : ["Lời khai chưa rõ ràng trên Nghiệp Kính"],
                     confession: confession || "Không có lời bào chữa.",
                     karma: totalKarma,
                     yearsLeft: totalYears,
-                    totalYears: totalYears,
+                    totalYears,
                     hellLevel: targetHell,
                     status: "PUNISHING",
                     rebornDest: null,
@@ -761,7 +833,7 @@
 
                 soulsDB.unshift(record);
                 saveDatabase();
-                 // Hiển thị kết quả trên Hologram
+
                 document.getElementById("verdict-placeholder").classList.add("hidden");
                 document.getElementById("verdict-result").classList.remove("hidden");
                 document.getElementById("res-id").textContent = `MÃ HỒ SƠ: #${record.id}`;
@@ -777,98 +849,83 @@
             }, 1300);
         }
 
-        function resetCourtForm() {
-            document.getElementById("soul-name").value = "";
-            document.getElementById("soul-confession").value = "";
-            selectedPresets.clear();
-            renderSinPresets();
-            document.getElementById("verdict-result").classList.add("hidden");
-            document.getElementById("verdict-placeholder").classList.remove("hidden");
-        }
-
-        // ================= SỔ SINH TỬ ĐIỆN TỬ =================
         function populateHellFilter() {
-            const sel = document.getElementById("filter-hell");
+            const select = document.getElementById("filter-hell");
             EIGHTEEN_HELLS.forEach(h => {
                 const opt = document.createElement("option");
                 opt.value = h.level;
                 opt.textContent = `Tầng ${h.level}: ${h.name}`;
-                sel.appendChild(opt);
+                select.appendChild(opt);
             });
         }
 
         function handleGlobalSearch(val) {
-            if (document.getElementById("view-ledger").classList.contains("hidden") && val.trim().length > 0) {
-                switchTab("ledger");
-            }
+            globalSearchQuery = val.trim().toLowerCase();
             renderLedger();
         }
 
         function renderLedger() {
             const grid = document.getElementById("ledger-grid");
-            const search = document.getElementById("global-search").value.toLowerCase().trim();
             const hellFilter = document.getElementById("filter-hell").value;
             const statusFilter = document.getElementById("filter-status").value;
 
             const filtered = soulsDB.filter(s => {
-                const matchText = s.name.toLowerCase().includes(search) || s.id.toLowerCase().includes(search);
+                if (isRestrictedSoulName(s.name)) return false;
                 const matchHell = hellFilter === "ALL" || String(s.hellLevel) === hellFilter;
                 const matchStatus = statusFilter === "ALL" || s.status === statusFilter;
-                return matchText && matchHell && matchStatus;
+                const matchQuery = !globalSearchQuery ||
+                    s.name.toLowerCase().includes(globalSearchQuery) ||
+                    s.id.toLowerCase().includes(globalSearchQuery);
+                return matchHell && matchStatus && matchQuery;
             });
 
             if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full glass-panel rounded-2xl p-10 text-center text-slate-400 text-sm">Không tìm thấy hồ sơ linh hồn nào phù hợp bộ lọc.</div>`;
+                grid.innerHTML = `<div class="col-span-full glass-panel rounded-2xl p-8 text-center text-xs text-slate-400">Không tìm thấy hồ sơ linh hồn nào phù hợp.</div>`;
                 return;
             }
 
             grid.innerHTML = filtered.map(s => {
-                const hell = EIGHTEEN_HELLS[s.hellLevel - 1];
-                let statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-mono-tech bg-rose-500/20 text-rose-300 border border-rose-500/40">🔥 ĐANG THỤ ÁN (${s.yearsLeft} NĂM)</span>`;
+                const hell = EIGHTEEN_HELLS[s.hellLevel - 1] || EIGHTEEN_HELLS[0];
+                let badge = `<span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px] font-mono-tech">🔥 ĐANG CHỊU PHẠT</span>`;
                 if (s.status === "READY_REBORN") {
-                    statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-mono-tech bg-amber-500/20 text-amber-300 border border-amber-500/40">✨ ĐỦ ĐIỀU KIỆN ĐẦU THAI</span>`;
+                    badge = `<span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-400/40 text-[10px] font-mono-tech">✨ CHỜ TRÀ MẠNH BÀ</span>`;
                 } else if (s.status === "REBORN") {
-                    statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-mono-tech bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">🍵 ĐÃ ĐẦU THAI</span>`;
+                    badge = `<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-mono-tech">🍵 ĐÃ ĐẦU THAI</span>`;
                 }
 
                 return `
-                <div class="glass-panel rounded-2xl p-4 border border-slate-800 hover:border-rose-500/40 transition flex flex-col justify-between space-y-3">
-                    <div>
+                <div class="glass-panel rounded-2xl p-4 border border-slate-800 flex flex-col justify-between space-y-3">
+                    <div class="space-y-2">
                         <div class="flex items-center justify-between gap-2">
-                            <span class="text-[11px] font-mono-tech text-cyan-400">#${s.id}</span>
-                            ${statusBadge}
+                            <span class="text-[11px] font-mono-tech text-cyan-400">#${s.id} • ${s.age}t</span>
+                            ${badge}
                         </div>
-                        <h4 class="text-base font-bold text-white mt-1.5">${s.name} <span class="text-xs font-normal text-slate-400">(${s.age}t)</span></h4>
-                        <div class="text-xs text-rose-400 font-semibold mt-1">📍 Tầng ${hell.level}: ${hell.name}</div>
-                        <div class="mt-2 flex flex-wrap gap-1">
-                            ${s.sins.map(sin => `<span class="text-[10px] bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-700">${sin}</span>`).join("")}
+                        <h3 class="text-base font-bold text-white">${s.name}</h3>
+                        <div class="text-xs text-rose-300 font-medium">Tầng ${hell.level}: ${hell.name}</div>
+                        <div class="flex flex-wrap gap-1">
+                            ${s.sins.map(sin => `<span class="text-[10px] px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-700">${sin}</span>`).join("")}
                         </div>
-                        ${s.rebornDest ? `<div class="mt-2 text-[11px] text-emerald-300 bg-emerald-950/40 p-2 rounded-lg border border-emerald-500/30">🌱 Kiếp mới: ${s.rebornDest}</div>` : ""}
+                        <p class="text-xs text-slate-400 italic line-clamp-2">"${s.confession}"</p>
+                        ${s.rebornDest ? `<div class="text-[11px] text-cyan-300 bg-cyan-950/40 border border-cyan-500/30 rounded-lg p-2">Kiếp sau: ${s.rebornDest}</div>` : ""}
                     </div>
-                    <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                        <span class="font-mono-tech text-amber-400 font-bold">${s.karma} Karma</span>
-                        ${s.status !== "REBORN" ? `
-                            <button onclick="jumpToMerit('${s.id}')" class="px-2.5 py-1 rounded-lg bg-cyan-500/15 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/30 text-[11px] font-semibold transition">
-                                ${s.yearsLeft > 0 ? "✨ Nạp Công Đức" : "🍵 Uống Trà Đầu Thai"}
-                            </button>
-                        ` : `<span class="text-[11px] text-slate-500">Đã khép hồ sơ</span>`}
+                    <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs font-mono-tech">
+                        <span class="text-rose-400">${s.karma} Karma</span>
+                        <span class="text-amber-300">Còn: ${s.yearsLeft} năm</span>
+                        <button onclick="deleteSoul('${s.id}')" class="text-slate-500 hover:text-rose-400 transition" title="Xóa hồ sơ">✕</button>
                     </div>
                 </div>`;
             }).join("");
         }
-
-        function jumpToMerit(soulId) {
-            switchTab("mengpo");
-            const select = document.getElementById("merit-soul-select");
-            select.value = soulId;
-            updateMeritPreview();
+      function deleteSoul(id) {
+            soulsDB = soulsDB.filter(s => s.id !== id);
+            saveDatabase();
+            showToast(`Đã xóa hồ sơ #${id}`);
         }
 
-        // ================= BẢN ĐỒ 18 TẦNG ĐỊA NGỤC =================
         function renderHellsMap() {
             const grid = document.getElementById("hells-grid");
             grid.innerHTML = EIGHTEEN_HELLS.map(h => {
-                const count = soulsDB.filter(s => s.hellLevel === h.level && s.status === "PUNISHING").length;
+                const count = soulsDB.filter(s => !isRestrictedSoulName(s.name) && s.hellLevel === h.level && s.status === "PUNISHING").length;
                 return `
                 <div onclick="openHellModal(${h.level})" class="cursor-pointer glass-panel rounded-2xl p-4 border border-slate-800 hover:border-rose-500/60 hover:-translate-y-0.5 transition space-y-2 relative overflow-hidden">
                     <div class="flex items-center justify-between">
@@ -891,102 +948,86 @@
 
         function openHellModal(level) {
             const h = EIGHTEEN_HELLS[level - 1];
-            const inmates = soulsDB.filter(s => s.hellLevel === level && s.status === "PUNISHING");
-            document.getElementById("modal-hell-level").textContent = `ĐỊA PHỦ SECTOR • TẦNG ${h.level}/18`;
+            if (!h) return;
+            document.getElementById("modal-hell-level").textContent = `TẦNG ${h.level} / 18`;
             document.getElementById("modal-hell-name").textContent = h.name;
             document.getElementById("modal-hell-warden").textContent = h.warden;
             document.getElementById("modal-hell-min").textContent = `${h.minKarma} Karma`;
             document.getElementById("modal-hell-crime").textContent = h.crime;
             document.getElementById("modal-hell-punish").textContent = h.punish;
 
-            const inmatesDiv = document.getElementById("modal-hell-inmates");
-            if (inmates.length === 0) {
-                inmatesDiv.innerHTML = `<div class="text-slate-500 italic">Hiện tại tầng này đang trống phạm nhân.</div>`;
-            } else {
-                inmatesDiv.innerHTML = inmates.map(i => `
-                    <div class="flex items-center justify-between bg-slate-950/90 px-3 py-2 rounded-lg border border-slate-800">
-                        <span class="text-white font-semibold">${i.name} <span class="text-slate-500">(#${i.id})</span></span>
-                        <span class="text-amber-400 font-mono-tech">Còn ${i.yearsLeft} năm</span>
-                    </div>
-                `).join("");
-            }
+            const inmates = soulsDB.filter(s => !isRestrictedSoulName(s.name) && s.hellLevel === h.level && s.status === "PUNISHING");
+            const inmatesEl = document.getElementById("modal-hell-inmates");
+            inmatesEl.innerHTML = inmates.length
+                ? inmates.map(i => `<div class="bg-slate-950/90 px-3 py-2 rounded-lg border border-slate-800 flex justify-between"><span>${i.name} (#${i.id})</span><span class="text-amber-300 font-mono-tech">${i.yearsLeft} năm</span></div>`).join("")
+                : `<div class="text-slate-500 italic">Hiện không có phạm nhân nào đang chịu phạt tại tầng này.</div>`;
+
             document.getElementById("hell-modal").classList.remove("hidden");
         }
 
-        function closeHellModal() { document.getElementById("hell-modal").classList.add("hidden"); }
+        function closeHellModal() {
+            document.getElementById("hell-modal").classList.add("hidden");
+        }
 
-        // ================= QUÁN TRÀ MẠNH BÀ & NẠP CÔNG ĐỨC =================
         function populateMeritSelect() {
             const select = document.getElementById("merit-soul-select");
-            const activeSouls = soulsDB.filter(s => s.status !== "REBORN");
-            if (activeSouls.length === 0) {
-                select.innerHTML = `<option value="">-- Không có linh hồn nào đang chờ xử lý --</option>`;
-                document.getElementById("merit-soul-status").innerHTML = `<span class="text-slate-400">Tất cả linh hồn đều đã đầu thai hoặc chưa có hồ sơ.</span>`;
+            const candidates = soulsDB.filter(s => !isRestrictedSoulName(s.name) && s.status !== "REBORN");
+            if (candidates.length === 0) {
+                select.innerHTML = `<option value="">-- Không có linh hồn chờ xử lý --</option>`;
+                document.getElementById("merit-soul-status").textContent = "Tất cả linh hồn đã đầu thai hoặc chưa có hồ sơ.";
                 return;
             }
-            const currentVal = select.value;
-            select.innerHTML = activeSouls.map(s => `
-                <option value="${s.id}">#${s.id} - ${s.name} (Còn ${s.yearsLeft} năm phạt)</option>
-            `).join("");
-            if (activeSouls.some(s => s.id === currentVal)) select.value = currentVal;
+            const prev = select.value;
+            select.innerHTML = candidates.map(s => `<option value="${s.id}">${s.name} (#${s.id}) — Còn ${s.yearsLeft} năm</option>`).join("");
+            if (prev && candidates.some(c => c.id === prev)) select.value = prev;
             updateMeritPreview();
         }
 
         function updateMeritPreview() {
             const id = document.getElementById("merit-soul-select").value;
-            const s = soulsDB.find(item => item.id === id);
+            const s = soulsDB.find(x => x.id === id && !isRestrictedSoulName(x.name));
             const box = document.getElementById("merit-soul-status");
-            if (!s) return;
-            const hell = EIGHTEEN_HELLS[s.hellLevel - 1];
+            if (!s) {
+                box.textContent = "Chưa có linh hồn được chọn.";
+                return;
+            }
+          const hell = EIGHTEEN_HELLS[s.hellLevel - 1] || EIGHTEEN_HELLS[0];
             box.innerHTML = `
-                <div class="flex justify-between">
-                    <span class="text-slate-400">Đang giam tại:</span>
-                    <span class="text-rose-400 font-semibold">Tầng ${hell.level}: ${hell.name}</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-slate-400">Thời hạn thụ án còn lại:</span>
-                    <span class="font-mono-tech font-bold ${s.yearsLeft === 0 ? 'text-emerald-400' : 'text-amber-400'}">${s.yearsLeft} Năm</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-slate-400">Trạng thái luân hồi:</span>
-                    <span class="font-semibold ${s.yearsLeft === 0 ? 'text-cyan-300' : 'text-rose-300'}">
-                        ${s.yearsLeft === 0 ? "✅ Đủ điều kiện uống Trà Mạnh Bà" : "🔒 Cần nạp thêm công đức"}
-                    </span>
-                </div>
-                  `;
+                <div><span class="text-slate-400">Linh hồn:</span> <strong class="text-white">${s.name}</strong> (${s.age} tuổi)</div>
+                <div><span class="text-slate-400">Vị trí:</span> <span class="text-rose-300">Tầng ${hell.level} - ${hell.name}</span></div>
+                <div><span class="text-slate-400">Án còn lại:</span> <span class="font-mono-tech font-bold text-amber-300">${s.yearsLeft} năm</span> / ${s.totalYears} năm</div>
+            `;
         }
 
-        function donateMerit(yearsReduced, actionName) {
+        function donateMerit(reductionYears, deedTitle) {
             const id = document.getElementById("merit-soul-select").value;
-            const s = soulsDB.find(item => item.id === id);
+            const s = soulsDB.find(x => x.id === id && !isRestrictedSoulName(x.name));
             if (!s) {
-                showToast("⚠️ Chưa chọn linh hồn để nạp công đức!");
+                showToast("⚠️ Vui lòng chọn một linh hồn trước!");
                 return;
             }
-            if (s.yearsLeft === 0) {
-                showToast("✨ Linh hồn này đã hết án phạt! Mời sang Quán Trà Mạnh Bà.");
-                return;
+            s.yearsLeft = Math.max(0, s.yearsLeft - reductionYears);
+            if (s.yearsLeft === 0 && s.status === "PUNISHING") {
+                s.status = "READY_REBORN";
             }
-            s.yearsLeft = Math.max(0, s.yearsLeft - yearsReduced);
-            if (s.yearsLeft === 0) s.status = "READY_REBORN";
             playSound("merit");
             saveDatabase();
-            showToast(`✨ ${s.name} đã thực hiện "${actionName}", còn ${s.yearsLeft} năm án phạt!`);
+            showToast(`✨ ${deedTitle}: ${s.name} còn ${s.yearsLeft} năm thụ án.`);
         }
 
         function serveMengPoTea() {
             const id = document.getElementById("merit-soul-select").value;
-            const s = soulsDB.find(item => item.id === id);
+            const s = soulsDB.find(x => x.id === id && !isRestrictedSoulName(x.name));
             if (!s) {
-                showToast("⚠️ Không có linh hồn nào được chọn!");
+                showToast("⚠️ Không tìm thấy linh hồn được chọn!");
                 return;
             }
             if (s.yearsLeft > 0) {
-                showToast(`🚫 Chưa thể đầu thai! ${s.name} vẫn còn ${s.yearsLeft} năm hình phạt.`);
+                showToast(`⛔ ${s.name} vẫn còn ${s.yearsLeft} năm án phạt, hãy nạp thêm công đức trước!`);
                 return;
             }
-
-            const flavor = document.querySelector('input[name="tea-flavor"]:checked').value;
+            const flavorInput = document.querySelector('input[name="tea-flavor"]:checked');
+            const flavor = flavorInput ? flavorInput.value : "Canh Mạnh Bà Nguyên Bản";
             const dest = REBORN_DESTINATIONS[Math.floor(Math.random() * REBORN_DESTINATIONS.length)];
 
             s.status = "REBORN";
@@ -1003,7 +1044,6 @@
             showToast(`🍵 ${s.name} đã uống xong Trà Mạnh Bà và bước qua Cầu Nại Hà!`);
         }
 
-        // ================= ĐIỀU HƯỚNG & TIỆN ÍCH =================
         function switchTab(tabName) {
             ["court", "ledger", "hells", "mengpo"].forEach(t => {
                 document.getElementById(`view-${t}`).classList.add("hidden");
@@ -1020,21 +1060,21 @@
         }
 
         function refreshAllUI() {
-            const punishingCount = soulsDB.filter(s => s.status === "PUNISHING").length;
-            const rebornCount = soulsDB.filter(s => s.status === "REBORN").length;
-            const totalKarma = soulsDB.reduce((acc, cur) => acc + Math.abs(cur.karma), 0);
+            const visibleSouls = soulsDB.filter(s => !isRestrictedSoulName(s.name));
+            const punishingCount = visibleSouls.filter(s => s.status === "PUNISHING").length;
+            const rebornCount = visibleSouls.filter(s => s.status === "REBORN").length;
+            const totalKarma = visibleSouls.reduce((acc, cur) => acc + Math.abs(cur.karma), 0);
 
             document.getElementById("stat-punishing").textContent = punishingCount;
             document.getElementById("stat-reborn").textContent = rebornCount;
             document.getElementById("stat-karma").textContent = totalKarma.toLocaleString('vi-VN');
-            document.getElementById("badge-count").textContent = soulsDB.length;
+            document.getElementById("badge-count").textContent = visibleSouls.length;
 
             renderLedger();
             renderHellsMap();
             populateMeritSelect();
         }
-
-        function openDeployModal() { document.getElementById("deploy-modal").classList.remove("hidden"); }
+      function openDeployModal() { document.getElementById("deploy-modal").classList.remove("hidden"); }
         function closeDeployModal() { document.getElementById("deploy-modal").classList.add("hidden"); }
 
         function copyFullSource() {
