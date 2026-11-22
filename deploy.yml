@@ -1,5 +1,5 @@
 
-name: Deploy UNDERWORLD OS 5.0 to GitHub Pages
+name: Deploy UNDERWORLD OS to GitHub Pages
 
 on:
   push:
@@ -30,6 +30,9 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+
+      - name: Prepare website
+        run: touch .nojekyll
 
       - name: Upload website files
         uses: actions/upload-pages-artifact@v4
