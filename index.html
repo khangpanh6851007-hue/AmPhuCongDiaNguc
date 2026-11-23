@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNDERWORLD OS 9.0 | Hệ Thống Quản Lý Âm Phủ & Phán Quyết Nghiệp Lực</title>
+    <title>QUỶ MÔN QUAN 10.9 | Công trạng & Phán quyết 28 tầng</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -111,7 +111,90 @@
             text-shadow: 0 0 10px rgba(255, 30, 86, 0.7);
             box-shadow: inset 0 0 12px rgba(255, 30, 86, 0.35), 0 0 15px rgba(255, 30, 86, 0.35);
         }
-    </style>
+
+
+        /* UNDERWORLD OS 10.0 — visual expansion */
+        :root {
+            --violet-neon: #a78bfa;
+            --jade-neon: #34d399;
+            --ember: #fb923c;
+        }
+        body::before {
+            content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+            background:
+                radial-gradient(ellipse at 50% -15%, rgba(124,58,237,.20), transparent 48%),
+                radial-gradient(ellipse at 0% 65%, rgba(244,63,94,.10), transparent 38%),
+                radial-gradient(ellipse at 100% 35%, rgba(6,182,212,.10), transparent 40%);
+        }
+        .release-hero {
+            position: relative; isolation: isolate; overflow: hidden;
+            background: linear-gradient(120deg, rgba(76,5,25,.82), rgba(30,27,75,.82) 52%, rgba(8,47,73,.82));
+            border: 1px solid rgba(167,139,250,.32);
+            box-shadow: 0 18px 55px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.08);
+        }
+        .release-hero::before, .release-hero::after {
+            content: ""; position: absolute; border-radius: 999px; filter: blur(2px); z-index: -1;
+            animation: orbitGlow 9s ease-in-out infinite alternate;
+        }
+        .release-hero::before { width: 230px; height: 230px; right: 8%; top: -145px; background: rgba(244,63,94,.22); }
+        .release-hero::after { width: 190px; height: 190px; right: 28%; bottom: -145px; background: rgba(34,211,238,.18); animation-delay: -4s; }
+        @keyframes orbitGlow { from { transform: translate3d(-12px,0,0) scale(.92); } to { transform: translate3d(18px,18px,0) scale(1.12); } }
+        .feature-tile {
+            position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.10);
+            background: linear-gradient(145deg, rgba(15,23,42,.88), rgba(30,27,75,.55));
+            transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+        }
+        .feature-tile:hover { transform: translateY(-3px); border-color: rgba(103,232,249,.48); box-shadow: 0 12px 30px rgba(0,0,0,.28); }
+        .feature-icon { display:grid; place-items:center; width:42px; height:42px; border-radius:14px; font-size:21px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); }
+        .visual-spectrum { height:5px; border-radius:99px; background:linear-gradient(90deg,#fb7185,#f59e0b,#a78bfa,#22d3ee,#34d399); background-size:200% 100%; animation:spectrumFlow 6s linear infinite; }
+        @keyframes spectrumFlow { to { background-position:200% 0; } }
+        .rune-orbit { position:absolute; right:7%; top:50%; transform:translateY(-50%); width:150px; height:150px; border:1px solid rgba(196,181,253,.22); border-radius:50%; display:grid; place-items:center; opacity:.75; }
+        .rune-orbit::before, .rune-orbit::after { content:""; position:absolute; inset:13px; border:1px dashed rgba(103,232,249,.32); border-radius:50%; animation:spinRune 24s linear infinite; }
+        .rune-orbit::after { inset:30px; border-style:solid; border-color:rgba(251,113,133,.28); animation-direction:reverse; animation-duration:17s; }
+        @keyframes spinRune { to { transform:rotate(360deg); } }
+        @media (max-width:640px) { .rune-orbit { width:86px; height:86px; right:5%; opacity:.45; } }
+        @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition-duration:.01ms !important; } }
+    
+        /* 10.8 — Hologram Mirror readiness effects */
+        .karma-holo-ready {
+            position: relative;
+            isolation: isolate;
+            background:
+                radial-gradient(ellipse at 50% 38%, rgba(34,211,238,.13), transparent 58%),
+                linear-gradient(145deg, rgba(8,47,73,.34), rgba(2,6,23,.88));
+        }
+        .karma-holo-ready::before {
+            content: "";
+            position: absolute; inset: 12px;
+            border: 1px solid rgba(34,211,238,.18);
+            border-radius: 1.25rem;
+            box-shadow: inset 0 0 28px rgba(34,211,238,.07), 0 0 22px rgba(34,211,238,.06);
+            pointer-events: none;
+        }
+        .karma-holo-orbit {
+            position: relative;
+            width: 92px; height: 92px; margin: 0 auto;
+            border: 1px solid rgba(34,211,238,.45);
+            border-radius: 50%;
+            box-shadow: 0 0 22px rgba(34,211,238,.16), inset 0 0 18px rgba(34,211,238,.12);
+            animation: karma-holo-pulse 2.8s ease-in-out infinite;
+        }
+        .karma-holo-orbit::before, .karma-holo-orbit::after {
+            content: ""; position: absolute; inset: 9px;
+            border: 1px dashed rgba(103,232,249,.48); border-radius: 50%;
+            animation: karma-holo-spin 12s linear infinite;
+        }
+        .karma-holo-orbit::after {
+            inset: 19px; border-style: solid; border-color: rgba(34,211,238,.28);
+            animation-direction: reverse; animation-duration: 8s;
+        }
+        @keyframes karma-holo-spin { to { transform: rotate(360deg); } }
+        @keyframes karma-holo-pulse { 50% { filter: brightness(1.35); transform: scale(1.035); } }
+        @media (prefers-reduced-motion: reduce) {
+            .karma-holo-orbit, .karma-holo-orbit::before, .karma-holo-orbit::after { animation: none; }
+        }
+
+</style>
 </head>
 <body class="min-h-screen flex flex-col">
 
@@ -127,13 +210,13 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="font-cinzel font-extrabold text-base sm:text-xl tracking-wider bg-gradient-to-r from-rose-500 via-amber-300 to-cyan-400 bg-clip-text text-transparent">
-                            UNDERWORLD OS 9.0
+                            QUỶ MÔN QUAN 10.0
                         </h1>
                         <span class="text-[10px] font-mono-tech px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 border border-rose-500/40 animate-pulse">
                             LIVE • AI-CORE
                         </span>
                     </div>
-                    <p class="text-[11px] text-slate-400 font-mono-tech">UNDERWORLD OS 9.0 • Hệ điều hành quản lý âm phủ</p>
+                    <p class="text-[11px] text-slate-400 font-mono-tech">QUỶ MÔN QUAN 10.0 • Hệ thống quản lý âm phủ</p>
                 </div>
             </div>
 
@@ -153,12 +236,32 @@
     <!-- MAIN DASHBOARD STATS & NAVIGATION -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 space-y-6">
 
+        <!-- MAJOR RELEASE 10.0 -->
+        <section class="release-hero rounded-2xl p-5 sm:p-7">
+            <div class="rune-orbit" aria-hidden="true"><span class="font-cinzel text-4xl text-violet-200">冥</span></div>
+            <div class="relative max-w-3xl">
+                <div class="flex flex-wrap items-center gap-2 mb-3">
+                    <span class="text-[10px] font-mono-tech tracking-[.22em] text-cyan-200 border border-cyan-300/30 bg-cyan-300/10 rounded-full px-3 py-1">MAJOR UPDATE</span>
+                    <span class="text-[10px] font-mono-tech text-amber-200">23 • 11 • 2026</span>
+                </div>
+                <h2 class="font-cinzel font-extrabold text-2xl sm:text-3xl text-white leading-tight">QUỶ MÔN QUAN <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-amber-200 to-cyan-200">10.0</span></h2>
+                <p class="text-sm sm:text-base text-slate-200 mt-2 max-w-2xl">Đại nâng cấp giao diện và trải nghiệm Địa Phủ — thêm hiệu ứng ánh sáng, bảng điều khiển trực quan và các khu vực chức năng được phân biệt bằng màu sắc.</p>
+                <div class="visual-spectrum mt-5 max-w-xl"></div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-6 relative">
+                <div class="feature-tile rounded-xl p-3"><div class="feature-icon text-rose-300">🌌</div><div class="text-xs font-bold text-white mt-2">Đồ họa đa tầng</div><div class="text-[10px] text-slate-400 mt-1">Nền động & ánh sáng</div></div>
+                <div class="feature-tile rounded-xl p-3"><div class="feature-icon text-cyan-300">📊</div><div class="text-xs font-bold text-white mt-2">Bảng điều khiển</div><div class="text-[10px] text-slate-400 mt-1">Thống kê trực quan</div></div>
+                <div class="feature-tile rounded-xl p-3"><div class="feature-icon text-amber-300">🏅</div><div class="text-xs font-bold text-white mt-2">Công hội 50 bậc</div><div class="text-[10px] text-slate-400 mt-1">Công trạng & phong quan</div></div>
+                <div class="feature-tile rounded-xl p-3"><div class="feature-icon text-violet-300">🗺️</div><div class="text-xs font-bold text-white mt-2">28 tầng U Minh</div><div class="text-[10px] text-slate-400 mt-1">Bản đồ & hồ sơ</div></div>
+            </div>
+        </section>
+
         <!-- KPI Telemetry Cards -->
         <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <div class="glass-panel rounded-xl p-4 neon-border-crimson relative overflow-hidden">
                 <div class="text-xs font-mono-tech text-rose-400 uppercase">Linh Hồn Đang Chịu Phạt</div>
                 <div class="text-2xl sm:text-3xl font-extrabold font-mono-tech text-white mt-1" id="stat-punishing">0</div>
-                <div class="text-[11px] text-slate-400 mt-1">Đang thi hành án tại 18 tầng</div>
+                <div class="text-[11px] text-slate-400 mt-1">Đang thi hành án tại 28 tầng</div>
                 <div class="absolute -right-3 -bottom-3 text-5xl opacity-10">🔥</div>
             </div>
 
@@ -193,16 +296,16 @@
                 <span>⚖️</span> Tòa Án Diêm Vương AI
             </button>
             <button onclick="switchTab('ledger')" id="tab-ledger" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
-                <span>📜</span> Sổ Sinh Tử Điện Tử <span id="badge-count" class="px-1.5 py-0.5 rounded-full bg-rose-600 text-[10px] text-white">0</span>
+                <span>📜</span> Sổ Sinh Tử 10.0 <span id="badge-count" class="px-1.5 py-0.5 rounded-full bg-rose-600 text-[10px] text-white">0</span>
             </button>
             <button onclick="switchTab('hells')" id="tab-hells" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
-                <span>🌋</span> Bản Đồ 18 Tầng Địa Ngục
+                <span>🌋</span> Bản Đồ 28 Tầng Địa Phủ
             </button>
             <button onclick="switchTab('mengpo')" id="tab-mengpo" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
-                <span>🍵</span> Quán Trà Mạnh Bà & Nạp Công Đức
+                <span>✨</span> Trạm Công Đức 10.0
             </button>
             <button onclick="switchTab('activity')" id="tab-activity" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
-                <span>🧾</span> Nhật Ký Hệ Thống
+                <span>🧾</span> Nhật Ký Vận Hành 10.0
             </button>
             <button onclick="switchTab('missions')" id="tab-missions" class="tab-btn px-4 py-2.5 rounded-xl border border-amber-500/30 text-xs sm:text-sm font-semibold text-amber-200 hover:text-white transition flex items-center gap-2">
                 <span>🎖️</span> Nhiệm Vụ Truy Bắt
@@ -214,7 +317,7 @@
             <div class="glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
-                        <p class="text-[10px] font-mono-tech text-cyan-300 tracking-[.25em]">COMMAND CENTER / RELEASE 9.0</p>
+                        <p class="text-[10px] font-mono-tech text-cyan-300 tracking-[.25em]">COMMAND CENTER / RELEASE 10.0</p>
                         <h2 class="font-cinzel text-xl sm:text-2xl font-extrabold text-white mt-1">TRUNG TÂM ĐIỀU HÀNH ĐỊA PHỦ</h2>
                         <p class="text-xs text-slate-400 mt-1">Theo dõi hồ sơ, trạng thái thi hành án và lịch sử thao tác trên thiết bị</p>
                     </div>
@@ -226,7 +329,7 @@
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
                 <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">TỔNG HỒ SƠ</div><div id="dash-total" class="text-3xl font-extrabold text-white mt-1">0</div><div class="text-[10px] text-cyan-300 mt-1">Hồ sơ hợp lệ</div></div>
-                <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">ĐANG THI HÀNH ÁN</div><div id="dash-punishing" class="text-3xl font-extrabold text-rose-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đang ở 18 tầng</div></div>
+                <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">ĐANG THI HÀNH ÁN</div><div id="dash-punishing" class="text-3xl font-extrabold text-rose-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đang ở 28 tầng</div></div>
                 <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">CHỜ ĐẦU THAI</div><div id="dash-ready" class="text-3xl font-extrabold text-amber-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đã hoàn tất thời hạn án</div></div>
                 <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">ĐÃ ĐẦU THAI</div><div id="dash-reborn" class="text-3xl font-extrabold text-emerald-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đã qua Cầu Nại Hà</div></div>
             </div>
@@ -245,7 +348,7 @@
                 <div><h3 class="font-bold text-white text-sm">Công cụ nhanh</h3><p class="text-[11px] text-slate-400">Truy cập các nghiệp vụ thường dùng</p></div>
                 <div class="flex flex-wrap gap-2">
                     <button onclick="switchTab('ledger')" class="v7-chip text-cyan-200">📜 Sổ sinh tử</button>
-                    <button onclick="switchTab('hells')" class="v7-chip text-rose-200">🌋 18 tầng địa ngục</button>
+                    <button onclick="switchTab('hells')" class="v7-chip text-rose-200">🌋 28 tầng địa phủ</button>
                     <button onclick="switchTab('mengpo')" class="v7-chip text-amber-200">🍵 Công đức & đầu thai</button>
                 </div>
             </div>
@@ -257,11 +360,16 @@
                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                     <div>
                         <h2 class="font-cinzel font-bold text-lg sm:text-xl text-rose-400">GƯƠNG NGHIỆP KÍNH HOLOGRAM</h2>
-                        <p class="text-xs text-slate-400">Quản lý hồ sơ, ghi nhận lời khai và tạo phán quyết mô phỏng</p>
+                        <p class="text-xs text-slate-400">Gương hologram quét dữ liệu hồ sơ, lời khai và hiển thị phán quyết mô phỏng</p>
                     </div>
-                    <button onclick="fillRandomSoul()" class="text-xs font-mono-tech px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 transition">
-                        🎲 Tạo Mẫu Thử
-                    </button>
+                    <div class="flex flex-col items-end gap-2">
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-mono-tech tracking-wider text-emerald-300 bg-emerald-500/10 border border-emerald-400/30 rounded-full px-2.5 py-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> HOLOGRAM ONLINE
+                        </span>
+                        <button onclick="fillRandomSoul()" class="text-xs font-mono-tech px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 transition">
+                            🎲 Tạo Mẫu Thử
+                        </button>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -281,9 +389,9 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-mono-tech text-slate-300 mb-2">Chọn Nhanh Tội Danh Khi Còn Sống (Có thể chọn nhiều):</label>
+                    <label class="block text-xs font-mono-tech text-slate-300 mb-2">Chọn Nhanh Tội Danh / Nhãn Phân Loại Khi Còn Sống (Có thể chọn nhiều):</label>
                     <div id="sin-presets" class="flex flex-wrap gap-2"></div>
-                    <p class="mt-2 text-[10px] leading-relaxed text-slate-500">Các mức Karma và thời hạn án là dữ liệu giả lập trong trò chơi, không phải kết luận pháp lý hay đánh giá con người. Mục “Tự sát” chỉ là nhãn phân loại trong mô phỏng, không hàm ý người gặp khủng hoảng có lỗi hoặc đáng bị trừng phạt.</p>
+                    <p class="mt-2 text-[10px] leading-relaxed text-slate-500">Các mức Karma và thời hạn án là luật giả tưởng do trò chơi đặt ra, không phải kết luận pháp lý hay đánh giá giá trị con người. Hai mục “Gái ngành bán dâm” và “Gái mại dâm bán dâm” được thiết lập mức trừ điểm trong mô phỏng; hành vi cưỡng ép, bóc lột, mua bán người hoặc xâm hại được phân loại riêng. Mục “Tự sát” chỉ là nhãn hỗ trợ nhận diện trong mô phỏng, không hàm ý người gặp khủng hoảng có lỗi hoặc đáng bị trừng phạt.</p>
                 </div>
 
                 <div>
@@ -307,13 +415,16 @@
                     </div>
                 </div>
 
-                <div id="verdict-placeholder" class="my-auto text-center space-y-3 py-10">
-                    <div class="w-20 h-20 mx-auto rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-4xl soul-orb">
-                        👁️
+                <div id="verdict-placeholder" class="my-auto text-center space-y-3 py-10 karma-holo-ready rounded-2xl px-4">
+                    <div class="karma-holo-orbit flex items-center justify-center">
+                        <div class="w-14 h-14 rounded-full bg-cyan-500/10 border border-cyan-300/40 flex items-center justify-center text-3xl soul-orb">👁️</div>
+                    </div>
+                    <div class="inline-flex items-center gap-2 text-[10px] font-mono-tech tracking-[.18em] text-emerald-300 border border-emerald-400/30 bg-emerald-500/10 rounded-full px-3 py-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> TRẠNG THÁI: SẴN SÀNG
                     </div>
                     <h3 class="font-cinzel text-lg text-cyan-300">Gương Nghiệp Kính Sẵn Sàng</h3>
                     <p class="text-xs text-slate-400 max-w-xs mx-auto leading-relaxed">
-                        Nhập thông tin phạm nhân bên trái và nhấn Phán Quyết. Mọi hành vi dù giấu kín nhất cũng sẽ hiện nguyên hình.
+                        Hệ thống hologram đã khởi động. Nhập thông tin hồ sơ bên trái rồi nhấn Kích hoạt để chạy mô phỏng quét nghiệp và hiển thị kết quả.
                     </p>
                 </div>
 
@@ -365,10 +476,43 @@
 
         <!-- TAB 2: SỔ SINH TỬ ĐIỆN TỬ -->
         <section id="view-ledger" class="hidden space-y-4">
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 border border-cyan-400/30 bg-gradient-to-r from-cyan-950/40 via-slate-950/70 to-violet-950/30">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <p class="text-[10px] font-mono-tech tracking-[.25em] text-cyan-300">QUỶ MÔN QUAN • RELEASE 10.0</p>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">📜 SỔ SINH TỬ ĐIỆN TỬ 10.0</h2>
+                        <p class="text-xs text-slate-300 mt-1">Trung tâm quản lý hồ sơ linh hồn, tra cứu, phân loại trạng thái, chỉnh sửa và sao lưu dữ liệu.</p>
+                    </div>
+                    <span class="px-3 py-1.5 rounded-full text-[10px] font-mono-tech text-cyan-200 border border-cyan-400/40 bg-cyan-400/10">LEDGER SYSTEM • 10.0</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="glass-panel rounded-xl p-3 border border-cyan-500/30">
+                    <div class="text-[10px] text-cyan-300 font-mono-tech">TỔNG HỒ SƠ</div>
+                    <div id="ledger-stat-total" class="text-2xl font-bold text-white mt-1">0</div>
+                    <div class="text-[10px] text-slate-500">Trong sổ sinh tử</div>
+                </div>
+                <div class="glass-panel rounded-xl p-3 border border-rose-500/30">
+                    <div class="text-[10px] text-rose-300 font-mono-tech">ĐANG CHỊU PHẠT</div>
+                    <div id="ledger-stat-punishing" class="text-2xl font-bold text-white mt-1">0</div>
+                    <div class="text-[10px] text-slate-500">Hồ sơ đang thi hành án</div>
+                </div>
+                <div class="glass-panel rounded-xl p-3 border border-amber-500/30">
+                    <div class="text-[10px] text-amber-300 font-mono-tech">CHỜ ĐẦU THAI</div>
+                    <div id="ledger-stat-ready" class="text-2xl font-bold text-white mt-1">0</div>
+                    <div class="text-[10px] text-slate-500">Đủ điều kiện chuyển sinh</div>
+                </div>
+                <div class="glass-panel rounded-xl p-3 border border-emerald-500/30">
+                    <div class="text-[10px] text-emerald-300 font-mono-tech">ĐÃ ĐẦU THAI</div>
+                    <div id="ledger-stat-reborn" class="text-2xl font-bold text-white mt-1">0</div>
+                    <div class="text-[10px] text-slate-500">Đã hoàn tất luân hồi</div>
+                </div>
+            </div>
             <div class="glass-panel rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3">
-                <div class="flex flex-wrap items-center gap-2">
+                <div class="flex flex-wrap items-center gap-2 w-full">
+                    <input id="ledger-search" type="search" oninput="handleGlobalSearch(this.value)" placeholder="Tra cứu tên, mã hồ sơ, tội danh, lời khai..." class="w-full sm:w-64 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400">
                     <select id="filter-hell" onchange="renderLedger()" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400">
-                        <option value="ALL">Tất cả 18 Tầng Địa Ngục</option>
+                        <option value="ALL">Tất cả 28 Tầng Địa Phủ</option>
                     </select>
                     <select id="filter-status" onchange="renderLedger()" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400">
                         <option value="ALL">Mọi trạng thái</option>
@@ -419,26 +563,62 @@
             <div id="ledger-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </section>
 
-        <!-- TAB 3: BẢN ĐỒ 18 TẦNG ĐỊA NGỤC -->
+        <!-- TAB 3: THẬP BÁT TẦNG ĐỊA NGỤC - HỆ THỐNG 10.0 -->
         <section id="view-hells" class="hidden space-y-4">
             <div class="glass-panel rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 neon-border-crimson">
                 <div>
-                    <h2 class="font-cinzel font-bold text-lg text-rose-400">THẬP BÁT TẦNG ĐỊA NGỤC HỆ THỐNG 9.0</h2>
-                    <p class="text-xs text-slate-400">Nhấn vào từng tầng để xem Cai Ngục AI phụ trách, cơ chế trừng phạt và danh sách phạm nhân đang giam giữ</p>
+                    <h2 class="font-cinzel font-bold text-lg text-rose-300">🔥 HỆ THỐNG PHÁN XÉT 28 TẦNG – PHIÊN BẢN 10.9</h2>
+                    <p class="text-xs text-slate-300">Phiên bản 10.9 hiển thị đủ 28 tầng. Mỗi tầng có mức điểm công trạng tham chiếu tăng dần từ 100 đến 2.800 điểm, tội hình áp dụng và hình phạt mô phỏng được ghi rõ. Chọn một tầng để xem cai ngục và hồ sơ liên quan.</p>
                 </div>
                 <span class="text-xs font-mono-tech px-3 py-1 rounded-full bg-rose-500/15 text-rose-300 border border-rose-500/30">
-                    18/18 Tầng Hoạt Động Bình Thường
+                    HỆ THỐNG 10.0 • 28/28 TẦNG
                 </span>
             </div>
 
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="rounded-xl border border-rose-500/30 bg-rose-950/25 p-3">
+                    <div class="text-[10px] tracking-widest text-rose-300 font-mono-tech">TẦNG CỐT LÕI</div>
+                    <div class="text-2xl font-bold text-white mt-1">01–18</div>
+                    <div class="text-[11px] text-slate-400">Thập Bát Tầng Địa Ngục</div>
+                </div>
+                <div class="rounded-xl border border-violet-500/30 bg-violet-950/25 p-3">
+                    <div class="text-[10px] tracking-widest text-violet-300 font-mono-tech">MỞ RỘNG U MINH</div>
+                    <div class="text-2xl font-bold text-white mt-1">19–28</div>
+                    <div class="text-[11px] text-slate-400">Mười tầng phán xét mở rộng</div>
+                </div>
+                <div class="rounded-xl border border-cyan-500/30 bg-cyan-950/25 p-3">
+                    <div class="text-[10px] tracking-widest text-cyan-300 font-mono-tech">TRA CỨU HỒ SƠ</div>
+                    <div class="text-2xl font-bold text-white mt-1">28/28</div>
+                    <div class="text-[11px] text-slate-400">Chọn thẻ tầng để xem chi tiết</div>
+                </div>
+            </div>
             <div id="hells-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </section>
-        <!-- TAB 4: QUÁN TRÀ MẠNH BÀ & NẠP CÔNG ĐỨC -->
+        <!-- TAB 4: TRẠM NẠP CÔNG ĐỨC & CẢI TẠO 10.0 -->
         <section id="view-mengpo" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-6">
             <div class="lg:col-span-6 glass-panel rounded-2xl p-5 sm:p-6 neon-border-gold space-y-4">
                 <div class="border-b border-slate-800 pb-3">
-                    <h2 class="font-cinzel font-bold text-lg text-amber-400">✨ TRẠM NẠP CÔNG ĐỨC & CẢI TẠO</h2>
-                    <p class="text-xs text-slate-400">Thực hiện công quả để giảm án phạt về 0 năm trước khi qua Cầu Nại Hà</p>
+                    <p class="text-[10px] font-mono-tech tracking-[.22em] text-amber-300">QUỶ MÔN QUAN • MERIT & REHABILITATION RELEASE 10.0</p>
+                    <div class="flex flex-wrap items-center gap-2 mt-1">
+                        <h2 class="font-cinzel font-bold text-lg sm:text-xl text-amber-300">✨ TRẠM NẠP CÔNG ĐỨC & CẢI TẠO 10.0</h2>
+                        <span class="text-[10px] px-2 py-1 rounded-full bg-amber-400/10 border border-amber-300/30 text-amber-200">UPGRADED</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">Trung tâm làm công quả, cải tạo nghiệp lực, giảm thời hạn mô phỏng và xét điều kiện chuyển sinh.</p>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="rounded-xl bg-slate-950/80 border border-amber-500/25 p-2.5">
+                        <div class="text-[9px] text-amber-300 font-mono-tech">HỒ SƠ CHỜ XỬ LÝ</div>
+                        <div id="merit-stat-pending" class="text-xl font-bold text-white">0</div>
+                    </div>
+                    <div class="rounded-xl bg-slate-950/80 border border-emerald-500/25 p-2.5">
+                        <div class="text-[9px] text-emerald-300 font-mono-tech">ĐỦ ĐIỀU KIỆN</div>
+                        <div id="merit-stat-ready" class="text-xl font-bold text-white">0</div>
+                    </div>
+                    <div class="rounded-xl bg-slate-950/80 border border-rose-500/25 p-2.5">
+                        <div class="text-[9px] text-rose-300 font-mono-tech">TỔNG ÁN CÒN LẠI</div>
+                        <div id="merit-stat-years" class="text-xl font-bold text-white">0</div>
+                        <div class="text-[9px] text-slate-500">năm mô phỏng</div>
+                    </div>
                 </div>
 
                 <div>
@@ -468,34 +648,53 @@
                         <div class="text-xs font-bold text-amber-200">⚡ Đặc Xá Toàn Bộ Án</div>
                         <div class="text-[11px] text-amber-300/80 mt-0.5">Đưa án phạt về 0 năm ngay</div>
                     </button>
+                    <button onclick="donateMerit(45, 'Trồng cây phục hồi U Minh')" class="p-3 rounded-xl bg-slate-900 hover:bg-emerald-500/10 border border-emerald-500/30 text-left transition">
+                        <div class="text-xs font-bold text-emerald-300">🌳 Trồng Cây U Minh</div>
+                        <div class="text-[11px] text-slate-400 mt-0.5">Giảm 45 năm án phạt</div>
+                    </button>
+                    <button onclick="donateMerit(60, 'Dẫn đường cho linh hồn lạc lối')" class="p-3 rounded-xl bg-slate-900 hover:bg-sky-500/10 border border-sky-500/30 text-left transition">
+                        <div class="text-xs font-bold text-sky-300">🕯️ Dẫn Đường Linh Hồn</div>
+                        <div class="text-[11px] text-slate-400 mt-0.5">Giảm 60 năm án phạt</div>
+                    </button>
+                    <button onclick="donateMerit(100, 'Tu sửa cầu và đường âm giới')" class="p-3 rounded-xl bg-slate-900 hover:bg-violet-500/10 border border-violet-500/30 text-left transition">
+                        <div class="text-xs font-bold text-violet-300">🌉 Tu Sửa Cầu Âm Giới</div>
+                        <div class="text-[11px] text-slate-400 mt-0.5">Giảm 100 năm án phạt</div>
+                    </button>
+                    <button onclick="donateMerit(120, 'Cứu trợ chúng sinh tại U Minh')" class="p-3 rounded-xl bg-slate-900 hover:bg-pink-500/10 border border-pink-500/30 text-left transition">
+                        <div class="text-xs font-bold text-pink-300">🤲 Cứu Trợ U Minh</div>
+                        <div class="text-[11px] text-slate-400 mt-0.5">Giảm 120 năm án phạt</div>
+                    </button>
+                </div>
+                <div class="rounded-xl border border-amber-500/20 bg-amber-950/15 p-3">
+                    <div class="text-[10px] font-mono-tech text-amber-300 tracking-widest mb-1">QUY TRÌNH CẢI TẠO</div>
+                    <p class="text-[11px] text-slate-300">Chọn hồ sơ → chọn công quả → hệ thống trừ số năm mô phỏng → khi thời hạn còn 0 năm, hồ sơ chuyển sang trạng thái chờ đầu thai. Các thao tác được ghi vào Nhật Ký Hệ Thống.</p>
                 </div>
             </div>
 
             <div class="lg:col-span-6 glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan space-y-4">
                 <div class="border-b border-slate-800 pb-3">
-                    <h2 class="font-cinzel font-bold text-lg text-cyan-400">🍵 QUÁN TRÀ MẠNH BÀ 9.0 (XÓA KÝ ỨC)</h2>
-                    <p class="text-xs text-slate-400">Chỉ dành cho linh hồn đã mãn hạn hình phạt (0 năm còn lại)</p>
+                    <div class="flex flex-wrap items-center gap-2"><h2 class="font-cinzel font-bold text-lg text-cyan-300">🍵 QUÁN TRÀ MẠNH BÀ 10.0 (XÓA KÝ ỨC)</h2><span class="text-[10px] font-mono-tech px-2 py-1 rounded-full bg-cyan-400/10 text-cyan-200 border border-cyan-300/30">NEW RELEASE</span></div>
+                    <p class="text-xs text-slate-400">Phiên bản mới với thực đơn 12 thức uống huyền ảo. Chỉ phục vụ linh hồn đã mãn hạn hình phạt (0 năm còn lại).</p>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-mono-tech text-slate-300 mb-1.5">Chọn Hương Vị Canh Mạnh Bà:</label>
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                        <label class="cursor-pointer bg-slate-950 border border-cyan-500/40 rounded-xl p-2.5 flex items-center gap-2">
-                            <input type="radio" name="tea-flavor" value="Trà Sữa Bỉ Ngạn Full Topping Quên Sầu" checked class="accent-cyan-400">
-                            <span>🧋 Trà Sữa Bỉ Ngạn</span>
-                        </label>
-                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-2.5 flex items-center gap-2">
-                            <input type="radio" name="tea-flavor" value="Canh Mạnh Bà Nguyên Bản Vị Quên Tình" class="accent-cyan-400">
-                            <span>🥣 Canh Nguyên Bản</span>
-                        </label>
-                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-2.5 flex items-center gap-2">
-                            <input type="radio" name="tea-flavor" value="Espresso Vong Xuyên Đậm Đặc" class="accent-cyan-400">
-                            <span>☕ Espresso Vong Xuyên</span>
-                        </label>
-                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-2.5 flex items-center gap-2">
-                            <input type="radio" name="tea-flavor" value="Matcha Tam Sinh Thạch" class="accent-cyan-400">
-                            <span>🍵 Matcha Tam Sinh</span>
-                        </label>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <label class="block text-xs font-mono-tech text-slate-300">THỰC ĐƠN HUYỀN TRÀ • CHỌN 1 THỨC UỐNG</label>
+                        <span class="text-[10px] text-cyan-300">12 món • cập nhật 10.0</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <label class="cursor-pointer bg-gradient-to-br from-fuchsia-950/70 to-slate-950 border border-fuchsia-400/50 rounded-xl p-3 flex items-start gap-2 hover:border-fuchsia-300 transition"><input type="radio" name="tea-flavor" value="Trà Sữa Bỉ Ngạn Full Topping Quên Sầu" checked class="accent-cyan-400 mt-1"><span><strong class="block text-fuchsia-200">🧋 Trà Sữa Bỉ Ngạn</strong><small class="text-slate-400">Trân châu hoa đỏ, vị ngọt lưu luyến</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-cyan-300 transition"><input type="radio" name="tea-flavor" value="Canh Mạnh Bà Nguyên Bản Vị Quên Tình" class="accent-cyan-400 mt-1"><span><strong class="block text-cyan-200">🥣 Canh Mạnh Bà Nguyên Bản</strong><small class="text-slate-400">Cổ truyền, xóa muộn phiền</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-amber-300 transition"><input type="radio" name="tea-flavor" value="Espresso Vong Xuyên Đậm Đặc" class="accent-cyan-400 mt-1"><span><strong class="block text-amber-200">☕ Espresso Vong Xuyên</strong><small class="text-slate-400">Cà phê đen, dư vị sâu thẳm</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-emerald-300 transition"><input type="radio" name="tea-flavor" value="Matcha Tam Sinh Thạch" class="accent-cyan-400 mt-1"><span><strong class="block text-emerald-200">🍵 Matcha Tam Sinh</strong><small class="text-slate-400">Matcha thanh mát, sắc ngọc bích</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-rose-300 transition"><input type="radio" name="tea-flavor" value="Hồng Trà Huyết Nguyệt" class="accent-cyan-400 mt-1"><span><strong class="block text-rose-200">🌕 Hồng Trà Huyết Nguyệt</strong><small class="text-slate-400">Hồng trà thơm, ánh trăng đỏ</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-violet-300 transition"><input type="radio" name="tea-flavor" value="Sữa Tươi Tinh Hà" class="accent-cyan-400 mt-1"><span><strong class="block text-violet-200">🥛 Sữa Tươi Tinh Hà</strong><small class="text-slate-400">Béo dịu, lấp lánh ngân hà</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-orange-300 transition"><input type="radio" name="tea-flavor" value="Trà Đào Suối Vong Xuyên" class="accent-cyan-400 mt-1"><span><strong class="block text-orange-200">🍑 Trà Đào Vong Xuyên</strong><small class="text-slate-400">Đào ngọt dịu, hương suối tiên</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-yellow-300 transition"><input type="radio" name="tea-flavor" value="Trà Chanh Cầu Nại Hà" class="accent-cyan-400 mt-1"><span><strong class="block text-yellow-200">🍋 Trà Chanh Nại Hà</strong><small class="text-slate-400">Chua ngọt sảng khoái</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-pink-300 transition"><input type="radio" name="tea-flavor" value="Soda Hoa Anh Đào Luân Hồi" class="accent-cyan-400 mt-1"><span><strong class="block text-pink-200">🌸 Soda Anh Đào Luân Hồi</strong><small class="text-slate-400">Có ga nhẹ, sắc hồng huyền ảo</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-sky-300 transition"><input type="radio" name="tea-flavor" value="Nước Suối Ngọc Tuyền" class="accent-cyan-400 mt-1"><span><strong class="block text-sky-200">💧 Nước Ngọc Tuyền</strong><small class="text-slate-400">Tinh khiết, nhẹ nhàng</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-indigo-300 transition"><input type="radio" name="tea-flavor" value="Lam Vụ Việt Quất" class="accent-cyan-400 mt-1"><span><strong class="block text-indigo-200">🫐 Lam Vụ Việt Quất</strong><small class="text-slate-400">Việt quất thơm, màu lam sương</small></span></label>
+                        <label class="cursor-pointer bg-slate-950 border border-slate-700 rounded-xl p-3 flex items-start gap-2 hover:border-teal-300 transition"><input type="radio" name="tea-flavor" value="Trà Sen Tịnh Tâm" class="accent-cyan-400 mt-1"><span><strong class="block text-teal-200">🪷 Trà Sen Tịnh Tâm</strong><small class="text-slate-400">Hương sen thanh tao, an nhiên</small></span></label>
                     </div>
                 </div>
 
@@ -518,15 +717,40 @@
         <!-- TAB 6: NHIỆM VỤ TRUY BẮT & THĂNG QUAN -->
         <section id="view-missions" class="hidden space-y-4">
             <div class="glass-panel rounded-2xl p-5 neon-border-gold">
-                <p class="text-[10px] font-mono-tech tracking-widest text-amber-300">UNDERWORLD BOUNTY GUILD • RELEASE 9.0</p>
+                <p class="text-[10px] font-mono-tech tracking-widest text-amber-300">QUỶ MÔN QUAN • BẢNG TRUY NÃ 11.0</p>
                 <h2 class="font-cinzel text-xl font-extrabold text-white mt-1">🎖️ CÔNG HỘI QUỶ SỨ & LINH HỒN LẬP CÔNG</h2>
-                <p class="text-xs text-slate-400 mt-2">Quỷ sứ hoặc linh hồn tình nguyện nhận nhiệm vụ truy bắt, áp giải phạm nhân về đúng tầng giam giữ. Nhiệm vụ càng khó, công trạng và phần thưởng càng cao.</p>
+                <p class="text-xs text-slate-400 mt-2">Bắt đầu từ 500 công trạng ở tầng 1. Phạm nhân thuộc tầng càng cao thì tiền thưởng truy bắt càng tăng; bàn giao thành công sẽ cộng điểm vào hồ sơ thành viên.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
                     <label class="text-xs text-slate-300">Tên người nhận nhiệm vụ
                         <input id="hunter-name" maxlength="60" placeholder="VD: Quỷ Sứ Hắc Phong" class="mt-1 w-full bg-slate-950 border border-amber-500/30 rounded-lg p-3 text-white">
                     </label>
-                    <label class="text-xs text-slate-300">Thân phận
-                        <select id="hunter-type" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white"><option value="QUỶ SỨ">Quỷ sứ</option><option value="LINH HỒN">Linh hồn tình nguyện</option></select>
+                    <label class="text-xs text-slate-300">Thân phận lực lượng (18 lựa chọn)
+                        <select id="hunter-type" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white">
+                            <optgroup label="ĐỊA NGỤC — QUỶ BINH & TUẦN NGỤC">
+                                <option value="Quỷ Binh Địa Ngục">Quỷ Binh Địa Ngục</option>
+                                <option value="Ngục Tốt Thiết Giáp">Ngục Tốt Thiết Giáp</option>
+                                <option value="Tuần Ngục Dạ Xoa">Tuần Ngục Dạ Xoa</option>
+                                <option value="Đội Truy Hồn">Đội Truy Hồn</option>
+                                <option value="Vệ Binh Hỏa Ngục">Vệ Binh Hỏa Ngục</option>
+                                <option value="Sứ Giả Áp Giải">Sứ Giả Áp Giải</option>
+                            </optgroup>
+                            <optgroup label="A TU LA — CHIẾN BINH & HỘ PHÁP">
+                                <option value="Chiến Binh A Tu La">Chiến Binh A Tu La</option>
+                                <option value="Kỵ Binh Tu La">Kỵ Binh Tu La</option>
+                                <option value="Cung Thủ Tu La">Cung Thủ Tu La</option>
+                                <option value="Hộ Pháp Tu La">Hộ Pháp Tu La</option>
+                                <option value="Thống Lĩnh Tu La">Thống Lĩnh Tu La</option>
+                                <option value="Sứ Quân Tu La">Sứ Quân Tu La</option>
+                            </optgroup>
+                            <optgroup label="U MINH — LINH QUÂN & SỨ GIẢ">
+                                <option value="Linh Quân U Minh">Linh Quân U Minh</option>
+                                <option value="Tuần Sứ U Minh">Tuần Sứ U Minh</option>
+                                <option value="Dẫn Hồn Sứ">Dẫn Hồn Sứ</option>
+                                <option value="Hộ Giới U Minh">Hộ Giới U Minh</option>
+                                <option value="Linh Hồn Tình Nguyện">Linh Hồn Tình Nguyện</option>
+                                <option value="Sứ Giả Tam Cõi">Sứ Giả Tam Cõi</option>
+                            </optgroup>
+                        </select>
                     </label>
                     <div class="flex items-end"><button onclick="registerHunter()" class="w-full rounded-lg p-3 bg-amber-500/20 border border-amber-400/40 text-amber-200 font-bold text-sm">✚ Đăng ký / Đồng bộ hồ sơ</button></div>
                 </div>
@@ -539,9 +763,17 @@
             <div class="glass-panel rounded-2xl p-4">
                 <div class="flex flex-wrap justify-between gap-2 items-center"><h3 class="font-cinzel text-amber-300 font-bold">BẢNG TRUY NÃ & NHIỆM VỤ</h3><span class="v7-chip">Dễ → Trung bình → Khó → Truy nã đặc biệt</span></div>
                 <p class="text-[11px] text-slate-400 mt-1 mb-3">Chỉ hồ sơ đang chịu phạt mới xuất hiện. Hoàn thành một nhiệm vụ sẽ ghi nhận người áp giải, khóa thưởng chống nhận lặp và cập nhật nhật ký.</p>
+                <div class="rounded-xl border border-amber-500/25 bg-slate-950/60 p-3 mb-3">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <h4 class="text-sm font-bold text-amber-200">🎁 THANG THƯỞNG TRUY NÃ 28 TẦNG</h4>
+                        <span class="text-[10px] text-emerald-300">Tầng 1: 500 • Tầng 28: 14.000 công trạng</span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mb-3">Mức thưởng giả tưởng = 500 × số tầng. Điểm chỉ được cộng khi áp giải thành công và bàn giao đúng hồ sơ.</p>
+                    <div id="bounty-floor-table" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2"></div>
+                </div>
                 <div id="mission-board" class="grid grid-cols-1 lg:grid-cols-2 gap-3"></div>
             </div>
-            <div class="glass-panel rounded-2xl p-4"><h3 class="font-cinzel text-cyan-300 font-bold mb-2">🏅 LỘ TRÌNH THĂNG CẤP & PHONG QUAN</h3><div id="rank-roadmap" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"></div></div>
+            <div class="glass-panel rounded-2xl p-4"><h3 class="font-cinzel text-cyan-300 font-bold mb-1">🏅 LỘ TRÌNH THĂNG CẤP & PHONG QUAN</h3><p class="text-[11px] text-slate-400 mb-3">Đầy đủ 50 chức vị, từ Tân Binh Tuần Ngục đến Chí Tôn Thống Ngự U Minh. Tích lũy công trạng qua nhiệm vụ để tự động thăng cấp.</p><div id="rank-roadmap" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"></div></div>
         </section>
 
     <!-- MODAL CHI TIẾT TẦNG ĐỊA NGỤC -->
@@ -559,6 +791,10 @@
                     <span class="text-slate-400 block">Mức Nghiệp Tối Thiểu:</span>
                     <span class="text-amber-400 font-mono-tech font-bold" id="modal-hell-min">-100 Karma</span>
                 </div>
+                <div class="bg-slate-950/90 p-2.5 rounded-lg border border-emerald-500/30">
+                    <span class="text-slate-400 block">Điểm công trạng tham chiếu:</span>
+                    <span class="text-emerald-300 font-mono-tech font-bold" id="modal-hell-merit">100 điểm</span>
+                </div>
             </div>
             <div class="bg-rose-950/30 border border-rose-500/30 p-3.5 rounded-xl space-y-1">
                 <div class="text-xs font-bold text-rose-300">Tội Danh Áp Dụng:</div>
@@ -575,8 +811,33 @@
 
         <!-- TAB 5: NHẬT KÝ HỆ THỐNG -->
         <section id="view-activity" class="hidden space-y-4">
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 border border-cyan-400/30 bg-gradient-to-r from-cyan-950/40 via-slate-950/80 to-amber-950/25">
+                <p class="text-[10px] font-mono-tech tracking-[.22em] text-cyan-300">QUỶ MÔN QUAN • OPERATIONS & GUILD LOG 10.0</p>
+                <div class="flex flex-wrap items-center justify-between gap-2 mt-1">
+                    <div><h2 class="font-cinzel text-xl sm:text-2xl text-cyan-200 font-bold">📜 NHẬT KÝ VẬN HÀNH 10.0</h2><p class="text-xs text-slate-300 mt-1">Theo dõi hoạt động hệ thống và toàn bộ quá trình lập công của Công Hội Quỷ Sứ & Linh Hồn.</p></div>
+                    <span class="v7-chip text-cyan-200">LIVE LOCAL LOG</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="glass-panel rounded-xl p-3 border border-cyan-500/25"><div class="text-[10px] text-cyan-300 font-mono-tech">TỔNG SỰ KIỆN</div><div id="activity-stat-total" class="text-2xl font-bold text-white mt-1">0</div></div>
+                <div class="glass-panel rounded-xl p-3 border border-amber-500/25"><div class="text-[10px] text-amber-300 font-mono-tech">SỰ KIỆN CÔNG HỘI</div><div id="activity-stat-guild" class="text-2xl font-bold text-white mt-1">0</div></div>
+                <div class="glass-panel rounded-xl p-3 border border-emerald-500/25"><div class="text-[10px] text-emerald-300 font-mono-tech">NHIỆM VỤ HOÀN THÀNH</div><div id="activity-stat-missions" class="text-2xl font-bold text-white mt-1">0</div></div>
+                <div class="glass-panel rounded-xl p-3 border border-violet-500/25"><div class="text-[10px] text-violet-300 font-mono-tech">CÔNG TRẠNG TÍCH LŨY</div><div id="activity-stat-points" class="text-2xl font-bold text-white mt-1">0</div></div>
+            </div>
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 border border-amber-500/25 space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div><h3 class="font-cinzel font-bold text-amber-200">🎖️ CÔNG HỘI QUỶ SỨ & LINH HỒN LẬP CÔNG</h3><p class="text-[11px] text-slate-400">Hồ sơ thành viên, cấp bậc và lịch sử nhiệm vụ.</p></div>
+                    <button onclick="switchTab('missions')" class="text-xs px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-400/30 text-amber-200">Mở Công Hội →</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    <div class="rounded-lg bg-slate-950/70 p-3"><div class="text-[10px] text-slate-500">THÀNH VIÊN HIỆN TẠI</div><div id="activity-guild-name" class="text-sm text-white font-bold mt-1">Chưa đăng ký</div></div>
+                    <div class="rounded-lg bg-slate-950/70 p-3"><div class="text-[10px] text-slate-500">CHỨC VỊ</div><div id="activity-guild-rank" class="text-sm text-cyan-200 font-bold mt-1">Tân Binh</div></div>
+                    <div class="rounded-lg bg-slate-950/70 p-3"><div class="text-[10px] text-slate-500">CÔNG TRẠNG</div><div id="activity-guild-points" class="text-sm text-amber-200 font-bold mt-1">0</div></div>
+                </div>
+                <div><h4 class="text-xs text-amber-200 font-bold mb-2">LỊCH SỬ LẬP CÔNG GẦN ĐÂY</h4><div id="guild-history-list" class="space-y-2"><p class="text-xs text-slate-500">Chưa có nhiệm vụ được ghi nhận.</p></div></div>
+            </div>
             <div class="glass-panel rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3">
-                <div><h2 class="font-cinzel text-lg text-cyan-300 font-bold">NHẬT KÝ VẬN HÀNH</h2><p class="text-xs text-slate-400">Ghi lại thao tác quan trọng trên ứng dụng và thiết bị hiện tại</p></div>
+                <div><h3 class="font-cinzel text-lg text-cyan-300 font-bold">NHẬT KÝ HOẠT ĐỘNG HỆ THỐNG</h3><p class="text-xs text-slate-400">Ghi lại thao tác quan trọng trên ứng dụng và thiết bị hiện tại.</p></div>
                 <div class="flex gap-2 flex-wrap">
                     <button onclick="exportActivityLog()" class="px-3 py-2 rounded-lg bg-cyan-900/50 border border-cyan-500/40 text-xs text-cyan-200">⬇️ Xuất nhật ký</button>
                     <button onclick="clearActivityLog()" class="px-3 py-2 rounded-lg bg-rose-950/60 border border-rose-500/40 text-xs text-rose-200">Xóa nhật ký</button>
@@ -703,24 +964,34 @@
         }
 
         const EIGHTEEN_HELLS = [
-            { level: 1, name: "Địa Ngục Bạt Thiệt", warden: "Đầu Trâu AI-01", minKarma: -100, crime: "Nói dối, đâm chọc thị phi, hứa lèo không trả nợ.", punish: "Kẹp lưỡi bằng kìm laser nóng chảy 1000°C mỗi khi nói sai sự thật." },
-            { level: 2, name: "Địa Ngục Tiễn Đao", warden: "Mặt Ngựa AI-02", minKarma: -200, crime: "Phá hoại hạnh phúc gia đình người khác, xúi giục chia rẽ.", punish: "Kéo thép tự động cắt đứt từng ngón tay giả tạo." },
-            { level: 3, name: "Địa Ngục Thiết Thụ", warden: "Quỷ Sứ Thiết Giáp", minKarma: -300, crime: "Bất hiếu, ly gián tình thân ruột thịt.", punish: "Treo lơ lửng trên cây đao sắt cảm biến nhiệt độ cao." },
-            { level: 4, name: "Địa Ngục Nghiệt Kính", warden: "Phán Quan Thôi Giác", minKarma: -400, crime: "Làm điều ác nhưng che giấu, trốn tránh pháp luật.", punish: "Chiếu lại toàn bộ tội lỗi bằng màn hình IMAX 8K 24/24." },
-            { level: 5, name: "Địa Ngục Chưng Lung", warden: "Hỏa Quỷ Lò Hơi", minKarma: -500, crime: "Nói xấu sau lưng, vu khống hãm hại người vô tội.", punish: "Hấp cách thủy trong lồng áp suất nano siêu nhiệt." },
-            { level: 6, name: "Địa Ngục Đồng Trụ", warden: "Lôi Công Điện Tử", minKarma: -650, crime: "Đốt phá rừng, phóng hỏa, hủy hoại tài sản chung.", punish: "Ôm cột đồng nung đỏ dẫn điện cao thế 50.000V." },
-            { level: 7, name: "Địa Ngục Đao Sơn", warden: "Chiến Thần Tu La", minKarma: -800, crime: "Sát sinh vô cớ, bạo lực học đường/gia đình.", punish: "Leo núi gươm bén không giày bảo hộ suốt 500 năm." },
-            { level: 8, name: "Địa Ngục Băng Sơn", warden: "Băng Nữ Vô Tình", minKarma: -950, crime: "Bạc bẽo vô tình, bỏ rơi người thân lúc hoạn nạn.", punish: "Đóng băng vĩnh cửu ở nhiệt độ -273°C không quần áo." },
-            { level: 9, name: "Địa Ngục Du Oa", warden: "Dạ Xoa Chảo Dầu", minKarma: -1100, crime: "Lừa đảo chiếm đoạt tài sản, buôn bán hàng giả độc hại.", punish: "Tắm trong chảo dầu sôi sục có sục khí oxy." },
-            { level: 10, name: "Địa Ngục Ngưu Khanh", warden: "Ngưu Ma Vương Cyber", minKarma: -1250, crime: "Ngược đãi động vật, săn bắt trái phép.", punish: "Bị đàn trâu sắt húc liên hoàn không ngừng nghỉ." },
-            { level: 11, name: "Địa Ngục Thạch Áp", warden: "Cự Linh Thần Đá", minKarma: -1400, crime: "Vứt bỏ con cái, vô trách nhiệm với sinh mạng.", punish: "Bị tảng đá thiên thạch 100 tấn đè nén trọng lực." },
-            { level: 12, name: "Địa Ngục Thung Cối", warden: "Quỷ Giã Gạo 8.0", minKarma: -1600, crime: "Lãng phí lương thực, khinh miệt người nghèo khổ.", punish: "Bị cối giã thủy lực nghiền nát rồi tái tạo lại." },
-            { level: 13, name: "Địa Ngục Huyết Trì", warden: "Huyết Quỷ Vương", minKarma: -1800, crime: "Gây thương tích nghiêm trọng, bất kính bậc tiền bối.", punish: "Ngâm mình trong hồ axit đỏ đặc quánh." },
-            { level: 14, name: "Địa Ngục Uổng Tử", warden: "Hắc Bạch Vô Thường", minKarma: -2000, crime: "Tự hủy hoại bản thân, coi thường sinh mạng cha mẹ ban cho.", punish: "Đứng giữa tâm bão từ trường xé rách linh thể." },
-            { level: 15, name: "Địa Ngục Khuynh Phủ", warden: "Quỷ Cắt Xén", minKarma: -2300, crime: "Đào trộm cổ mộ, xâm phạm mồ mả người khuất.", punish: "Bị máy cắt plasma phân tách từng phân tử." },
-            { level: 16, name: "Địa Ngục Hỏa Sơn", warden: "Dung Nham Hộ Pháp", minKarma: -2600, crime: "Tham ô hối lộ, bòn rút tiền cứu trợ.", punish: "Nhảy xuống miệng núi lửa dung nham 3000°C." },
-            { level: 17, name: "Địa Ngục Thạch Ma", warden: "Cối Xay Hư Vô", minKarma: -3000, crime: "Lợi dụng lòng tin tâm linh để trục lợi bất chính.", punish: "Bị cối đá khổng lồ nghiền thành bụi lượng tử." },
-            { level: 18, name: "Địa Ngục Đao Cư (A Tỳ)", warden: "Diêm La Vương Tối Cao", minKarma: -3500, crime: "Tội ác tày trời, phản bội đại nghĩa, gây họa cho nhân loại.", punish: "Chịu toàn bộ hình phạt tổng hợp của 17 tầng trên không có ngày ra." }
+            { level: 1, meritPoints: 100, name: "Địa Ngục Bạt Thiệt", warden: "Đầu Trâu AI-01", minKarma: -100, crime: "Nói dối, đâm chọc thị phi, hứa lèo không trả nợ.", punish: "Kẹp lưỡi bằng kìm laser nóng chảy 1000°C mỗi khi nói sai sự thật." },
+            { level: 2, meritPoints: 200, name: "Địa Ngục Tiễn Đao", warden: "Mặt Ngựa AI-02", minKarma: -200, crime: "Phá hoại hạnh phúc gia đình người khác, xúi giục chia rẽ.", punish: "Kéo thép tự động cắt đứt từng ngón tay giả tạo." },
+            { level: 3, meritPoints: 300, name: "Địa Ngục Thiết Thụ", warden: "Quỷ Sứ Thiết Giáp", minKarma: -300, crime: "Bất hiếu, ly gián tình thân ruột thịt.", punish: "Treo lơ lửng trên cây đao sắt cảm biến nhiệt độ cao." },
+            { level: 4, meritPoints: 400, name: "Địa Ngục Nghiệt Kính", warden: "Phán Quan Thôi Giác", minKarma: -400, crime: "Làm điều ác nhưng che giấu, trốn tránh pháp luật.", punish: "Chiếu lại toàn bộ tội lỗi bằng màn hình IMAX 8K 24/24." },
+            { level: 5, meritPoints: 500, name: "Địa Ngục Chưng Lung", warden: "Hỏa Quỷ Lò Hơi", minKarma: -500, crime: "Nói xấu sau lưng, vu khống hãm hại người vô tội.", punish: "Hấp cách thủy trong lồng áp suất nano siêu nhiệt." },
+            { level: 6, meritPoints: 600, name: "Địa Ngục Đồng Trụ", warden: "Lôi Công Điện Tử", minKarma: -650, crime: "Đốt phá rừng, phóng hỏa, hủy hoại tài sản chung.", punish: "Ôm cột đồng nung đỏ dẫn điện cao thế 50.000V." },
+            { level: 7, meritPoints: 700, name: "Địa Ngục Đao Sơn", warden: "Chiến Thần Tu La", minKarma: -800, crime: "Sát sinh vô cớ, bạo lực học đường/gia đình.", punish: "Leo núi gươm bén không giày bảo hộ suốt 500 năm." },
+            { level: 8, meritPoints: 800, name: "Địa Ngục Băng Sơn", warden: "Băng Nữ Vô Tình", minKarma: -950, crime: "Bạc bẽo vô tình, bỏ rơi người thân lúc hoạn nạn.", punish: "Đóng băng vĩnh cửu ở nhiệt độ -273°C không quần áo." },
+            { level: 9, meritPoints: 900, name: "Địa Ngục Du Oa", warden: "Dạ Xoa Chảo Dầu", minKarma: -1100, crime: "Lừa đảo chiếm đoạt tài sản, buôn bán hàng giả độc hại.", punish: "Tắm trong chảo dầu sôi sục có sục khí oxy." },
+            { level: 10, meritPoints: 1000, name: "Địa Ngục Ngưu Khanh", warden: "Ngưu Ma Vương Cyber", minKarma: -1250, crime: "Ngược đãi động vật, săn bắt trái phép.", punish: "Bị đàn trâu sắt húc liên hoàn không ngừng nghỉ." },
+            { level: 11, meritPoints: 1100, name: "Địa Ngục Thạch Áp", warden: "Cự Linh Thần Đá", minKarma: -1400, crime: "Vứt bỏ con cái, vô trách nhiệm với sinh mạng.", punish: "Bị tảng đá thiên thạch 100 tấn đè nén trọng lực." },
+            { level: 12, meritPoints: 1200, name: "Địa Ngục Thung Cối", warden: "Quỷ Giã Gạo 8.0", minKarma: -1600, crime: "Lãng phí lương thực, khinh miệt người nghèo khổ.", punish: "Bị cối giã thủy lực nghiền nát rồi tái tạo lại." },
+            { level: 13, meritPoints: 1300, name: "Địa Ngục Huyết Trì", warden: "Huyết Quỷ Vương", minKarma: -1800, crime: "Gây thương tích nghiêm trọng, bất kính bậc tiền bối.", punish: "Ngâm mình trong hồ axit đỏ đặc quánh." },
+            { level: 14, meritPoints: 1400, name: "Địa Ngục Uổng Tử", warden: "Hắc Bạch Vô Thường", minKarma: -2000, crime: "Tự hủy hoại bản thân, coi thường sinh mạng cha mẹ ban cho.", punish: "Đứng giữa tâm bão từ trường xé rách linh thể." },
+            { level: 15, meritPoints: 1500, name: "Địa Ngục Khuynh Phủ", warden: "Quỷ Cắt Xén", minKarma: -2300, crime: "Đào trộm cổ mộ, xâm phạm mồ mả người khuất.", punish: "Bị máy cắt plasma phân tách từng phân tử." },
+            { level: 16, meritPoints: 1600, name: "Địa Ngục Hỏa Sơn", warden: "Dung Nham Hộ Pháp", minKarma: -2600, crime: "Tham ô hối lộ, bòn rút tiền cứu trợ.", punish: "Nhảy xuống miệng núi lửa dung nham 3000°C." },
+            { level: 17, meritPoints: 1700, name: "Địa Ngục Thạch Ma", warden: "Cối Xay Hư Vô", minKarma: -3000, crime: "Lợi dụng lòng tin tâm linh để trục lợi bất chính.", punish: "Bị cối đá khổng lồ nghiền thành bụi lượng tử." },
+            { level: 18, meritPoints: 1800, name: "Địa Ngục Đao Cư (A Tỳ)", warden: "Diêm La Vương Tối Cao", minKarma: -3500, crime: "Tội ác tày trời, phản bội đại nghĩa, gây họa cho nhân loại.", punish: "Chịu toàn bộ hình phạt tổng hợp của 17 tầng trên không có ngày ra." },
+            { level: 19, meritPoints: 1900, name: "U Minh Vô Ảnh", warden: "Sứ Giả Vô Ảnh", minKarma: -4000, crime: "Lừa gạt có hệ thống, lợi dụng người yếu thế và che giấu hậu quả.", punish: "Đối diện hồ sơ sự thật trong Điện Vô Ảnh cho đến khi mọi hành vi được làm sáng tỏ." },
+            { level: 20, meritPoints: 2000, name: "Huyền Ty Địa Phủ", warden: "Chấp Pháp Huyền Ty", minKarma: -4800, crime: "Đe dọa, khống chế, cưỡng ép người khác vì lợi ích cá nhân.", punish: "Bị khóa quyền lực trong kết giới Huyền Ty và phải đối diện lời khai của nạn nhân." },
+            { level: 21, meritPoints: 2100, name: "Vạn Cốt U Lao", warden: "Thống Lĩnh U Lao", minKarma: -5600, crime: "Môi giới mại dâm có cưỡng ép, bóc lột, mua bán người hoặc trục lợi từ người chưa thành niên.", punish: "Bị giam trong U Lao, mọi đường dây và tài sản do bóc lột đều bị tịch thu trong mô phỏng." },
+            { level: 22, meritPoints: 2200, name: "Tỏa Hồn Điện", warden: "Thiết Diện Phán Quan", minKarma: -6500, crime: "Bắt giữ trái phép, cưỡng bức lao động, mua bán hoặc vận chuyển người.", punish: "Mọi xiềng xích quyền lực bị tháo bỏ; hồ sơ từng nạn nhân được khôi phục và ghi nhận." },
+            { level: 23, meritPoints: 2300, name: "Vọng Nghiệp Đài", warden: "Minh Kính Sứ", minKarma: -7500, crime: "Bạo hành nghiêm trọng, đe dọa kéo dài hoặc gây tổn hại sâu sắc cho người khác.", punish: "Xem lại toàn bộ hậu quả và lời chứng trong Vọng Nghiệp Đài, không có cảnh bạo lực đồ họa." },
+            { level: 24, meritPoints: 2400, name: "Cửu U Tịch Cảnh", warden: "Cửu U Đại Tướng", minKarma: -8700, crime: "Xâm hại thân thể, cưỡng ép tình dục hoặc lợi dụng quan hệ lệ thuộc.", punish: "Bị cách ly khỏi mọi quyền tiếp cận nạn nhân và phải trải qua phiên đối chất công minh." },
+            { level: 25, meritPoints: 2500, name: "Huyết Ấn Minh Cung", warden: "Huyết Ấn Giám Quan", minKarma: -10000, crime: "Xâm hại tình dục trong gia đình, bao gồm loạn luân cha và con gái.", punish: "Hồ sơ được niêm phong bằng Huyết Ấn; ưu tiên bảo vệ và phục hồi an toàn cho nạn nhân." },
+            { level: 26, meritPoints: 2600, name: "Thiên La U Võng", warden: "Thiên La Thần Tướng", minKarma: -11500, crime: "Tổ chức, tiếp tay hoặc che giấu hành vi xâm hại và bóc lột người khác.", punish: "Toàn bộ mạng lưới đồng phạm bị phơi bày trước công đường U Minh." },
+            { level: 27, meritPoints: 2700, name: "Vô Gián U Minh", warden: "U Minh Đại Phán Quan", minKarma: -13200, crime: "Xâm hại trẻ em, dụ dỗ, khai thác hoặc tạo điều kiện cho hành vi xâm hại trẻ em.", punish: "Cách ly tuyệt đối khỏi trẻ em; hồ sơ được xử lý nghiêm minh và đặt an toàn của trẻ lên hàng đầu." },
+            { level: 28, meritPoints: 2800, name: "Chung Cực U Minh", warden: "Diêm La U Minh Tối Cao", minKarma: -15000, crime: "Tội ác đặc biệt nghiêm trọng, tái phạm có tổ chức hoặc gây tổn hại lâu dài cho nhiều nạn nhân.", punish: "Phiên phán xét tối cao của Cõi U Minh; không mô tả tra tấn, tập trung vào trách nhiệm và bảo vệ nạn nhân." }
         ];
 const SIN_PRESETS = [
             { label: "Hứa trả nợ rồi sủi", karma: -250, years: 35, hell: 1 },
@@ -743,7 +1014,62 @@ const SIN_PRESETS = [
             { label: "Tham nhũng, ăn bớt, gian lận", description: "Lạm dụng chức quyền, cân đong gian dối, làm ăn bất chính.", karma: -1850, years: 280, hell: 16 },
             { label: "Đào trộm mộ", description: "Xâm phạm mồ mả, làm nhiễu loạn nơi an nghỉ của người đã khuất.", karma: -1450, years: 220, hell: 15 },
             { label: "Lãng phí lương thực", description: "Coi thường hạt gạo, dẫm đạp ngũ cốc hoặc phung phí của cải.", karma: -700, years: 100, hell: 12 },
-            { label: "Sử dụng chất gây nghiện / chất cấm / ma túy (kể cả ma túy đá)", description: "Mục phân loại trong trò chơi, mô phỏng hành vi sử dụng chất gây nghiện và ma túy; không phải kết luận pháp lý hay đánh giá người đang gặp vấn đề lệ thuộc chất.", karma: -1600, years: 240, hell: 13 }
+            { label: "Sử dụng chất gây nghiện / chất cấm / ma túy (kể cả ma túy đá)", description: "Mục phân loại trong trò chơi, mô phỏng hành vi sử dụng chất gây nghiện và ma túy; không phải kết luận pháp lý hay đánh giá người đang gặp vấn đề lệ thuộc chất.", karma: -1600, years: 240, hell: 13 },
+            { label: "Gái ngành bán dâm", description: "Mục trừ Karma theo luật giả tưởng của trò chơi; không phải kết luận pháp lý hay đánh giá giá trị con người.", karma: -900, years: 140, hell: 8 },
+            { label: "Gái mại dâm bán dâm", description: "Mục trừ Karma theo luật giả tưởng của trò chơi; không phải kết luận pháp lý hay đánh giá giá trị con người.", karma: -900, years: 140, hell: 8 },
+            { label: "Môi giới mại dâm có cưỡng ép / bóc lột / mua bán người", description: "Mô phỏng hành vi ép buộc, bóc lột hoặc tổ chức mua bán người; không áp dụng cho hoạt động hỗ trợ tự nguyện, không bóc lột.", karma: -5600, years: 900, hell: 21 },
+            { label: "Loạn luân / xâm hại tình dục cha – con gái", description: "Hành vi xâm hại trong quan hệ gia đình; nội dung được mô tả phi đồ họa và đặt an toàn nạn nhân lên hàng đầu.", karma: -10000, years: 1800, hell: 25 },
+            { label: "Ấu dâm / xâm hại tình dục trẻ em", description: "Hành vi xâm hại, dụ dỗ hoặc khai thác trẻ em; phân loại nghiêm trọng trong cốt truyện, không có mô tả tình dục hay hình ảnh đồ họa.", karma: -13200, years: 2500, hell: 27 },
+            { label: "Lừa đảo chiếm đoạt tài sản", description: "Dùng thủ đoạn gian dối để chiếm đoạt tiền hoặc tài sản của người khác.", karma: -1500, years: 220, hell: 10 },
+            { label: "Lừa đảo đầu tư đa cấp", description: "Dựng mô hình đầu tư gian dối, chiếm đoạt tiền của người tham gia.", karma: -2100, years: 350, hell: 16 },
+            { label: "Làm giả giấy tờ, hồ sơ", description: "Làm giả hoặc sử dụng giấy tờ giả để trục lợi hay gây thiệt hại.", karma: -1300, years: 200, hell: 10 },
+            { label: "Rửa tiền", description: "Che giấu nguồn gốc tài sản do phạm pháp mà có.", karma: -2800, years: 500, hell: 17 },
+            { label: "Buôn lậu hàng hóa", description: "Vận chuyển hoặc kinh doanh hàng hóa trái phép qua biên giới.", karma: -1700, years: 280, hell: 15 },
+            { label: "Trốn thuế có tổ chức", description: "Cố ý gian lận nghĩa vụ thuế với quy mô lớn.", karma: -1900, years: 300, hell: 16 },
+            { label: "Tham ô tài sản công", description: "Chiếm đoạt tài sản được giao quản lý bằng chức vụ hoặc quyền hạn.", karma: -2500, years: 450, hell: 16 },
+            { label: "Nhận hối lộ", description: "Nhận lợi ích để làm sai lệch việc thực thi nhiệm vụ.", karma: -2300, years: 400, hell: 16 },
+            { label: "Đưa hối lộ để trục lợi", description: "Dùng lợi ích vật chất hoặc phi vật chất để mua chuộc người có chức vụ.", karma: -1600, years: 260, hell: 15 },
+            { label: "Lạm dụng tín nhiệm chiếm đoạt tài sản", description: "Vay, mượn hoặc nhận tài sản rồi dùng thủ đoạn chiếm đoạt.", karma: -1450, years: 230, hell: 10 },
+            { label: "Cướp giật tài sản", description: "Công khai hoặc bất ngờ giật lấy tài sản của người khác.", karma: -1750, years: 280, hell: 10 },
+            { label: "Cưỡng đoạt tài sản", description: "Đe dọa hoặc uy hiếp tinh thần để buộc người khác giao tài sản.", karma: -2050, years: 340, hell: 11 },
+            { label: "Đột nhập trái phép", description: "Xâm nhập nhà ở hoặc khu vực riêng tư trái phép.", karma: -900, years: 130, hell: 9 },
+            { label: "Hủy hoại tài sản", description: "Cố ý phá hỏng hoặc làm mất giá trị tài sản của người khác.", karma: -1250, years: 190, hell: 9 },
+            { label: "Gây thương tích", description: "Cố ý gây tổn hại sức khỏe hoặc thân thể người khác.", karma: -2200, years: 380, hell: 18 },
+            { label: "Bạo lực gia đình", description: "Đánh đập, đe dọa, kiểm soát hoặc gây tổn hại thành viên gia đình.", karma: -2300, years: 400, hell: 18 },
+            { label: "Bắt giữ người trái pháp luật", description: "Tước đoạt tự do thân thể của người khác trái phép.", karma: -2700, years: 480, hell: 20 },
+            { label: "Bắt cóc đòi tiền chuộc", description: "Bắt giữ người nhằm uy hiếp và đòi lợi ích.", karma: -5200, years: 900, hell: 23 },
+            { label: "Buôn bán người", description: "Tuyển mộ, vận chuyển hoặc tiếp nhận người nhằm bóc lột.", karma: -6500, years: 1100, hell: 24 },
+            { label: "Cưỡng bức lao động", description: "Ép buộc người khác lao động bằng đe dọa, bạo lực hoặc khống chế.", karma: -4300, years: 750, hell: 22 },
+            { label: "Bóc lột trẻ em", description: "Khai thác sức lao động hoặc lợi dụng trẻ em để trục lợi.", karma: -6800, years: 1200, hell: 27 },
+            { label: "Xâm hại tình dục", description: "Thực hiện hành vi tình dục không có sự đồng thuận.", karma: -8500, years: 1500, hell: 25 },
+            { label: "Quấy rối tình dục", description: "Có hành vi hoặc lời nói mang tính tình dục không được mong muốn.", karma: -2600, years: 420, hell: 20 },
+            { label: "Quay lén, phát tán hình ảnh riêng tư", description: "Xâm phạm quyền riêng tư bằng ghi hình hoặc phát tán trái phép.", karma: -3100, years: 520, hell: 21 },
+            { label: "Tống tiền bằng hình ảnh riêng tư", description: "Đe dọa công bố hình ảnh riêng tư để ép buộc hoặc chiếm đoạt.", karma: -4800, years: 850, hell: 23 },
+            { label: "Lừa đảo tình cảm chiếm đoạt tiền", description: "Lợi dụng quan hệ tình cảm giả tạo để chiếm đoạt tài sản.", karma: -1600, years: 260, hell: 10 },
+            { label: "Vu khống gây hậu quả nghiêm trọng", description: "Bịa đặt thông tin sai sự thật nhằm xâm hại danh dự hoặc quyền lợi.", karma: -1450, years: 220, hell: 8 },
+            { label: "Bắt nạt, bạo lực học đường", description: "Đe dọa, làm nhục hoặc hành hung người học khác.", karma: -1350, years: 210, hell: 8 },
+            { label: "Phân biệt đối xử và kích động thù ghét", description: "Kêu gọi bạo lực hoặc tước quyền người khác vì đặc điểm cá nhân.", karma: -1800, years: 300, hell: 11 },
+            { label: "Đe dọa giết người", description: "Đe dọa nghiêm trọng khiến người khác có căn cứ lo sợ cho tính mạng.", karma: -2500, years: 430, hell: 18 },
+            { label: "Phá hoại công trình công cộng", description: "Cố ý phá hoại hạ tầng hoặc tài sản phục vụ cộng đồng.", karma: -1800, years: 300, hell: 15 },
+            { label: "Phóng hỏa gây nguy hiểm", description: "Cố ý gây cháy nổ, đe dọa tính mạng hoặc tài sản.", karma: -5200, years: 950, hell: 23 },
+            { label: "Sản xuất, buôn bán hàng giả", description: "Sản xuất hoặc phân phối hàng giả gây thiệt hại cho người tiêu dùng.", karma: -1750, years: 280, hell: 12 },
+            { label: "Kinh doanh thực phẩm bẩn", description: "Cố ý đưa thực phẩm không an toàn ra thị trường.", karma: -2400, years: 420, hell: 18 },
+            { label: "Đầu độc nguồn nước", description: "Cố ý làm ô nhiễm nguồn nước gây nguy hại cho cộng đồng.", karma: -6200, years: 1100, hell: 24 },
+            { label: "Đổ chất thải độc hại trái phép", description: "Thải bỏ chất độc hại gây ô nhiễm môi trường.", karma: -3000, years: 550, hell: 20 },
+            { label: "Săn bắt động vật hoang dã trái phép", description: "Săn bắt hoặc buôn bán động vật hoang dã trái phép.", karma: -1900, years: 320, hell: 15 },
+            { label: "Phá rừng trái phép", description: "Chặt phá hoặc hủy hoại rừng gây tổn thất sinh thái.", karma: -2200, years: 380, hell: 15 },
+            { label: "Lạm dụng quyền lực", description: "Dùng quyền hạn để chèn ép, trục lợi hoặc gây hại người khác.", karma: -2100, years: 350, hell: 16 },
+            { label: "Che giấu tội phạm nghiêm trọng", description: "Cố ý giúp người phạm tội trốn tránh trách nhiệm hoặc tiêu hủy chứng cứ.", karma: -1800, years: 300, hell: 16 },
+            { label: "Tiêu hủy chứng cứ", description: "Hủy hoại hoặc làm sai lệch chứng cứ để cản trở việc xác minh.", karma: -1500, years: 240, hell: 15 },
+            { label: "Tổ chức đánh bạc trái phép", description: "Tổ chức hoạt động đánh bạc trái phép để thu lợi.", karma: -1700, years: 280, hell: 13 },
+            { label: "Cho vay nặng lãi và đòi nợ bạo lực", description: "Cho vay với lãi suất bóc lột hoặc dùng bạo lực để đòi nợ.", karma: -2600, years: 450, hell: 18 },
+            { label: "Cưỡng ép kết hôn", description: "Ép buộc người khác kết hôn trái với ý chí tự nguyện.", karma: -2300, years: 400, hell: 20 },
+            { label: "Tảo hôn hoặc tổ chức tảo hôn", description: "Tổ chức hoặc ép buộc kết hôn khi chưa đủ tuổi theo quy định.", karma: -2800, years: 480, hell: 21 },
+            { label: "Bỏ rơi người phụ thuộc trong nguy hiểm", description: "Cố ý bỏ mặc trẻ em, người già hoặc người phụ thuộc đang cần trợ giúp.", karma: -3200, years: 560, hell: 22 },
+            { label: "Ngược đãi người cao tuổi", description: "Hành hạ, bỏ mặc hoặc chiếm đoạt tài sản của người cao tuổi.", karma: -2500, years: 430, hell: 20 },
+            { label: "Ngược đãi người khuyết tật", description: "Lợi dụng, hành hạ hoặc xâm phạm quyền lợi người khuyết tật.", karma: -2600, years: 450, hell: 20 },
+            { label: "Lừa đảo từ thiện", description: "Kêu gọi quyên góp giả mạo hoặc chiếm dụng tiền cứu trợ.", karma: -2200, years: 380, hell: 16 },
+            { label: "Chiếm dụng tiền cứu trợ thiên tai", description: "Biển thủ hàng hóa hoặc tiền hỗ trợ dành cho người gặp nạn.", karma: -3500, years: 620, hell: 21 }
         ];
 
         const SAMPLE_NAMES = ["Trần Văn Báo Thủ", "Đặng Thị Trễ Deadline", "Vũ Hoàng Xù Kèo", "Bùi Minh Ngủ Quên Báo Thức"];
@@ -799,6 +1125,22 @@ const SIN_PRESETS = [
         function renderActivityLog() {
             const el = document.getElementById("activity-list");
             if (!el) return;
+            const guildEvents = activityLog.filter(item => /công hội|nhiệm vụ|thăng cấp|truy bắt|áp giải/i.test(String(item.action || "")));
+            const missionEvents = activityLog.filter(item => /hoàn thành nhiệm vụ truy bắt/i.test(String(item.action || "")));
+            const setText = (id, value) => { const node = document.getElementById(id); if (node) node.textContent = String(value); };
+            setText("activity-stat-total", activityLog.length.toLocaleString("vi-VN"));
+            setText("activity-stat-guild", guildEvents.length.toLocaleString("vi-VN"));
+            setText("activity-stat-missions", missionEvents.length.toLocaleString("vi-VN"));
+            setText("activity-stat-points", (Number(hunterProfile.points) || 0).toLocaleString("vi-VN"));
+            const rankIndex = currentHunterRank();
+            setText("activity-guild-name", hunterProfile.name ? `${hunterProfile.name} • ${hunterProfile.type || "QUỶ SỨ"}` : "Chưa đăng ký");
+            setText("activity-guild-rank", RANKS[rankIndex] ? RANKS[rankIndex].name : "Tân Binh");
+            setText("activity-guild-points", (Number(hunterProfile.points) || 0).toLocaleString("vi-VN"));
+            const historyEl = document.getElementById("guild-history-list");
+            if (historyEl) {
+                const history = Array.isArray(hunterProfile.history) ? hunterProfile.history.slice(0, 8) : [];
+                historyEl.innerHTML = history.length ? history.map(item => `<div class="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-slate-950/70 border border-slate-800 p-2"><div><div class="text-xs text-white font-semibold">${escapeHTML(item.soulName || "Nhiệm vụ truy bắt")}</div><div class="text-[10px] text-slate-500">${escapeHTML(item.difficulty || "Đã hoàn thành")} • ${escapeHTML(formatActivityTime(item.at))}</div></div><span class="text-xs text-amber-300 font-bold">+${Number(item.reward) || 0} công trạng</span></div>`).join("") : '<p class="text-xs text-slate-500">Chưa có nhiệm vụ được ghi nhận.</p>';
+            }
             if (!activityLog.length) { el.innerHTML = '<p class="text-sm text-slate-500">Chưa có hoạt động được ghi nhận.</p>'; return; }
             el.innerHTML = activityLog.map(item => `<div class="v7-activity py-1"><div class="flex flex-wrap justify-between gap-2"><strong class="text-cyan-200 text-xs">${escapeHTML(item.action)}</strong><time class="text-[10px] text-slate-500">${escapeHTML(formatActivityTime(item.at))}</time></div><p class="text-xs text-slate-300 mt-1">${escapeHTML(item.detail)}</p></div>`).join("");
         }
@@ -944,7 +1286,7 @@ const SIN_PRESETS = [
                 s.karma = Number(s.karma) || 0;
                 s.yearsLeft = Math.max(0, Number(s.yearsLeft) || 0);
                 s.totalYears = Math.max(s.yearsLeft, Number(s.totalYears) || s.yearsLeft);
-                s.hellLevel = Math.max(1, Math.min(18, Number(s.hellLevel) || 1));
+                s.hellLevel = Math.max(1, Math.min(28, Number(s.hellLevel) || 1));
                 s.sins = Array.isArray(s.sins) ? s.sins.map(String) : [];
                 s.confession = String(s.confession || "");
                 s.status = ["PUNISHING", "READY_REBORN", "REBORN"].includes(s.status) ? s.status : (s.yearsLeft > 0 ? "PUNISHING" : "READY_REBORN");
@@ -1047,7 +1389,7 @@ const SIN_PRESETS = [
         function renderSinPresets() {
             const container = document.getElementById("sin-presets");
             container.innerHTML = `<div class="w-full flex flex-wrap items-center justify-between gap-2 mb-1">
-                <span class="text-[11px] text-slate-400">Đã chọn: <strong class="text-rose-300">${selectedPresets.size}</strong> tội danh</span>
+                <span class="text-[11px] text-slate-400">Đã chọn: <strong class="text-rose-300">${selectedPresets.size}</strong> mục trong 76 lựa chọn</span>
                 <button type="button" onclick="clearSinPresets()" class="text-[11px] text-cyan-300 underline">Bỏ chọn tất cả</button>
             </div>` + SIN_PRESETS.map((s, idx) => {
                 const active = selectedPresets.has(idx);
@@ -1182,7 +1524,7 @@ const SIN_PRESETS = [
                 document.getElementById("res-karma").textContent = `${record.karma} Karma`;
                 document.getElementById("res-years").textContent = `${record.totalYears} Năm`;
                 document.getElementById("res-hell").textContent = `Tầng ${hellInfo.level}: ${hellInfo.name}`;
-                document.getElementById("res-punishment").textContent = hellInfo.punish;
+                document.getElementById("res-punishment").textContent = `Tội hình: ${hellInfo.crime} Hình phạt mô phỏng: ${hellInfo.punish} Điểm công trạng tham chiếu của tầng: ${hellInfo.meritPoints.toLocaleString("vi-VN")}.`;
                 document.getElementById("res-quote").textContent = `"Lưới trời lồng lộng, tuy thưa mà khó thoát. Áp giải ${record.name} xuống Tầng ${hellInfo.level} giao cho ${hellInfo.warden} thi hành án ngay!"`;
 
                 showToast(`⚖️ Đã phán quyết & lưu hồ sơ #${record.id} vào Sổ Sinh Tử!`);
@@ -1200,7 +1542,11 @@ const SIN_PRESETS = [
         }
 
         function handleGlobalSearch(val) {
-            globalSearchQuery = val.trim().toLowerCase();
+            globalSearchQuery = val.trim().toLocaleLowerCase("vi");
+            const globalInput = document.getElementById("global-search");
+            const ledgerInput = document.getElementById("ledger-search");
+            if (globalInput && globalInput.value !== val) globalInput.value = val;
+            if (ledgerInput && ledgerInput.value !== val) ledgerInput.value = val;
             renderLedger();
         }
 
@@ -1208,6 +1554,16 @@ const SIN_PRESETS = [
             const grid = document.getElementById("ledger-grid");
             const hellFilter = document.getElementById("filter-hell").value;
             const statusFilter = document.getElementById("filter-status").value;
+
+            const validSouls = soulsDB.filter(s => s && !isRestrictedSoulName(s.name));
+            const setCount = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = String(value);
+            };
+            setCount("ledger-stat-total", validSouls.length);
+            setCount("ledger-stat-punishing", validSouls.filter(s => s.status === "PUNISHING").length);
+            setCount("ledger-stat-ready", validSouls.filter(s => s.status === "READY_REBORN").length);
+            setCount("ledger-stat-reborn", validSouls.filter(s => s.status === "REBORN").length);
 
             const filtered = soulsDB.filter(s => {
                 if (isRestrictedSoulName(s.name)) return false;
@@ -1334,8 +1690,8 @@ const SIN_PRESETS = [
 
         function exportDatabase() {
             const payload = {
-                app: "UNDERWORLD OS",
-                version: "9.0",
+                app: "QUỶ MÔN QUAN",
+                version: "10.0",
                 exportedAt: new Date().toISOString(),
                 souls: soulsDB.filter(s => !isRestrictedSoulName(s.name))
             };
@@ -1343,7 +1699,7 @@ const SIN_PRESETS = [
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = `underworld-os-backup-${new Date().toISOString().slice(0,10)}.json`;
+            a.download = `quy-mon-quan-backup-${new Date().toISOString().slice(0,10)}.json`;
             document.body.appendChild(a);
             a.click();
             a.remove();
@@ -1398,10 +1754,12 @@ const SIN_PRESETS = [
                         </span>
                     </div>
                     <h3 class="font-cinzel font-bold text-base text-white">${h.name}</h3>
-                    <p class="text-xs text-slate-400 line-clamp-2">${h.crime}</p>
-                    <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono-tech text-slate-400">
+                    <p class="text-xs text-slate-300"><b class="text-rose-300">Tội hình:</b> ${h.crime}</p>
+                    <p class="text-xs text-slate-400"><b class="text-amber-300">Hình phạt mô phỏng:</b> ${h.punish}</p>
+                    <div class="pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono-tech text-slate-400">
                         <span>👮 ${h.warden}</span>
                         <span class="text-rose-400">${h.minKarma} Karma</span>
+                        <span class="text-emerald-300">🏅 ${h.meritPoints.toLocaleString("vi-VN")} điểm công trạng</span>
                     </div>
                 </div>`;
             }).join("");
@@ -1410,10 +1768,11 @@ const SIN_PRESETS = [
         function openHellModal(level) {
             const h = EIGHTEEN_HELLS[level - 1];
             if (!h) return;
-            document.getElementById("modal-hell-level").textContent = `TẦNG ${h.level} / 18`;
+            document.getElementById("modal-hell-level").textContent = `TẦNG ${h.level} / 28`;
             document.getElementById("modal-hell-name").textContent = h.name;
             document.getElementById("modal-hell-warden").textContent = h.warden;
             document.getElementById("modal-hell-min").textContent = `${h.minKarma} Karma`;
+            document.getElementById("modal-hell-merit").textContent = `${h.meritPoints.toLocaleString("vi-VN")} điểm công trạng`;
             document.getElementById("modal-hell-crime").textContent = h.crime;
             document.getElementById("modal-hell-punish").textContent = h.punish;
 
@@ -1430,8 +1789,25 @@ const SIN_PRESETS = [
             document.getElementById("hell-modal").classList.add("hidden");
         }
 
+        function refreshMeritDashboard() {
+            const active = soulsDB.filter(s => s && !isRestrictedSoulName(s.name) && s.status !== "REBORN");
+            const pending = active.filter(s => Number(s.yearsLeft) > 0);
+            const ready = active.filter(s => Number(s.yearsLeft) <= 0 || s.status === "READY_REBORN");
+            const totalYears = pending.reduce((sum, s) => sum + Math.max(0, Number(s.yearsLeft) || 0), 0);
+            const values = {
+                "merit-stat-pending": pending.length,
+                "merit-stat-ready": ready.length,
+                "merit-stat-years": totalYears.toLocaleString("vi-VN")
+            };
+            Object.entries(values).forEach(([id, value]) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = String(value);
+            });
+        }
+
         function populateMeritSelect() {
             const select = document.getElementById("merit-soul-select");
+            refreshMeritDashboard();
             const candidates = soulsDB.filter(s => !isRestrictedSoulName(s.name) && s.status !== "REBORN");
             if (candidates.length === 0) {
                 select.innerHTML = `<option value="">-- Không có linh hồn chờ xử lý --</option>`;
@@ -1448,6 +1824,7 @@ const SIN_PRESETS = [
             const id = document.getElementById("merit-soul-select").value;
             const s = soulsDB.find(x => x.id === id && !isRestrictedSoulName(x.name));
             const box = document.getElementById("merit-soul-status");
+            refreshMeritDashboard();
             if (!s) {
                 box.textContent = "Chưa có linh hồn được chọn.";
                 return;
@@ -1474,6 +1851,8 @@ const SIN_PRESETS = [
             playSound("merit");
             recordActivity("Nạp công đức", `${s.name} • ${deedTitle} • còn ${s.yearsLeft} năm`);
             saveDatabase();
+            refreshMeritDashboard();
+            updateMeritPreview();
             showToast(`✨ ${deedTitle}: ${s.name} còn ${s.yearsLeft} năm thụ án.`);
         }
 
@@ -1509,16 +1888,60 @@ const SIN_PRESETS = [
 
         // Hệ thống nhiệm vụ truy bắt 9.0 — lưu độc lập, giữ tương thích dữ liệu hồ sơ 8.0.
         const HUNTER_KEY = "UNDERWORLD_OS_9_HUNTER";
+        // 50 chức vị Công Hội — xếp từ thấp đến cao theo tổng công trạng.
         const RANKS = [
             {name:"Tân Binh Tuần Ngục", points:0, title:"Tân binh"},
-            {name:"Quỷ Binh Truy Nã", points:100, title:"Quỷ binh"},
-            {name:"Đội Trưởng Áp Giải", points:300, title:"Đội trưởng"},
-            {name:"Đô Úy Địa Phủ", points:650, title:"Đô úy"},
-            {name:"Phán Quan Truy Bắt", points:1200, title:"Phán quan"},
-            {name:"Thống Lĩnh Thiên Lao", points:2000, title:"Thống lĩnh"},
-            {name:"Đại Nguyên Soái Địa Phủ", points:3500, title:"Đại nguyên soái"}
+            {name:"Quỷ Binh Tập Sự", points:100, title:"Quỷ binh"},
+            {name:"Quỷ Binh Chính Thức", points:250, title:"Quỷ binh"},
+            {name:"Tuần Ngục Viên", points:450, title:"Tuần ngục"},
+            {name:"Tuần Ngục Trưởng", points:700, title:"Tuần ngục trưởng"},
+            {name:"Đội Viên Truy Bắt", points:1000, title:"Đội viên"},
+            {name:"Đội Phó Truy Bắt", points:1400, title:"Đội phó"},
+            {name:"Đội Trưởng Áp Giải", points:1900, title:"Đội trưởng"},
+            {name:"Đội Trưởng Thiết Giáp", points:2500, title:"Thiết giáp"},
+            {name:"Đội Trưởng Tuần Thiên", points:3200, title:"Tuần thiên"},
+            {name:"Đô Úy Địa Phủ", points:4000, title:"Đô úy"},
+            {name:"Phó Đô Úy Truy Nã", points:5000, title:"Phó đô úy"},
+            {name:"Đô Úy Truy Nã", points:6200, title:"Đô úy truy nã"},
+            {name:"Đô Úy Thiên Lao", points:7600, title:"Đô úy thiên lao"},
+            {name:"Giám Ngục Tập Sự", points:9200, title:"Giám ngục"},
+            {name:"Giám Ngục Chính", points:11000, title:"Giám ngục"},
+            {name:"Giám Ngục Trưởng", points:13000, title:"Giám ngục trưởng"},
+            {name:"Phán Quan Tập Sự", points:15500, title:"Phán quan"},
+            {name:"Phán Quan Truy Bắt", points:18500, title:"Phán quan"},
+            {name:"Phán Quan Công Hội", points:22000, title:"Phán quan công hội"},
+            {name:"Phó Chưởng Ty Truy Nã", points:26000, title:"Phó chưởng ty"},
+            {name:"Chưởng Ty Truy Nã", points:30500, title:"Chưởng ty"},
+            {name:"Phó Thống Lĩnh Âm Binh", points:35500, title:"Phó thống lĩnh"},
+            {name:"Thống Lĩnh Âm Binh", points:41000, title:"Thống lĩnh"},
+            {name:"Thống Lĩnh Thiên Lao", points:47000, title:"Thống lĩnh thiên lao"},
+            {name:"Phó Điện Úy", points:54000, title:"Phó điện úy"},
+            {name:"Điện Úy Địa Phủ", points:62000, title:"Điện úy"},
+            {name:"Phó Điện Chủ Công Hội", points:71000, title:"Phó điện chủ"},
+            {name:"Điện Chủ Công Hội", points:81000, title:"Điện chủ"},
+            {name:"Phó Chánh Sứ Âm Ty", points:92000, title:"Phó chánh sứ"},
+            {name:"Chánh Sứ Âm Ty", points:105000, title:"Chánh sứ"},
+            {name:"Phó Đại Phán Quan", points:120000, title:"Phó đại phán quan"},
+            {name:"Đại Phán Quan", points:138000, title:"Đại phán quan"},
+            {name:"Phó Tổng Quản Địa Phủ", points:158000, title:"Phó tổng quản"},
+            {name:"Tổng Quản Địa Phủ", points:180000, title:"Tổng quản"},
+            {name:"Phó Đại Đô Đốc Âm Binh", points:205000, title:"Phó đại đô đốc"},
+            {name:"Đại Đô Đốc Âm Binh", points:235000, title:"Đại đô đốc"},
+            {name:"Phó Nguyên Soái Địa Phủ", points:270000, title:"Phó nguyên soái"},
+            {name:"Nguyên Soái Địa Phủ", points:310000, title:"Nguyên soái"},
+            {name:"Đại Nguyên Soái Địa Phủ", points:355000, title:"Đại nguyên soái"},
+            {name:"Phó Thống Soái U Minh", points:405000, title:"Phó thống soái"},
+            {name:"Thống Soái U Minh", points:460000, title:"Thống soái"},
+            {name:"Đại Thống Soái U Minh", points:520000, title:"Đại thống soái"},
+            {name:"Phó Tổng Trấn Tam Giới", points:590000, title:"Phó tổng trấn"},
+            {name:"Tổng Trấn Tam Giới", points:670000, title:"Tổng trấn"},
+            {name:"Đại Tổng Trấn Âm Ty", points:760000, title:"Đại tổng trấn"},
+            {name:"Phó Minh Vương Công Hội", points:860000, title:"Phó minh vương"},
+            {name:"Minh Vương Công Hội", points:970000, title:"Minh vương"},
+            {name:"Đại Minh Vương U Minh", points:1100000, title:"Đại minh vương"},
+            {name:"Chí Tôn Thống Ngự U Minh", points:1250000, title:"Chí tôn thống ngự"}
         ];
-        let hunterProfile = {name:"", type:"QUỶ SỨ", points:0, completed:0, rank:0, history:[]};
+        let hunterProfile = {name:"", type:"Quỷ Binh Địa Ngục", points:0, completed:0, rank:0, history:[]};
         function loadHunterProfile() {
             try { const saved=JSON.parse(localStorage.getItem(HUNTER_KEY)||"null"); if(saved && typeof saved==="object") hunterProfile={...hunterProfile,...saved}; } catch(e) {}
         }
@@ -1527,8 +1950,25 @@ const SIN_PRESETS = [
             const name=document.getElementById("hunter-name").value.trim();
             if(!name) return showToast("Hãy nhập tên quỷ sứ hoặc linh hồn tình nguyện.");
             hunterProfile.name=name; hunterProfile.type=document.getElementById("hunter-type").value;
-            saveHunterProfile(); renderMissionBoard(); showToast(`Đã đăng ký ${name} vào Công Hội Truy Bắt.`);
+            saveHunterProfile(); renderMissionBoard(); showToast(`Đã đăng ký ${name} • ${hunterProfile.type} vào Công Hội Quỷ Sứ & Linh Hồn Lập Công.`);
             recordActivity("Đăng ký Công Hội Truy Bắt",`${name} • ${hunterProfile.type}`);
+            renderActivityLog();
+        }
+        function bountyForFloor(level) {
+            const floor = Math.min(28, Math.max(1, Number(level) || 1));
+            return floor * 500;
+        }
+        function renderBountyFloorTable() {
+            const el = document.getElementById("bounty-floor-table");
+            if (!el) return;
+            el.innerHTML = Array.from({length:28}, (_,i) => {
+                const floor=i+1, reward=bountyForFloor(floor);
+                return `<div class="rounded-lg border border-slate-800 bg-slate-900/80 p-2 text-center">
+                    <div class="text-[10px] text-slate-400">TẦNG ${floor}</div>
+                    <div class="text-xs font-bold text-amber-300 mt-1">🎁 ${reward.toLocaleString("vi-VN")}</div>
+                    <div class="text-[9px] text-slate-500">công trạng</div>
+                </div>`;
+            }).join("");
         }
         function missionDifficulty(soul) {
             const severity=Math.max(Math.abs(Number(soul.karma)||0),Number(soul.yearsLeft)||0*5,Number(soul.hellLevel)||1*100);
@@ -1543,16 +1983,20 @@ const SIN_PRESETS = [
         function renderMissionBoard() {
             const points=document.getElementById("hunter-points"); if(!points) return;
             document.getElementById("hunter-name").value=hunterProfile.name||"";
-            document.getElementById("hunter-type").value=hunterProfile.type||"QUỶ SỨ";
+            const typeSelect=document.getElementById("hunter-type");
+            const savedType=hunterProfile.type||"Quỷ Binh Địa Ngục";
+            typeSelect.value=[...typeSelect.options].some(o=>o.value===savedType)?savedType:
+                (savedType==="LINH HỒN"?"Linh Hồn Tình Nguyện":"Quỷ Binh Địa Ngục");
             const rank=currentHunterRank(); hunterProfile.rank=rank;
             points.textContent=(Number(hunterProfile.points)||0).toLocaleString("vi-VN");
             document.getElementById("hunter-rank").textContent=RANKS[rank].name;
             document.getElementById("hunter-done").textContent=Number(hunterProfile.completed)||0;
+            renderBountyFloorTable();
             const board=document.getElementById("mission-board");
             const targets=soulsDB.filter(s=>!isRestrictedSoulName(s.name)&&s.status==="PUNISHING"&&!s.capturedBy);
             board.innerHTML=targets.length?targets.map(s=>{
-                const d=missionDifficulty(s), h=EIGHTEEN_HELLS[(s.hellLevel||1)-1]||EIGHTEEN_HELLS[0];
-                return `<article class="bg-slate-950/70 border border-slate-700 rounded-xl p-4 space-y-2"><div class="flex justify-between gap-2"><span class="text-xs font-mono-tech text-cyan-300">TRUY NÃ #${escapeHTML(s.id)}</span><strong class="text-xs ${d.color}">${d.name}</strong></div><h4 class="font-bold text-white">${escapeHTML(s.name)}</h4><p class="text-xs text-slate-400">${escapeHTML(d.detail)}</p><div class="text-xs text-rose-300">Bàn giao: Tầng ${h.level} — ${escapeHTML(h.name)}</div><div class="flex justify-between text-xs"><span class="text-amber-300">🎁 ${d.reward} công trạng</span><span class="text-slate-400">${s.yearsLeft} năm án • ${Math.abs(s.karma)} Karma</span></div><button onclick="completeCaptureMission('${String(s.id).replace(/'/g,"\'")}')" class="w-full mt-1 rounded-lg py-2.5 bg-gradient-to-r from-amber-600/30 to-rose-600/30 border border-amber-400/40 text-amber-100 font-bold text-xs">⚔️ Nhận & hoàn thành áp giải</button></article>`;
+                const d=missionDifficulty(s), h=EIGHTEEN_HELLS[(s.hellLevel||1)-1]||EIGHTEEN_HELLS[0], reward=bountyForFloor(h.level);
+                return `<article class="bg-slate-950/70 border border-slate-700 rounded-xl p-4 space-y-2"><div class="flex justify-between gap-2"><span class="text-xs font-mono-tech text-cyan-300">TRUY NÃ #${escapeHTML(s.id)}</span><strong class="text-xs ${d.color}">${d.name}</strong></div><h4 class="font-bold text-white">${escapeHTML(s.name)}</h4><p class="text-xs text-slate-400">${escapeHTML(d.detail)}</p><div class="text-xs text-rose-300">Bàn giao: Tầng ${h.level} — ${escapeHTML(h.name)}</div><div class="flex justify-between text-xs"><span class="text-amber-300">🎁 ${reward.toLocaleString("vi-VN")} công trạng</span><span class="text-slate-400">${s.yearsLeft} năm án • ${Math.abs(s.karma)} Karma</span></div><button onclick="completeCaptureMission('${String(s.id).replace(/'/g,"\'")}')" class="w-full mt-1 rounded-lg py-2.5 bg-gradient-to-r from-amber-600/30 to-rose-600/30 border border-amber-400/40 text-amber-100 font-bold text-xs">⚔️ Nhận & hoàn thành áp giải</button></article>`;
             }).join(""):'<div class="col-span-full text-center text-sm text-slate-500 p-6">Hiện không còn phạm nhân mới trong bảng truy nã. Hãy lập hồ sơ tại Tòa Án để tạo nhiệm vụ.</div>';
             document.getElementById("rank-roadmap").innerHTML=RANKS.map((r,i)=>`<div class="rounded-lg border ${i===rank?'border-amber-400 bg-amber-500/10':'border-slate-700 bg-slate-950/60'} p-3"><div class="text-xs text-cyan-200">${r.name}</div><div class="text-[11px] text-slate-400 mt-1">Mốc ${r.points.toLocaleString("vi-VN")} công trạng</div>${i===rank?'<div class="text-[10px] text-amber-300 mt-1">★ CẤP BẬC HIỆN TẠI</div>':''}</div>`).join("");
             saveHunterProfile();
@@ -1561,15 +2005,15 @@ const SIN_PRESETS = [
             if(!hunterProfile.name) return showToast("Hãy đăng ký tên người nhận nhiệm vụ trước.");
             const soul=soulsDB.find(s=>String(s.id)===String(id)&&!isRestrictedSoulName(s.name));
             if(!soul||soul.status!=="PUNISHING"||soul.capturedBy) return showToast("Nhiệm vụ không còn khả dụng hoặc đã được hoàn thành.");
-            const d=missionDifficulty(soul), oldRank=currentHunterRank();
+            const d=missionDifficulty(soul), reward=bountyForFloor(soul.hellLevel), oldRank=currentHunterRank();
             soul.capturedBy=hunterProfile.name; soul.capturedAt=new Date().toISOString(); soul.captureStatus="DELIVERED";
-            hunterProfile.points=(Number(hunterProfile.points)||0)+d.points; hunterProfile.completed=(Number(hunterProfile.completed)||0)+1;
+            hunterProfile.points=(Number(hunterProfile.points)||0)+reward; hunterProfile.completed=(Number(hunterProfile.completed)||0)+1;
             hunterProfile.history=Array.isArray(hunterProfile.history)?hunterProfile.history:[];
-            hunterProfile.history.unshift({soulId:soul.id,soulName:soul.name,difficulty:d.name,reward:d.points,at:new Date().toISOString()});
+            hunterProfile.history.unshift({soulId:soul.id,soulName:soul.name,difficulty:d.name,reward,at:new Date().toISOString()});
             const newRank=currentHunterRank(); hunterProfile.rank=newRank;
-            recordActivity("Hoàn thành nhiệm vụ truy bắt",`${hunterProfile.name} (${hunterProfile.type}) áp giải ${soul.name} về tầng ${soul.hellLevel} • +${d.points} công trạng`);
+            recordActivity("Hoàn thành nhiệm vụ truy bắt",`${hunterProfile.name} (${hunterProfile.type}) áp giải ${soul.name} về tầng ${soul.hellLevel} • +${reward} công trạng`);
             saveDatabase(); saveHunterProfile(); renderMissionBoard(); playSound("merit");
-            showToast(newRank>oldRank?`🏅 Hoàn thành nhiệm vụ! Thăng cấp: ${RANKS[newRank].name}. +${d.points} công trạng.`:`⚔️ Áp giải thành công! Nhận +${d.points} công trạng.`);
+            showToast(newRank>oldRank?`🏅 Hoàn thành nhiệm vụ! Thăng cấp: ${RANKS[newRank].name}. +${reward.toLocaleString("vi-VN")} công trạng.`:`⚔️ Áp giải thành công! Nhận +${reward.toLocaleString("vi-VN")} công trạng.`);
         }
 
         function switchTab(tabName) {
