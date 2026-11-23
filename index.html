@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNDERWORLD OS 8.0 | Hệ Thống Quản Lý Âm Phủ & Phán Quyết Nghiệp Lực</title>
+    <title>UNDERWORLD OS 9.0 | Hệ Thống Quản Lý Âm Phủ & Phán Quyết Nghiệp Lực</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -127,13 +127,13 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h1 class="font-cinzel font-extrabold text-base sm:text-xl tracking-wider bg-gradient-to-r from-rose-500 via-amber-300 to-cyan-400 bg-clip-text text-transparent">
-                            UNDERWORLD OS 8.0
+                            UNDERWORLD OS 9.0
                         </h1>
                         <span class="text-[10px] font-mono-tech px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 border border-rose-500/40 animate-pulse">
                             LIVE • AI-CORE
                         </span>
                     </div>
-                    <p class="text-[11px] text-slate-400 font-mono-tech">UNDERWORLD OS 8.0 • Hệ điều hành quản lý âm phủ</p>
+                    <p class="text-[11px] text-slate-400 font-mono-tech">UNDERWORLD OS 9.0 • Hệ điều hành quản lý âm phủ</p>
                 </div>
             </div>
 
@@ -204,6 +204,9 @@
             <button onclick="switchTab('activity')" id="tab-activity" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
                 <span>🧾</span> Nhật Ký Hệ Thống
             </button>
+            <button onclick="switchTab('missions')" id="tab-missions" class="tab-btn px-4 py-2.5 rounded-xl border border-amber-500/30 text-xs sm:text-sm font-semibold text-amber-200 hover:text-white transition flex items-center gap-2">
+                <span>🎖️</span> Nhiệm Vụ Truy Bắt
+            </button>
         </nav>
 
         <!-- TAB 0: TRUNG TÂM ĐIỀU HÀNH 8.0 -->
@@ -211,7 +214,7 @@
             <div class="glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
-                        <p class="text-[10px] font-mono-tech text-cyan-300 tracking-[.25em]">COMMAND CENTER / RELEASE 8.0</p>
+                        <p class="text-[10px] font-mono-tech text-cyan-300 tracking-[.25em]">COMMAND CENTER / RELEASE 9.0</p>
                         <h2 class="font-cinzel text-xl sm:text-2xl font-extrabold text-white mt-1">TRUNG TÂM ĐIỀU HÀNH ĐỊA PHỦ</h2>
                         <p class="text-xs text-slate-400 mt-1">Theo dõi hồ sơ, trạng thái thi hành án và lịch sử thao tác trên thiết bị</p>
                     </div>
@@ -420,7 +423,7 @@
         <section id="view-hells" class="hidden space-y-4">
             <div class="glass-panel rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 neon-border-crimson">
                 <div>
-                    <h2 class="font-cinzel font-bold text-lg text-rose-400">THẬP BÁT TẦNG ĐỊA NGỤC HỆ THỐNG 8.0</h2>
+                    <h2 class="font-cinzel font-bold text-lg text-rose-400">THẬP BÁT TẦNG ĐỊA NGỤC HỆ THỐNG 9.0</h2>
                     <p class="text-xs text-slate-400">Nhấn vào từng tầng để xem Cai Ngục AI phụ trách, cơ chế trừng phạt và danh sách phạm nhân đang giam giữ</p>
                 </div>
                 <span class="text-xs font-mono-tech px-3 py-1 rounded-full bg-rose-500/15 text-rose-300 border border-rose-500/30">
@@ -470,7 +473,7 @@
 
             <div class="lg:col-span-6 glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan space-y-4">
                 <div class="border-b border-slate-800 pb-3">
-                    <h2 class="font-cinzel font-bold text-lg text-cyan-400">🍵 QUÁN TRÀ MẠNH BÀ 8.0 (XÓA KÝ ỨC)</h2>
+                    <h2 class="font-cinzel font-bold text-lg text-cyan-400">🍵 QUÁN TRÀ MẠNH BÀ 9.0 (XÓA KÝ ỨC)</h2>
                     <p class="text-xs text-slate-400">Chỉ dành cho linh hồn đã mãn hạn hình phạt (0 năm còn lại)</p>
                 </div>
 
@@ -512,6 +515,35 @@
             </div>
         </section>
     </main>
+        <!-- TAB 6: NHIỆM VỤ TRUY BẮT & THĂNG QUAN -->
+        <section id="view-missions" class="hidden space-y-4">
+            <div class="glass-panel rounded-2xl p-5 neon-border-gold">
+                <p class="text-[10px] font-mono-tech tracking-widest text-amber-300">UNDERWORLD BOUNTY GUILD • RELEASE 9.0</p>
+                <h2 class="font-cinzel text-xl font-extrabold text-white mt-1">🎖️ CÔNG HỘI QUỶ SỨ & LINH HỒN LẬP CÔNG</h2>
+                <p class="text-xs text-slate-400 mt-2">Quỷ sứ hoặc linh hồn tình nguyện nhận nhiệm vụ truy bắt, áp giải phạm nhân về đúng tầng giam giữ. Nhiệm vụ càng khó, công trạng và phần thưởng càng cao.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
+                    <label class="text-xs text-slate-300">Tên người nhận nhiệm vụ
+                        <input id="hunter-name" maxlength="60" placeholder="VD: Quỷ Sứ Hắc Phong" class="mt-1 w-full bg-slate-950 border border-amber-500/30 rounded-lg p-3 text-white">
+                    </label>
+                    <label class="text-xs text-slate-300">Thân phận
+                        <select id="hunter-type" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white"><option value="QUỶ SỨ">Quỷ sứ</option><option value="LINH HỒN">Linh hồn tình nguyện</option></select>
+                    </label>
+                    <div class="flex items-end"><button onclick="registerHunter()" class="w-full rounded-lg p-3 bg-amber-500/20 border border-amber-400/40 text-amber-200 font-bold text-sm">✚ Đăng ký / Đồng bộ hồ sơ</button></div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="glass-panel rounded-xl p-4"><div class="text-xs text-slate-400">CÔNG TRẠNG</div><div id="hunter-points" class="text-2xl text-amber-300 font-extrabold">0</div></div>
+                <div class="glass-panel rounded-xl p-4"><div class="text-xs text-slate-400">CẤP BẬC HIỆN TẠI</div><div id="hunter-rank" class="text-lg text-cyan-300 font-bold">Tân Binh</div></div>
+                <div class="glass-panel rounded-xl p-4"><div class="text-xs text-slate-400">NHIỆM VỤ HOÀN THÀNH</div><div id="hunter-done" class="text-2xl text-emerald-300 font-extrabold">0</div></div>
+            </div>
+            <div class="glass-panel rounded-2xl p-4">
+                <div class="flex flex-wrap justify-between gap-2 items-center"><h3 class="font-cinzel text-amber-300 font-bold">BẢNG TRUY NÃ & NHIỆM VỤ</h3><span class="v7-chip">Dễ → Trung bình → Khó → Truy nã đặc biệt</span></div>
+                <p class="text-[11px] text-slate-400 mt-1 mb-3">Chỉ hồ sơ đang chịu phạt mới xuất hiện. Hoàn thành một nhiệm vụ sẽ ghi nhận người áp giải, khóa thưởng chống nhận lặp và cập nhật nhật ký.</p>
+                <div id="mission-board" class="grid grid-cols-1 lg:grid-cols-2 gap-3"></div>
+            </div>
+            <div class="glass-panel rounded-2xl p-4"><h3 class="font-cinzel text-cyan-300 font-bold mb-2">🏅 LỘ TRÌNH THĂNG CẤP & PHONG QUAN</h3><div id="rank-roadmap" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"></div></div>
+        </section>
+
     <!-- MODAL CHI TIẾT TẦNG ĐỊA NGỤC -->
     <div id="hell-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="glass-panel neon-border-crimson max-w-lg w-full rounded-2xl p-6 space-y-4 relative">
@@ -559,7 +591,7 @@
         <div class="glass-panel neon-border-cyan w-full max-w-xl max-h-[92vh] overflow-y-auto rounded-2xl p-4 sm:p-6 space-y-4">
             <div class="flex items-center justify-between gap-3 border-b border-slate-700 pb-3">
                 <div>
-                    <p class="text-[10px] font-mono-tech text-cyan-400">HỒ SƠ LINH HỒN • VERSION 8.0</p>
+                    <p class="text-[10px] font-mono-tech text-cyan-400">HỒ SƠ LINH HỒN • VERSION 9.0</p>
                     <h3 id="profile-title" class="font-cinzel text-lg font-bold text-white">Chi tiết hồ sơ</h3>
                 </div>
                 <button onclick="closeProfileModal()" class="rounded-lg px-3 py-2 bg-slate-800 text-slate-300">✕ Đóng</button>
@@ -735,6 +767,7 @@ const SIN_PRESETS = [
 
         document.addEventListener("DOMContentLoaded", () => {
             initClock();
+            loadHunterProfile();
             renderSinPresets();
             populateHellFilter();
             loadDatabase();
@@ -1302,7 +1335,7 @@ const SIN_PRESETS = [
         function exportDatabase() {
             const payload = {
                 app: "UNDERWORLD OS",
-                version: "8.0",
+                version: "9.0",
                 exportedAt: new Date().toISOString(),
                 souls: soulsDB.filter(s => !isRestrictedSoulName(s.name))
             };
@@ -1474,8 +1507,73 @@ const SIN_PRESETS = [
             showToast(`🍵 ${s.name} đã uống xong Trà Mạnh Bà và bước qua Cầu Nại Hà!`);
         }
 
+        // Hệ thống nhiệm vụ truy bắt 9.0 — lưu độc lập, giữ tương thích dữ liệu hồ sơ 8.0.
+        const HUNTER_KEY = "UNDERWORLD_OS_9_HUNTER";
+        const RANKS = [
+            {name:"Tân Binh Tuần Ngục", points:0, title:"Tân binh"},
+            {name:"Quỷ Binh Truy Nã", points:100, title:"Quỷ binh"},
+            {name:"Đội Trưởng Áp Giải", points:300, title:"Đội trưởng"},
+            {name:"Đô Úy Địa Phủ", points:650, title:"Đô úy"},
+            {name:"Phán Quan Truy Bắt", points:1200, title:"Phán quan"},
+            {name:"Thống Lĩnh Thiên Lao", points:2000, title:"Thống lĩnh"},
+            {name:"Đại Nguyên Soái Địa Phủ", points:3500, title:"Đại nguyên soái"}
+        ];
+        let hunterProfile = {name:"", type:"QUỶ SỨ", points:0, completed:0, rank:0, history:[]};
+        function loadHunterProfile() {
+            try { const saved=JSON.parse(localStorage.getItem(HUNTER_KEY)||"null"); if(saved && typeof saved==="object") hunterProfile={...hunterProfile,...saved}; } catch(e) {}
+        }
+        function saveHunterProfile() { try { localStorage.setItem(HUNTER_KEY,JSON.stringify(hunterProfile)); } catch(e) {} }
+        function registerHunter() {
+            const name=document.getElementById("hunter-name").value.trim();
+            if(!name) return showToast("Hãy nhập tên quỷ sứ hoặc linh hồn tình nguyện.");
+            hunterProfile.name=name; hunterProfile.type=document.getElementById("hunter-type").value;
+            saveHunterProfile(); renderMissionBoard(); showToast(`Đã đăng ký ${name} vào Công Hội Truy Bắt.`);
+            recordActivity("Đăng ký Công Hội Truy Bắt",`${name} • ${hunterProfile.type}`);
+        }
+        function missionDifficulty(soul) {
+            const severity=Math.max(Math.abs(Number(soul.karma)||0),Number(soul.yearsLeft)||0*5,Number(soul.hellLevel)||1*100);
+            if ((Number(soul.hellLevel)||1)>=15 || Math.abs(Number(soul.karma)||0)>=2200 || Number(soul.yearsLeft)>=450) return {name:"Truy nã đặc biệt",color:"text-fuchsia-300",reward:500,points:500,detail:"Mục tiêu nguy hiểm cấp cao, cần đội áp giải tinh nhuệ"};
+            if ((Number(soul.hellLevel)||1)>=9 || Math.abs(Number(soul.karma)||0)>=1000 || Number(soul.yearsLeft)>=160) return {name:"Khó",color:"text-rose-300",reward:250,points:250,detail:"Phạm nhân có hồ sơ nghiệp lực lớn, yêu cầu áp giải có kiểm soát"};
+            if ((Number(soul.hellLevel)||1)>=4 || Math.abs(Number(soul.karma)||0)>=400 || Number(soul.yearsLeft)>=50) return {name:"Trung bình",color:"text-amber-300",reward:100,points:100,detail:"Cần truy tìm và bàn giao đúng tầng"};
+            return {name:"Dễ",color:"text-emerald-300",reward:40,points:40,detail:"Nhiệm vụ tuần tra, xác minh và áp giải cơ bản"};
+        }
+        function currentHunterRank() {
+            let idx=0; RANKS.forEach((r,i)=>{if(hunterProfile.points>=r.points) idx=i;}); return idx;
+        }
+        function renderMissionBoard() {
+            const points=document.getElementById("hunter-points"); if(!points) return;
+            document.getElementById("hunter-name").value=hunterProfile.name||"";
+            document.getElementById("hunter-type").value=hunterProfile.type||"QUỶ SỨ";
+            const rank=currentHunterRank(); hunterProfile.rank=rank;
+            points.textContent=(Number(hunterProfile.points)||0).toLocaleString("vi-VN");
+            document.getElementById("hunter-rank").textContent=RANKS[rank].name;
+            document.getElementById("hunter-done").textContent=Number(hunterProfile.completed)||0;
+            const board=document.getElementById("mission-board");
+            const targets=soulsDB.filter(s=>!isRestrictedSoulName(s.name)&&s.status==="PUNISHING"&&!s.capturedBy);
+            board.innerHTML=targets.length?targets.map(s=>{
+                const d=missionDifficulty(s), h=EIGHTEEN_HELLS[(s.hellLevel||1)-1]||EIGHTEEN_HELLS[0];
+                return `<article class="bg-slate-950/70 border border-slate-700 rounded-xl p-4 space-y-2"><div class="flex justify-between gap-2"><span class="text-xs font-mono-tech text-cyan-300">TRUY NÃ #${escapeHTML(s.id)}</span><strong class="text-xs ${d.color}">${d.name}</strong></div><h4 class="font-bold text-white">${escapeHTML(s.name)}</h4><p class="text-xs text-slate-400">${escapeHTML(d.detail)}</p><div class="text-xs text-rose-300">Bàn giao: Tầng ${h.level} — ${escapeHTML(h.name)}</div><div class="flex justify-between text-xs"><span class="text-amber-300">🎁 ${d.reward} công trạng</span><span class="text-slate-400">${s.yearsLeft} năm án • ${Math.abs(s.karma)} Karma</span></div><button onclick="completeCaptureMission('${String(s.id).replace(/'/g,"\'")}')" class="w-full mt-1 rounded-lg py-2.5 bg-gradient-to-r from-amber-600/30 to-rose-600/30 border border-amber-400/40 text-amber-100 font-bold text-xs">⚔️ Nhận & hoàn thành áp giải</button></article>`;
+            }).join(""):'<div class="col-span-full text-center text-sm text-slate-500 p-6">Hiện không còn phạm nhân mới trong bảng truy nã. Hãy lập hồ sơ tại Tòa Án để tạo nhiệm vụ.</div>';
+            document.getElementById("rank-roadmap").innerHTML=RANKS.map((r,i)=>`<div class="rounded-lg border ${i===rank?'border-amber-400 bg-amber-500/10':'border-slate-700 bg-slate-950/60'} p-3"><div class="text-xs text-cyan-200">${r.name}</div><div class="text-[11px] text-slate-400 mt-1">Mốc ${r.points.toLocaleString("vi-VN")} công trạng</div>${i===rank?'<div class="text-[10px] text-amber-300 mt-1">★ CẤP BẬC HIỆN TẠI</div>':''}</div>`).join("");
+            saveHunterProfile();
+        }
+        function completeCaptureMission(id) {
+            if(!hunterProfile.name) return showToast("Hãy đăng ký tên người nhận nhiệm vụ trước.");
+            const soul=soulsDB.find(s=>String(s.id)===String(id)&&!isRestrictedSoulName(s.name));
+            if(!soul||soul.status!=="PUNISHING"||soul.capturedBy) return showToast("Nhiệm vụ không còn khả dụng hoặc đã được hoàn thành.");
+            const d=missionDifficulty(soul), oldRank=currentHunterRank();
+            soul.capturedBy=hunterProfile.name; soul.capturedAt=new Date().toISOString(); soul.captureStatus="DELIVERED";
+            hunterProfile.points=(Number(hunterProfile.points)||0)+d.points; hunterProfile.completed=(Number(hunterProfile.completed)||0)+1;
+            hunterProfile.history=Array.isArray(hunterProfile.history)?hunterProfile.history:[];
+            hunterProfile.history.unshift({soulId:soul.id,soulName:soul.name,difficulty:d.name,reward:d.points,at:new Date().toISOString()});
+            const newRank=currentHunterRank(); hunterProfile.rank=newRank;
+            recordActivity("Hoàn thành nhiệm vụ truy bắt",`${hunterProfile.name} (${hunterProfile.type}) áp giải ${soul.name} về tầng ${soul.hellLevel} • +${d.points} công trạng`);
+            saveDatabase(); saveHunterProfile(); renderMissionBoard(); playSound("merit");
+            showToast(newRank>oldRank?`🏅 Hoàn thành nhiệm vụ! Thăng cấp: ${RANKS[newRank].name}. +${d.points} công trạng.`:`⚔️ Áp giải thành công! Nhận +${d.points} công trạng.`);
+        }
+
         function switchTab(tabName) {
-            ["dashboard", "court", "ledger", "hells", "mengpo", "activity"].forEach(t => {
+            ["dashboard", "court", "ledger", "hells", "mengpo", "activity", "missions"].forEach(t => {
                 document.getElementById(`view-${t}`).classList.add("hidden");
                 document.getElementById(`tab-${t}`).classList.remove("active");
                 document.getElementById(`tab-${t}`).classList.add("text-slate-300");
@@ -1486,6 +1584,7 @@ const SIN_PRESETS = [
 
             if (tabName === "dashboard") renderDashboard();
             if (tabName === "activity") renderActivityLog();
+            if (tabName === "missions") renderMissionBoard();
             if (tabName === "ledger") renderLedger();
             if (tabName === "hells") renderHellsMap();
             if (tabName === "mengpo") populateMeritSelect();

@@ -1,4 +1,4 @@
-name: Deploy UNDERWORLD OS to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: github-pages
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload site files
+      - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .

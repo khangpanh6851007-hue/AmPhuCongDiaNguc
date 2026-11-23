@@ -1,53 +1,73 @@
-# 🔥 UNDERWORLD OS 8.0
+# UNDERWORLD OS 9.0
 
-**Hệ điều hành quản lý Âm phủ & mô phỏng phán quyết nghiệp lực**  
-Phiên bản: **8.0** · Cập nhật tài liệu: **2026** · Ngôn ngữ giao diện: **Tiếng Việt**
+**Hệ thống quản lý Âm Phủ & Công Hội Quỷ Sứ – Linh Hồn Lập Công**
 
-UNDERWORLD OS là ứng dụng web mô phỏng thế giới Âm phủ theo phong cách cyberpunk. Ứng dụng cung cấp bảng điều khiển, màn hình xét xử giả lập, sổ sinh tử, bản đồ 18 tầng địa ngục, khu vực Mạnh Bà và nhật ký hoạt động.
-
-> **Lưu ý:** Đây là dự án mô phỏng/giải trí. Điểm nghiệp lực, tội danh, thời hạn và hình phạt trong ứng dụng là dữ liệu hư cấu, không phải đánh giá đạo đức, kết luận pháp lý hay tư vấn chuyên môn về bất kỳ cá nhân nào.
+UNDERWORLD OS 9.0 là ứng dụng web mô phỏng quản lý hồ sơ linh hồn, 18 tầng Địa Ngục, công đức, đầu thai và hệ thống nhiệm vụ truy bắt phạm nhân. Giao diện tiếng Việt, phong cách dark fantasy/neon, hỗ trợ màn hình máy tính và điện thoại.
 
 ## ✨ Tính năng
 
-- **Tổng quan:** hiển thị số liệu linh hồn, trạng thái và chỉ số nghiệp lực.
-- **Tòa Án Diêm Vương AI:** nhập thông tin và thực hiện quy trình phán quyết mô phỏng.
-- **Sổ Sinh Tử điện tử:** tạo, xem, chỉnh sửa và quản lý hồ sơ; tìm kiếm theo tên, mã hồ sơ, tội danh hoặc lời khai.
-- **Lọc & sắp xếp:** lọc theo tầng địa ngục/trạng thái; sắp xếp theo mới nhất, cũ nhất, nghiệp lực, thời hạn hoặc tên.
-- **Quản lý hàng loạt:** chọn nhiều hồ sơ và cập nhật trạng thái cùng lúc.
-- **Bản đồ 18 tầng địa ngục:** xem thông tin từng tầng, cai ngục và hình phạt mô phỏng.
-- **Quán Trà Mạnh Bà:** khu vực mô phỏng quy trình uống trà và đầu thai.
-- **Nhật ký hệ thống:** theo dõi hoạt động và xuất nhật ký.
-- **Sao lưu & khôi phục:** xuất/nhập dữ liệu hồ sơ bằng JSON; xuất danh sách hồ sơ dạng CSV.
-- **Giao diện responsive:** hỗ trợ màn hình máy tính và thiết bị di động.
+### Trung tâm điều hành
+- Thống kê hồ sơ, trạng thái thi hành án và nghiệp lực.
+- Theo dõi hoạt động gần đây.
+- Truy cập nhanh các phân hệ.
+
+### Tòa án Diêm Vương AI
+- Tạo hồ sơ mô phỏng từ tên, tuổi, tội danh và lời khai.
+- Tính nghiệp lực, thời hạn án và tầng giam giữ theo dữ liệu trò chơi.
+- Có danh sách tên bị hạn chế ghi hồ sơ trong ứng dụng.
+
+### Sổ Sinh Tử điện tử
+- Tìm kiếm, lọc theo tầng và trạng thái; sắp xếp hồ sơ.
+- Xem, chỉnh sửa và xóa hồ sơ.
+- Chọn nhiều hồ sơ để cập nhật trạng thái.
+- Sao lưu/khôi phục JSON và xuất CSV.
+
+### Bản đồ 18 tầng Địa Ngục
+- Xem thông tin từng tầng, cai ngục, mô tả và hồ sơ đang được ghi nhận tại tầng đó.
+
+### Quán Trà Mạnh Bà & Nạp Công Đức
+- Thực hiện hoạt động công đức để giảm số năm án trong mô phỏng.
+- Khi đủ điều kiện, cấp vé đầu thai và ghi nhận lựa chọn trà.
+
+### 🎖️ Công Hội Quỷ Sứ & Linh Hồn Lập Công (mới ở 9.0)
+- Đăng ký người nhận nhiệm vụ với thân phận **Quỷ sứ** hoặc **Linh hồn tình nguyện**.
+- Bảng truy nã lấy các hồ sơ đang ở trạng thái chịu phạt và chưa được ghi nhận áp giải.
+- Nhiệm vụ tự phân loại theo hồ sơ: Dễ, Trung bình, Khó và Truy nã đặc biệt.
+- Thưởng công trạng tăng theo độ khó: **40 / 100 / 250 / 500**.
+- Ghi nhận người áp giải, thời điểm hoàn thành, lịch sử nhiệm vụ và nhật ký hệ thống.
+- Công trạng tự động xét cấp bậc theo các mốc sau:
+
+| Cấp bậc | Mốc công trạng |
+|---|---:|
+| Tân Binh Tuần Ngục | 0 |
+| Quỷ Binh Truy Nã | 100 |
+| Đội Trưởng Áp Giải | 300 |
+| Đô Úy Địa Phủ | 650 |
+| Phán Quan Truy Bắt | 1.200 |
+| Thống Lĩnh Thiên Lao | 2.000 |
+| Đại Nguyên Soái Địa Phủ | 3.500 |
 
 ## 🚀 Chạy ứng dụng
 
-### Cách 1: Mở trực tiếp
+Ứng dụng là trang web tĩnh, không cần cài đặt máy chủ backend.
 
-1. Tải hoặc clone repository về máy.
-2. Mở file `index.html` bằng trình duyệt hiện đại.
-3. Cho phép trình duyệt tải các tài nguyên bên ngoài nếu muốn hiển thị đầy đủ giao diện.
+1. Tải hoặc clone repository.
+2. Mở `index.html` bằng trình duyệt hiện đại.
+3. Có thể triển khai toàn bộ repository lên GitHub Pages hoặc dịch vụ hosting tĩnh tương đương.
 
-### Cách 2: Chạy bằng máy chủ local
+### Chạy bằng GitHub Pages
+1. Đưa `index.html` và `README.md` lên repository GitHub.
+2. Mở **Settings → Pages**.
+3. Chọn nhánh triển khai (ví dụ `main`) và thư mục gốc `/`.
+4. Lưu cấu hình, sau đó mở URL GitHub Pages được GitHub cung cấp.
 
-Nếu trình duyệt hạn chế một số chức năng khi mở file trực tiếp, hãy chạy một máy chủ web tĩnh trong thư mục dự án. Ví dụ với Python:
+## 💾 Lưu trữ dữ liệu và giới hạn
 
-```bash
-python -m http.server 8000
-```
-
-Sau đó truy cập `http://localhost:8000`.
-
-## 🌐 Triển khai bằng GitHub Pages (2026)
-
-1. Tạo một repository trên GitHub.
-2. Đưa `index.html` và `README.md` vào thư mục gốc của repository.
-3. Mở **Settings → Pages** trong repository.
-4. Trong phần **Build and deployment**, chọn **Deploy from a branch**.
-5. Chọn nhánh muốn triển khai (thường là `main`) và thư mục `/(root)`, sau đó lưu.
-6. Chờ GitHub Pages hoàn tất triển khai; mở URL được hiển thị trong phần Pages.
-
-Mỗi lần cập nhật mã nguồn và push lên nhánh đã chọn, GitHub Pages sẽ triển khai phiên bản mới theo cấu hình repository.
+- Hồ sơ linh hồn, công hội và nhật ký được lưu trong `localStorage` của trình duyệt/thiết bị.
+- Dữ liệu không tự đồng bộ giữa các thiết bị hoặc giữa nhiều người dùng.
+- Dùng chức năng **Sao lưu dữ liệu JSON** trong ứng dụng để lưu hồ sơ và chuyển dữ liệu thủ công.
+- Dữ liệu nhiệm vụ/công trạng của Công Hội được lưu riêng trên trình duyệt hiện tại.
+- Đây là trò chơi/mô phỏng giải trí. Nghiệp lực, tội danh, hình phạt và phán quyết không phải kết luận pháp lý hay đánh giá con người thực tế.
 
 ## 🧰 Công nghệ
 
@@ -55,37 +75,22 @@ Mỗi lần cập nhật mã nguồn và push lên nhánh đã chọn, GitHub Pa
 - CSS3
 - JavaScript thuần
 - Tailwind CSS qua CDN
-- Google Fonts: Cinzel, JetBrains Mono và Space Grotesk
-- `localStorage` của trình duyệt để lưu dữ liệu trên thiết bị
+- Google Fonts (Cinzel, JetBrains Mono, Space Grotesk)
+- Trình duyệt hỗ trợ `localStorage`, `Blob` và JavaScript hiện đại
 
-## 💾 Dữ liệu & quyền riêng tư
-
-- Hồ sơ được lưu cục bộ trong `localStorage` của trình duyệt; ứng dụng không cần máy chủ cơ sở dữ liệu để chạy các chức năng chính.
-- Dữ liệu trên một trình duyệt/thiết bị không tự động đồng bộ sang trình duyệt/thiết bị khác.
-- Xóa dữ liệu trang web, dùng chế độ ẩn danh hoặc đổi trình duyệt có thể khiến dữ liệu cục bộ không còn truy cập được.
-- Hãy dùng chức năng **Sao lưu dữ liệu** để tải JSON định kỳ và lưu ở nơi an toàn.
-- Khi khôi phục JSON, dữ liệu hiện tại sẽ bị thay thế sau khi người dùng xác nhận. Hãy sao lưu trước khi nhập tệp.
-- Ứng dụng tải Tailwind CSS và Google Fonts từ CDN; cần kết nối Internet để tải các tài nguyên này.
-
-## 📁 Cấu trúc repository
+## 📦 Cấu trúc dự án
 
 ```text
 .
-├── index.html   # Ứng dụng UNDERWORLD OS
-└── README.md    # Tài liệu dự án
+├── index.html    # Ứng dụng UNDERWORLD OS 9.0
+└── README.md     # Tài liệu dự án
 ```
 
-## 📝 Ghi chú phiên bản 8.0
+## 📝 Phiên bản
 
-- Cập nhật nhận diện giao diện lên UNDERWORLD OS 8.0.
-- Loại bỏ phần hướng dẫn triển khai Acode/TrebEdit/GitHub tích hợp trong giao diện ứng dụng.
-- Mở rộng tìm kiếm sổ sinh tử và bổ sung bộ lọc/sắp xếp hồ sơ.
-- Bổ sung đếm số kết quả phù hợp và giữ các chức năng sao lưu/khôi phục dữ liệu.
-
-## ⚖️ Tuyên bố miễn trừ
-
-UNDERWORLD OS được xây dựng cho mục đích học tập, thử nghiệm giao diện và giải trí. Nội dung mô phỏng không đại diện cho hệ thống pháp luật, tôn giáo hay quan điểm chính thức của bất kỳ tổ chức nào. Không sử dụng ứng dụng để đưa ra quyết định thật về con người.
+- **9.0** – Bổ sung Công Hội Quỷ Sứ & Linh Hồn Lập Công, bảng nhiệm vụ truy bắt, phần thưởng công trạng, lịch sử áp giải và lộ trình thăng cấp/phong quan.
+- **8.0** – Trung tâm điều hành, Tòa án Diêm Vương AI, Sổ Sinh Tử, bản đồ 18 tầng, công đức/đầu thai và nhật ký hệ thống.
 
 ---
 
-<p align="center">🔥 <strong>UNDERWORLD OS 8.0</strong> · Fictional Underworld Simulation · 2026 🔥</p>
+**UNDERWORLD OS 9.0** · Mô phỏng quản lý Âm Phủ · 2026
