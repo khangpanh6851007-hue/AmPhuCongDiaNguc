@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUỶ MÔN QUAN 10.9 | Công trạng & Phán quyết 28 tầng</title>
+    <title>QUỶ MÔN QUAN 11.2 | Sổ Sinh Tử Truyền Kiếp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -194,7 +194,51 @@
             .karma-holo-orbit, .karma-holo-orbit::before, .karma-holo-orbit::after { animation: none; }
         }
 
-</style>
+
+        /* HOLOGRAM MIRROR 11.0 */
+        .holo11-stage {
+            position: relative; isolation: isolate; overflow: hidden;
+            border: 1px solid rgba(34,211,238,.32);
+            background:
+              radial-gradient(ellipse at 50% 45%, rgba(34,211,238,.18), transparent 55%),
+              linear-gradient(145deg, rgba(8,47,73,.55), rgba(2,6,23,.96));
+            box-shadow: inset 0 0 35px rgba(34,211,238,.08), 0 0 28px rgba(34,211,238,.08);
+        }
+        .holo11-stage::before {
+            content:""; position:absolute; inset:8px; border:1px solid rgba(103,232,249,.16);
+            border-radius:18px; pointer-events:none;
+        }
+        .holo11-core {
+            width:112px; height:112px; margin:auto; position:relative; display:grid; place-items:center;
+            border-radius:50%; border:1px solid rgba(103,232,249,.55);
+            background:radial-gradient(circle,rgba(34,211,238,.22),rgba(8,47,73,.12) 55%,transparent 70%);
+            box-shadow:0 0 24px rgba(34,211,238,.22), inset 0 0 22px rgba(34,211,238,.15);
+            transform-style:preserve-3d; animation:holo11-float 4s ease-in-out infinite;
+        }
+        .holo11-core::before,.holo11-core::after {
+            content:""; position:absolute; inset:-10px; border:1px dashed rgba(103,232,249,.5);
+            border-radius:50%; animation:holo11-spin 12s linear infinite;
+        }
+        .holo11-core::after { inset:12px; border-style:solid; border-color:rgba(244,114,182,.4); animation-direction:reverse; animation-duration:8s; }
+        .holo11-scanline {
+            position:absolute; left:0; right:0; top:-25%; height:22%;
+            background:linear-gradient(180deg,transparent,rgba(34,211,238,.55),transparent);
+            animation:holo11-scan 2s linear infinite; pointer-events:none;
+        }
+        .holo11-progress { height:7px; overflow:hidden; border-radius:99px; background:#172033; }
+        .holo11-progress > span { display:block; height:100%; width:0; border-radius:99px;
+            background:linear-gradient(90deg,#fb7185,#a78bfa,#22d3ee); transition:width .18s ease; }
+        .holo11-step { border:1px solid rgba(148,163,184,.18); background:rgba(15,23,42,.65); border-radius:10px; padding:8px 10px; color:#94a3b8; }
+        .holo11-step.active { border-color:rgba(34,211,238,.55); color:#a5f3fc; background:rgba(8,145,178,.12); box-shadow:0 0 14px rgba(34,211,238,.1); }
+        .holo11-step.done { color:#6ee7b7; border-color:rgba(52,211,153,.35); }
+        @keyframes holo11-spin { to { transform:rotate(360deg); } }
+        @keyframes holo11-float { 50% { transform:translateY(-5px) rotateX(8deg); filter:brightness(1.25); } }
+        @keyframes holo11-scan { to { transform:translateY(620%); } }
+        @media (prefers-reduced-motion:reduce) {
+            .holo11-core,.holo11-core::before,.holo11-core::after,.holo11-scanline { animation:none !important; }
+        }
+
+    </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
@@ -216,7 +260,7 @@
                             LIVE • AI-CORE
                         </span>
                     </div>
-                    <p class="text-[11px] text-slate-400 font-mono-tech">QUỶ MÔN QUAN 10.0 • Hệ thống quản lý âm phủ</p>
+                    <p class="text-[11px] text-slate-400 font-mono-tech">QUỶ MÔN QUAN 11.2 • Hệ thống quản lý âm phủ</p>
                 </div>
             </div>
 
@@ -241,18 +285,18 @@
             <div class="rune-orbit" aria-hidden="true"><span class="font-cinzel text-4xl text-violet-200">冥</span></div>
             <div class="relative max-w-3xl">
                 <div class="flex flex-wrap items-center gap-2 mb-3">
-                    <span class="text-[10px] font-mono-tech tracking-[.22em] text-cyan-200 border border-cyan-300/30 bg-cyan-300/10 rounded-full px-3 py-1">MAJOR UPDATE</span>
-                    <span class="text-[10px] font-mono-tech text-amber-200">23 • 11 • 2026</span>
+                    <span class="text-[10px] font-mono-tech tracking-[.22em] text-cyan-200 border border-cyan-300/30 bg-cyan-300/10 rounded-full px-3 py-1">HOLOGRAM AI • VERSION 11.2</span>
+                    <span class="text-[10px] font-mono-tech text-amber-200">26 • 11 • 2026</span>
                 </div>
-                <h2 class="font-cinzel font-extrabold text-2xl sm:text-3xl text-white leading-tight">QUỶ MÔN QUAN <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-amber-200 to-cyan-200">10.0</span></h2>
-                <p class="text-sm sm:text-base text-slate-200 mt-2 max-w-2xl">Đại nâng cấp giao diện và trải nghiệm Địa Phủ — thêm hiệu ứng ánh sáng, bảng điều khiển trực quan và các khu vực chức năng được phân biệt bằng màu sắc.</p>
+                <h2 class="font-cinzel font-extrabold text-2xl sm:text-3xl text-white leading-tight">QUỶ MÔN QUAN <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-amber-200 to-cyan-200">11.1</span></h2>
+                <p class="text-sm sm:text-base text-slate-200 mt-2 max-w-2xl">Bản nâng cấp Sổ Sinh Tử 11.2 — quét đa giai đoạn, phân tích hồ sơ, chống trùng tên, lưu lịch sử xét xử và tối ưu trải nghiệm di động.</p>
                 <div class="visual-spectrum mt-5 max-w-xl"></div>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-6 relative">
                 <div class="feature-tile rounded-xl p-3"><div class="feature-icon text-rose-300">🌌</div><div class="text-xs font-bold text-white mt-2">Đồ họa đa tầng</div><div class="text-[10px] text-slate-400 mt-1">Nền động & ánh sáng</div></div>
                 <div class="feature-tile rounded-xl p-3"><div class="feature-icon text-cyan-300">📊</div><div class="text-xs font-bold text-white mt-2">Bảng điều khiển</div><div class="text-[10px] text-slate-400 mt-1">Thống kê trực quan</div></div>
                 <div class="feature-tile rounded-xl p-3"><div class="feature-icon text-amber-300">🏅</div><div class="text-xs font-bold text-white mt-2">Công hội 50 bậc</div><div class="text-[10px] text-slate-400 mt-1">Công trạng & phong quan</div></div>
-                <div class="feature-tile rounded-xl p-3"><div class="feature-icon text-violet-300">🗺️</div><div class="text-xs font-bold text-white mt-2">28 tầng U Minh</div><div class="text-[10px] text-slate-400 mt-1">Bản đồ & hồ sơ</div></div>
+                <div class="feature-tile rounded-xl p-3"><div class="feature-icon text-violet-300">🗺️</div><div class="text-xs font-bold text-white mt-2">100 tầng Ngục Môn</div><div class="text-[10px] text-slate-400 mt-1">Bản đồ & hồ sơ</div></div>
             </div>
         </section>
 
@@ -261,7 +305,7 @@
             <div class="glass-panel rounded-xl p-4 neon-border-crimson relative overflow-hidden">
                 <div class="text-xs font-mono-tech text-rose-400 uppercase">Linh Hồn Đang Chịu Phạt</div>
                 <div class="text-2xl sm:text-3xl font-extrabold font-mono-tech text-white mt-1" id="stat-punishing">0</div>
-                <div class="text-[11px] text-slate-400 mt-1">Đang thi hành án tại 28 tầng</div>
+                <div class="text-[11px] text-slate-400 mt-1">Đang thi hành án tại 100 tầng</div>
                 <div class="absolute -right-3 -bottom-3 text-5xl opacity-10">🔥</div>
             </div>
 
@@ -299,7 +343,7 @@
                 <span>📜</span> Sổ Sinh Tử 10.0 <span id="badge-count" class="px-1.5 py-0.5 rounded-full bg-rose-600 text-[10px] text-white">0</span>
             </button>
             <button onclick="switchTab('hells')" id="tab-hells" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
-                <span>🌋</span> Bản Đồ 28 Tầng Địa Phủ
+                <span>🌋</span> Bản Đồ 100 Tầng Ngục Môn
             </button>
             <button onclick="switchTab('mengpo')" id="tab-mengpo" class="tab-btn px-4 py-2.5 rounded-xl border border-slate-700/80 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
                 <span>✨</span> Trạm Công Đức 10.0
@@ -329,7 +373,7 @@
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
                 <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">TỔNG HỒ SƠ</div><div id="dash-total" class="text-3xl font-extrabold text-white mt-1">0</div><div class="text-[10px] text-cyan-300 mt-1">Hồ sơ hợp lệ</div></div>
-                <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">ĐANG THI HÀNH ÁN</div><div id="dash-punishing" class="text-3xl font-extrabold text-rose-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đang ở 28 tầng</div></div>
+                <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">ĐANG THI HÀNH ÁN</div><div id="dash-punishing" class="text-3xl font-extrabold text-rose-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đang ở 100 tầng</div></div>
                 <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">CHỜ ĐẦU THAI</div><div id="dash-ready" class="text-3xl font-extrabold text-amber-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đã hoàn tất thời hạn án</div></div>
                 <div class="glass-panel v7-stat rounded-xl p-4"><div class="text-[10px] text-slate-400 font-mono-tech">ĐÃ ĐẦU THAI</div><div id="dash-reborn" class="text-3xl font-extrabold text-emerald-300 mt-1">0</div><div class="text-[10px] text-slate-400 mt-1">Đã qua Cầu Nại Hà</div></div>
             </div>
@@ -348,7 +392,7 @@
                 <div><h3 class="font-bold text-white text-sm">Công cụ nhanh</h3><p class="text-[11px] text-slate-400">Truy cập các nghiệp vụ thường dùng</p></div>
                 <div class="flex flex-wrap gap-2">
                     <button onclick="switchTab('ledger')" class="v7-chip text-cyan-200">📜 Sổ sinh tử</button>
-                    <button onclick="switchTab('hells')" class="v7-chip text-rose-200">🌋 28 tầng địa phủ</button>
+                    <button onclick="switchTab('hells')" class="v7-chip text-rose-200">🌋 100 tầng Ngục Môn</button>
                     <button onclick="switchTab('mengpo')" class="v7-chip text-amber-200">🍵 Công đức & đầu thai</button>
                 </div>
             </div>
@@ -406,6 +450,18 @@
             </div>
 
             <div class="lg:col-span-5 glass-panel rounded-2xl p-5 sm:p-6 neon-border-cyan relative overflow-hidden flex flex-col justify-between min-h-[430px]">
+                <div class="holo11-stage rounded-2xl p-4 mb-4 text-center">
+                    <div class="holo11-scanline"></div>
+                    <div class="holo11-core"><span class="text-4xl drop-shadow-[0_0_12px_rgba(34,211,238,.8)]">👁️</span></div>
+                    <div class="mt-3 text-[10px] font-mono-tech tracking-[.24em] text-cyan-200">NEURAL KARMA SCANNER • 11.0</div>
+                    <div class="holo11-progress mt-3"><span id="holo11-progress-bar"></span></div>
+                    <div id="holo11-progress-label" class="text-[11px] text-slate-400 mt-2" aria-live="polite">Hệ thống đang chờ dữ liệu đầu vào</div>
+                    <div class="grid grid-cols-3 gap-2 mt-3 text-[10px] font-mono-tech">
+                        <div id="holo11-step-1" class="holo11-step">01 • NHẬN DIỆN</div>
+                        <div id="holo11-step-2" class="holo11-step">02 • PHÂN TÍCH</div>
+                        <div id="holo11-step-3" class="holo11-step">03 • KẾT LUẬN</div>
+                    </div>
+                </div>
                 <div id="scanner-overlay" class="hidden absolute inset-0 pointer-events-none z-20 bg-cyan-950/20">
                     <div class="w-full laser-scanner"></div>
                     <div class="absolute inset-0 flex items-center justify-center">
@@ -471,6 +527,15 @@
                         </button>
                     </div>
                 </div>
+                <div class="mt-4 rounded-xl border border-violet-400/20 bg-violet-950/15 p-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <strong class="text-xs text-violet-200 font-mono-tech">🧾 LỊCH SỬ XÉT XỬ GƯƠNG 11.0</strong>
+                        <span id="holo11-history-count" class="text-[10px] text-slate-500">0 lượt</span>
+                    </div>
+                    <div id="holo11-history" class="mt-2 space-y-2 text-[11px] text-slate-400">
+                        Chưa có lần xét xử nào trên thiết bị này.
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -512,7 +577,7 @@
                 <div class="flex flex-wrap items-center gap-2 w-full">
                     <input id="ledger-search" type="search" oninput="handleGlobalSearch(this.value)" placeholder="Tra cứu tên, mã hồ sơ, tội danh, lời khai..." class="w-full sm:w-64 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400">
                     <select id="filter-hell" onchange="renderLedger()" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400">
-                        <option value="ALL">Tất cả 28 Tầng Địa Phủ</option>
+                        <option value="ALL">Tất cả 100 Tầng Ngục Môn</option>
                     </select>
                     <select id="filter-status" onchange="renderLedger()" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400">
                         <option value="ALL">Mọi trạng thái</option>
@@ -561,17 +626,92 @@
             </div>
             <div class="flex items-center justify-between gap-2 text-xs text-slate-400"><span>📚 Kết quả phù hợp</span><strong id="ledger-result-count" class="text-cyan-300 font-mono-tech">0 hồ sơ</strong></div>
             <div id="ledger-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        
+            <!-- PHÂN HỆ SỔ SINH TỬ: DANH SÁCH PHẠM NHÂN & TRUYỀN KIẾP -->
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 border border-amber-400/30 bg-gradient-to-r from-amber-950/30 via-slate-950/70 to-rose-950/30">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <p class="text-[10px] font-mono-tech tracking-[.25em] text-amber-300">DEATH REGISTER • RELEASE 11.2</p>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">📚 THƯ MỤC SỔ SINH TỬ – DANH SÁCH PHẠM NHÂN</h3>
+                        <p class="text-xs text-slate-300 mt-1">Ghi nhận tội danh, dương thọ, tiền kiếp, truyền kiếp và quá trình sửa đổi.</p>
+                    </div>
+                    <span class="px-3 py-1.5 rounded-full text-[10px] font-mono-tech text-amber-200 border border-amber-400/40 bg-amber-400/10">HỒ SƠ ĐỘC LẬP • TỰ LƯU</span>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4">
+                    <div class="rounded-xl p-3 bg-slate-950/70 border border-slate-700"><div class="text-[10px] text-cyan-300">TỔNG DANH SÁCH</div><div id="deathbook-total" class="text-2xl font-bold text-white">0</div></div>
+                    <div class="rounded-xl p-3 bg-slate-950/70 border border-slate-700"><div class="text-[10px] text-rose-300">ĐANG THEO DÕI</div><div id="deathbook-active" class="text-2xl font-bold text-white">0</div></div>
+                    <div class="rounded-xl p-3 bg-slate-950/70 border border-slate-700"><div class="text-[10px] text-amber-300">ĐỦ ĐIỀU KIỆN GẠCH TÊN</div><div id="deathbook-eligible" class="text-2xl font-bold text-white">0</div></div>
+                    <div class="rounded-xl p-3 bg-slate-950/70 border border-slate-700"><div class="text-[10px] text-emerald-300">ĐÃ LƯU TRỮ</div><div id="deathbook-archived" class="text-2xl font-bold text-white">0</div></div>
+                </div>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 border border-cyan-500/25">
+                <h3 class="text-base font-bold text-cyan-200 mb-3">✍️ LẬP HỒ SƠ SINH TỬ MỚI</h3>
+                <form id="deathbook-form" onsubmit="addDeathBookRecord(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <label class="text-xs text-slate-300">Họ tên phạm nhân
+                        <input id="db-name" required maxlength="80" autocomplete="off" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white" placeholder="Nhập họ tên">
+                        <span class="block mt-1 text-[10px] text-amber-300">🛡️ 20 tên trong danh sách cấm không được lập hồ sơ hoặc xuất hiện trong Sổ Sinh Tử.</span>
+                    </label>
+                    <label class="text-xs text-slate-300">Tội danh đã phạm
+                        <input id="db-crime" required maxlength="180" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white" placeholder="Ví dụ: lừa dối, phản bội...">
+                    </label>
+                    <label class="text-xs text-slate-300">Tuổi hiện tại (năm)
+                        <input id="db-age" type="number" min="0" max="150" value="30" required class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+                    </label>
+                    <label class="text-xs text-slate-300">Dương thọ được định (năm tuổi)
+                        <input id="db-lifespan" type="number" min="1" max="150" value="80" required class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+                    </label>
+                    <label class="text-xs text-slate-300">Số lần tái phạm
+                        <input id="db-repeat" type="number" min="0" max="999" value="0" required class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+                    </label>
+                    <label class="text-xs text-slate-300">Tình trạng sửa đổi
+                        <select id="db-reform" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+                            <option value="Đang sửa đổi">Đang sửa đổi</option>
+                            <option value="Đã sửa đổi">Đã sửa đổi</option>
+                            <option value="Không chịu sửa đổi">Không chịu sửa đổi</option>
+                        </select>
+                    </label>
+                    <label class="text-xs text-slate-300 sm:col-span-2">Tiền kiếp đã làm gì / lịch sử truyền kiếp
+                        <textarea id="db-past" rows="2" maxlength="1200" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white" placeholder="Ghi lại hành vi, việc thiện ác và các kiếp trước..."></textarea>
+                    </label>
+                    <label class="text-xs text-slate-300 sm:col-span-2">Ghi chú xác thân và linh hồn
+                        <textarea id="db-notes" rows="2" maxlength="1200" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white" placeholder="Ghi nhận quá trình chịu trách nhiệm, khắc phục và sửa lỗi..."></textarea>
+                    </label>
+                    <div class="sm:col-span-2 flex flex-wrap items-center gap-2">
+                        <button type="submit" class="px-4 py-2.5 rounded-xl bg-cyan-700/70 hover:bg-cyan-600 text-white text-xs font-bold border border-cyan-400/40">＋ GHI VÀO SỔ SINH TỬ</button>
+                        <button type="reset" class="px-4 py-2.5 rounded-xl bg-slate-800 text-slate-300 text-xs border border-slate-600">Làm mới biểu mẫu</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-4 border border-slate-700">
+                <div class="flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
+                    <div>
+                        <h3 class="font-bold text-white">📖 DANH SÁCH SỔ SINH TỬ</h3>
+                        <p class="text-[11px] text-slate-400 mt-1">Điều kiện gạch tên: dương thọ đã tận, tái phạm từ 3 lần và không chịu sửa đổi.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <input id="deathbook-search" oninput="renderDeathBook()" class="bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white" placeholder="Tìm tên hoặc tội danh...">
+                        <select id="deathbook-filter" onchange="renderDeathBook()" class="bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white">
+                            <option value="active">Đang quản lý</option><option value="archived">Đã gạch tên / lưu trữ</option><option value="all">Tất cả hồ sơ</option>
+                        </select>
+                        <button onclick="exportDeathBook()" class="px-3 py-2 rounded-lg bg-amber-950/60 border border-amber-500/30 text-amber-200 text-xs">⬇ Sao lưu sổ</button>
+                    </div>
+                </div>
+                <div id="deathbook-list" class="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-4"></div>
+            </div>
+
         </section>
 
         <!-- TAB 3: THẬP BÁT TẦNG ĐỊA NGỤC - HỆ THỐNG 10.0 -->
         <section id="view-hells" class="hidden space-y-4">
             <div class="glass-panel rounded-2xl p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 neon-border-crimson">
                 <div>
-                    <h2 class="font-cinzel font-bold text-lg text-rose-300">🔥 HỆ THỐNG PHÁN XÉT 28 TẦNG – PHIÊN BẢN 10.9</h2>
-                    <p class="text-xs text-slate-300">Phiên bản 10.9 hiển thị đủ 28 tầng. Mỗi tầng có mức điểm công trạng tham chiếu tăng dần từ 100 đến 2.800 điểm, tội hình áp dụng và hình phạt mô phỏng được ghi rõ. Chọn một tầng để xem cai ngục và hồ sơ liên quan.</p>
+                    <h2 class="font-cinzel font-bold text-lg text-rose-300">🔥 HỆ THỐNG PHÁN XÉT 100 TẦNG NGỤC MÔN – PHIÊN BẢN 11.1</h2>
+                    <p class="text-xs text-slate-300">Phiên bản 11.1 mở rộng hệ thống từ 28 lên 100 tầng Ngục Môn. Mỗi tầng có điểm công trạng tham chiếu tăng dần từ 100 đến 10.000 điểm, cai ngục, tội hình và hình phạt mô phỏng. Chọn một tầng để xem chi tiết và hồ sơ liên quan.</p>
                 </div>
                 <span class="text-xs font-mono-tech px-3 py-1 rounded-full bg-rose-500/15 text-rose-300 border border-rose-500/30">
-                    HỆ THỐNG 10.0 • 28/28 TẦNG
+                    NGỤC MÔN 11.1 • 100/100 TẦNG
                 </span>
             </div>
 
@@ -588,7 +728,7 @@
                 </div>
                 <div class="rounded-xl border border-cyan-500/30 bg-cyan-950/25 p-3">
                     <div class="text-[10px] tracking-widest text-cyan-300 font-mono-tech">TRA CỨU HỒ SƠ</div>
-                    <div class="text-2xl font-bold text-white mt-1">28/28</div>
+                    <div class="text-2xl font-bold text-white mt-1">100/100</div>
                     <div class="text-[11px] text-slate-400">Chọn thẻ tầng để xem chi tiết</div>
                 </div>
             </div>
@@ -765,8 +905,8 @@
                 <p class="text-[11px] text-slate-400 mt-1 mb-3">Chỉ hồ sơ đang chịu phạt mới xuất hiện. Hoàn thành một nhiệm vụ sẽ ghi nhận người áp giải, khóa thưởng chống nhận lặp và cập nhật nhật ký.</p>
                 <div class="rounded-xl border border-amber-500/25 bg-slate-950/60 p-3 mb-3">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <h4 class="text-sm font-bold text-amber-200">🎁 THANG THƯỞNG TRUY NÃ 28 TẦNG</h4>
-                        <span class="text-[10px] text-emerald-300">Tầng 1: 500 • Tầng 28: 14.000 công trạng</span>
+                        <h4 class="text-sm font-bold text-amber-200">🎁 THANG THƯỞNG TRUY NÃ 100 TẦNG</h4>
+                        <span class="text-[10px] text-emerald-300">Tầng 1: 500 • Tầng 100: 50.000 công trạng</span>
                     </div>
                     <p class="text-[10px] text-slate-400 mb-3">Mức thưởng giả tưởng = 500 × số tầng. Điểm chỉ được cộng khi áp giải thành công và bàn giao đúng hồ sơ.</p>
                     <div id="bounty-floor-table" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2"></div>
@@ -992,6 +1132,79 @@
             { level: 26, meritPoints: 2600, name: "Thiên La U Võng", warden: "Thiên La Thần Tướng", minKarma: -11500, crime: "Tổ chức, tiếp tay hoặc che giấu hành vi xâm hại và bóc lột người khác.", punish: "Toàn bộ mạng lưới đồng phạm bị phơi bày trước công đường U Minh." },
             { level: 27, meritPoints: 2700, name: "Vô Gián U Minh", warden: "U Minh Đại Phán Quan", minKarma: -13200, crime: "Xâm hại trẻ em, dụ dỗ, khai thác hoặc tạo điều kiện cho hành vi xâm hại trẻ em.", punish: "Cách ly tuyệt đối khỏi trẻ em; hồ sơ được xử lý nghiêm minh và đặt an toàn của trẻ lên hàng đầu." },
             { level: 28, meritPoints: 2800, name: "Chung Cực U Minh", warden: "Diêm La U Minh Tối Cao", minKarma: -15000, crime: "Tội ác đặc biệt nghiêm trọng, tái phạm có tổ chức hoặc gây tổn hại lâu dài cho nhiều nạn nhân.", punish: "Phiên phán xét tối cao của Cõi U Minh; không mô tả tra tấn, tập trung vào trách nhiệm và bảo vệ nạn nhân." }
+,
+            { level: 29, meritPoints: 2900, name: "Ngục Môn Vạn Tượng", warden: "Giám Ngục Ngục Môn • 29", minKarma: -16200, crime: "Che giấu sai phạm có hệ thống, làm sai lệch chứng cứ và cản trở việc xác minh sự thật.", punish: "Niêm phong quyền thao túng hồ sơ; mọi chứng cứ được phục hồi và đối chiếu công khai trong phiên mô phỏng." },
+            { level: 30, meritPoints: 3000, name: "U Minh Tàng Thư", warden: "Thư Lại Tàng Thư • 30", minKarma: -17400, crime: "Lạm dụng quyền hạn, thao túng quy trình hoặc gây thiệt hại kéo dài cho cộng đồng.", punish: "Buộc đối diện chuỗi hậu quả, lời khai và dữ liệu đã được xác minh; chỉ kết thúc khi hoàn tất trách nhiệm khắc phục." },
+            { level: 31, meritPoints: 3100, name: "Hắc Hà Vô Độ", warden: "Hà Bá Hắc Hà • 31", minKarma: -18600, crime: "Phá hoại môi trường sống, tài nguyên chung hoặc di sản có giá trị lâu dài.", punish: "Cách ly khỏi công cụ và nguồn lực từng bị lạm dụng; chuyển toàn bộ lợi ích bất chính vào quỹ hoàn trả giả tưởng." },
+            { level: 32, meritPoints: 3200, name: "Thiên Cơ Nghiệp Hải", warden: "Thiên Cơ Phán Sứ • 32", minKarma: -19800, crime: "Tổ chức đường dây lừa đảo, cưỡng ép, bóc lột hoặc tiếp tay cho hành vi xâm hại.", punish: "Triệu tập các bên liên quan vào phiên đối chất minh bạch, có cơ chế bảo vệ người bị hại và nhân chứng." },
+            { level: 33, meritPoints: 3300, name: "Cửu Trùng Phán Điện", warden: "Chấp Điện Cửu Trùng • 33", minKarma: -21000, crime: "Tái phạm nhiều lần, cố tình né tránh trách nhiệm và không khắc phục hậu quả.", punish: "Thực hiện chương trình cải tạo nhiều giai đoạn, kiểm tra tiến độ và đánh giá khả năng tái hòa nhập." },
+            { level: 34, meritPoints: 3400, name: "Vạn Kiếp Luân Đài", warden: "Luân Đài Đại Giám • 34", minKarma: -22200, crime: "Lợi dụng công nghệ để xâm phạm quyền riêng tư, đánh cắp dữ liệu hoặc gây tổn hại diện rộng.", punish: "Khóa quyền truy cập hệ thống trong mô phỏng; phục hồi dữ liệu và lập báo cáo tác động cho các bên liên quan." },
+            { level: 35, meritPoints: 3500, name: "U Ảnh Mê Cung", warden: "Ảnh Vệ U Minh • 35", minKarma: -23400, crime: "Kích động thù hằn, vu khống có tổ chức hoặc gây chia rẽ nghiêm trọng.", punish: "Buộc công khai sự thật đã được kiểm chứng, đính chính thông tin sai và thực hiện nghĩa vụ bồi hoàn." },
+            { level: 36, meritPoints: 3600, name: "Tịch Diệt Tinh Lao", warden: "Tinh Lao Thống Lĩnh • 36", minKarma: -24600, crime: "Trục lợi từ khủng hoảng, thiên tai hoặc hoàn cảnh dễ bị tổn thương của người khác.", punish: "Chuyển đến khu vực tĩnh tâm, rà soát toàn bộ hành vi và lập kế hoạch sửa chữa hậu quả có giám sát." },
+            { level: 37, meritPoints: 3700, name: "Huyền Quang Kính Giới", warden: "Kính Giới Minh Quan • 37", minKarma: -25800, crime: "Che giấu sai phạm có hệ thống, làm sai lệch chứng cứ và cản trở việc xác minh sự thật.", punish: "Niêm phong quyền thao túng hồ sơ; mọi chứng cứ được phục hồi và đối chiếu công khai trong phiên mô phỏng." },
+            { level: 38, meritPoints: 3800, name: "Vô Thanh Cấm Vực", warden: "Cấm Vực Trấn Thủ • 38", minKarma: -27000, crime: "Lạm dụng quyền hạn, thao túng quy trình hoặc gây thiệt hại kéo dài cho cộng đồng.", punish: "Buộc đối diện chuỗi hậu quả, lời khai và dữ liệu đã được xác minh; chỉ kết thúc khi hoàn tất trách nhiệm khắc phục." },
+            { level: 39, meritPoints: 3900, name: "Thập Phương Nghiệp Môn", warden: "Nghiệp Môn Sứ Giả • 39", minKarma: -28200, crime: "Phá hoại môi trường sống, tài nguyên chung hoặc di sản có giá trị lâu dài.", punish: "Cách ly khỏi công cụ và nguồn lực từng bị lạm dụng; chuyển toàn bộ lợi ích bất chính vào quỹ hoàn trả giả tưởng." },
+            { level: 40, meritPoints: 4000, name: "Minh Hà Trấn Giới", warden: "Trấn Giới Đại Tướng • 40", minKarma: -29400, crime: "Tổ chức đường dây lừa đảo, cưỡng ép, bóc lột hoặc tiếp tay cho hành vi xâm hại.", punish: "Triệu tập các bên liên quan vào phiên đối chất minh bạch, có cơ chế bảo vệ người bị hại và nhân chứng." },
+            { level: 41, meritPoints: 4100, name: "Long Uyên Huyền Ngục", warden: "Giám Ngục Ngục Môn • 41", minKarma: -30600, crime: "Tái phạm nhiều lần, cố tình né tránh trách nhiệm và không khắc phục hậu quả.", punish: "Thực hiện chương trình cải tạo nhiều giai đoạn, kiểm tra tiến độ và đánh giá khả năng tái hòa nhập." },
+            { level: 42, meritPoints: 4200, name: "Phượng Hỏa Tịnh Đài", warden: "Thư Lại Tàng Thư • 42", minKarma: -31800, crime: "Lợi dụng công nghệ để xâm phạm quyền riêng tư, đánh cắp dữ liệu hoặc gây tổn hại diện rộng.", punish: "Khóa quyền truy cập hệ thống trong mô phỏng; phục hồi dữ liệu và lập báo cáo tác động cho các bên liên quan." },
+            { level: 43, meritPoints: 4300, name: "Bạch Cốt Tàng Phong", warden: "Hà Bá Hắc Hà • 43", minKarma: -33000, crime: "Kích động thù hằn, vu khống có tổ chức hoặc gây chia rẽ nghiêm trọng.", punish: "Buộc công khai sự thật đã được kiểm chứng, đính chính thông tin sai và thực hiện nghĩa vụ bồi hoàn." },
+            { level: 44, meritPoints: 4400, name: "Huyết Nguyệt Cô Thành", warden: "Thiên Cơ Phán Sứ • 44", minKarma: -34200, crime: "Trục lợi từ khủng hoảng, thiên tai hoặc hoàn cảnh dễ bị tổn thương của người khác.", punish: "Chuyển đến khu vực tĩnh tâm, rà soát toàn bộ hành vi và lập kế hoạch sửa chữa hậu quả có giám sát." },
+            { level: 45, meritPoints: 4500, name: "Tinh Vân Phán Cảnh", warden: "Chấp Điện Cửu Trùng • 45", minKarma: -35400, crime: "Che giấu sai phạm có hệ thống, làm sai lệch chứng cứ và cản trở việc xác minh sự thật.", punish: "Niêm phong quyền thao túng hồ sơ; mọi chứng cứ được phục hồi và đối chiếu công khai trong phiên mô phỏng." },
+            { level: 46, meritPoints: 4600, name: "Vạn Linh Quy Khư", warden: "Luân Đài Đại Giám • 46", minKarma: -36600, crime: "Lạm dụng quyền hạn, thao túng quy trình hoặc gây thiệt hại kéo dài cho cộng đồng.", punish: "Buộc đối diện chuỗi hậu quả, lời khai và dữ liệu đã được xác minh; chỉ kết thúc khi hoàn tất trách nhiệm khắc phục." },
+            { level: 47, meritPoints: 4700, name: "Thái Hư Trọng Lao", warden: "Ảnh Vệ U Minh • 47", minKarma: -37800, crime: "Phá hoại môi trường sống, tài nguyên chung hoặc di sản có giá trị lâu dài.", punish: "Cách ly khỏi công cụ và nguồn lực từng bị lạm dụng; chuyển toàn bộ lợi ích bất chính vào quỹ hoàn trả giả tưởng." },
+            { level: 48, meritPoints: 4800, name: "Càn Khôn Phong Ấn", warden: "Tinh Lao Thống Lĩnh • 48", minKarma: -39000, crime: "Tổ chức đường dây lừa đảo, cưỡng ép, bóc lột hoặc tiếp tay cho hành vi xâm hại.", punish: "Triệu tập các bên liên quan vào phiên đối chất minh bạch, có cơ chế bảo vệ người bị hại và nhân chứng." },
+            { level: 49, meritPoints: 4900, name: "Địa Mạch U Cung", warden: "Kính Giới Minh Quan • 49", minKarma: -40200, crime: "Tái phạm nhiều lần, cố tình né tránh trách nhiệm và không khắc phục hậu quả.", punish: "Thực hiện chương trình cải tạo nhiều giai đoạn, kiểm tra tiến độ và đánh giá khả năng tái hòa nhập." },
+            { level: 50, meritPoints: 5000, name: "Thiên Võng Minh Đình", warden: "Cấm Vực Trấn Thủ • 50", minKarma: -41400, crime: "Lợi dụng công nghệ để xâm phạm quyền riêng tư, đánh cắp dữ liệu hoặc gây tổn hại diện rộng.", punish: "Khóa quyền truy cập hệ thống trong mô phỏng; phục hồi dữ liệu và lập báo cáo tác động cho các bên liên quan." },
+            { level: 51, meritPoints: 5100, name: "Vô Cực Hồi Lang", warden: "Nghiệp Môn Sứ Giả • 51", minKarma: -42600, crime: "Kích động thù hằn, vu khống có tổ chức hoặc gây chia rẽ nghiêm trọng.", punish: "Buộc công khai sự thật đã được kiểm chứng, đính chính thông tin sai và thực hiện nghĩa vụ bồi hoàn." },
+            { level: 52, meritPoints: 5200, name: "Luân Hồi Đoạn Kiều", warden: "Trấn Giới Đại Tướng • 52", minKarma: -43800, crime: "Trục lợi từ khủng hoảng, thiên tai hoặc hoàn cảnh dễ bị tổn thương của người khác.", punish: "Chuyển đến khu vực tĩnh tâm, rà soát toàn bộ hành vi và lập kế hoạch sửa chữa hậu quả có giám sát." },
+            { level: 53, meritPoints: 5300, name: "U Minh Bất Dạ", warden: "Giám Ngục Ngục Môn • 53", minKarma: -45000, crime: "Che giấu sai phạm có hệ thống, làm sai lệch chứng cứ và cản trở việc xác minh sự thật.", punish: "Niêm phong quyền thao túng hồ sơ; mọi chứng cứ được phục hồi và đối chiếu công khai trong phiên mô phỏng." },
+            { level: 54, meritPoints: 5400, name: "Hắc Diệm Trấn Tâm", warden: "Thư Lại Tàng Thư • 54", minKarma: -46200, crime: "Lạm dụng quyền hạn, thao túng quy trình hoặc gây thiệt hại kéo dài cho cộng đồng.", punish: "Buộc đối diện chuỗi hậu quả, lời khai và dữ liệu đã được xác minh; chỉ kết thúc khi hoàn tất trách nhiệm khắc phục." },
+            { level: 55, meritPoints: 5500, name: "Tử Vi Nghiệp Cảnh", warden: "Hà Bá Hắc Hà • 55", minKarma: -47400, crime: "Phá hoại môi trường sống, tài nguyên chung hoặc di sản có giá trị lâu dài.", punish: "Cách ly khỏi công cụ và nguồn lực từng bị lạm dụng; chuyển toàn bộ lợi ích bất chính vào quỹ hoàn trả giả tưởng." },
+            { level: 56, meritPoints: 5600, name: "Cửu Tuyền Tỏa Vực", warden: "Thiên Cơ Phán Sứ • 56", minKarma: -48600, crime: "Tổ chức đường dây lừa đảo, cưỡng ép, bóc lột hoặc tiếp tay cho hành vi xâm hại.", punish: "Triệu tập các bên liên quan vào phiên đối chất minh bạch, có cơ chế bảo vệ người bị hại và nhân chứng." },
+            { level: 57, meritPoints: 5700, name: "Vạn Ách Chi Môn", warden: "Chấp Điện Cửu Trùng • 57", minKarma: -49800, crime: "Tái phạm nhiều lần, cố tình né tránh trách nhiệm và không khắc phục hậu quả.", punish: "Thực hiện chương trình cải tạo nhiều giai đoạn, kiểm tra tiến độ và đánh giá khả năng tái hòa nhập." },
+            { level: 58, meritPoints: 5800, name: "Huyền Băng Tịch Điện", warden: "Luân Đài Đại Giám • 58", minKarma: -51000, crime: "Lợi dụng công nghệ để xâm phạm quyền riêng tư, đánh cắp dữ liệu hoặc gây tổn hại diện rộng.", punish: "Khóa quyền truy cập hệ thống trong mô phỏng; phục hồi dữ liệu và lập báo cáo tác động cho các bên liên quan." },
+            { level: 59, meritPoints: 5900, name: "Thiên Hà Phản Chiếu", warden: "Ảnh Vệ U Minh • 59", minKarma: -52200, crime: "Kích động thù hằn, vu khống có tổ chức hoặc gây chia rẽ nghiêm trọng.", punish: "Buộc công khai sự thật đã được kiểm chứng, đính chính thông tin sai và thực hiện nghĩa vụ bồi hoàn." },
+            { level: 60, meritPoints: 6000, name: "Đại Mộng Vô Nhai", warden: "Tinh Lao Thống Lĩnh • 60", minKarma: -53400, crime: "Trục lợi từ khủng hoảng, thiên tai hoặc hoàn cảnh dễ bị tổn thương của người khác.", punish: "Chuyển đến khu vực tĩnh tâm, rà soát toàn bộ hành vi và lập kế hoạch sửa chữa hậu quả có giám sát." },
+            { level: 61, meritPoints: 6100, name: "Vô Tận Trầm Uyên", warden: "Kính Giới Minh Quan • 61", minKarma: -54600, crime: "Che giấu sai phạm có hệ thống, làm sai lệch chứng cứ và cản trở việc xác minh sự thật.", punish: "Niêm phong quyền thao túng hồ sơ; mọi chứng cứ được phục hồi và đối chiếu công khai trong phiên mô phỏng." },
+            { level: 62, meritPoints: 6200, name: "Thần Mộc Phong Lâm", warden: "Cấm Vực Trấn Thủ • 62", minKarma: -55800, crime: "Lạm dụng quyền hạn, thao túng quy trình hoặc gây thiệt hại kéo dài cho cộng đồng.", punish: "Buộc đối diện chuỗi hậu quả, lời khai và dữ liệu đã được xác minh; chỉ kết thúc khi hoàn tất trách nhiệm khắc phục." },
+            { level: 63, meritPoints: 6300, name: "Cửu Nhật Huyền Đài", warden: "Nghiệp Môn Sứ Giả • 63", minKarma: -57000, crime: "Phá hoại môi trường sống, tài nguyên chung hoặc di sản có giá trị lâu dài.", punish: "Cách ly khỏi công cụ và nguồn lực từng bị lạm dụng; chuyển toàn bộ lợi ích bất chính vào quỹ hoàn trả giả tưởng." },
+            { level: 64, meritPoints: 6400, name: "U Minh Thiên Khóa", warden: "Trấn Giới Đại Tướng • 64", minKarma: -58200, crime: "Tổ chức đường dây lừa đảo, cưỡng ép, bóc lột hoặc tiếp tay cho hành vi xâm hại.", punish: "Triệu tập các bên liên quan vào phiên đối chất minh bạch, có cơ chế bảo vệ người bị hại và nhân chứng." },
+            { level: 65, meritPoints: 6500, name: "Vạn Tội Quy Tông", warden: "Giám Ngục Ngục Môn • 65", minKarma: -59400, crime: "Tái phạm nhiều lần, cố tình né tránh trách nhiệm và không khắc phục hậu quả.", punish: "Thực hiện chương trình cải tạo nhiều giai đoạn, kiểm tra tiến độ và đánh giá khả năng tái hòa nhập." },
+            { level: 66, meritPoints: 6600, name: "Hư Không Tĩnh Giới", warden: "Thư Lại Tàng Thư • 66", minKarma: -60600, crime: "Lợi dụng công nghệ để xâm phạm quyền riêng tư, đánh cắp dữ liệu hoặc gây tổn hại diện rộng.", punish: "Khóa quyền truy cập hệ thống trong mô phỏng; phục hồi dữ liệu và lập báo cáo tác động cho các bên liên quan." },
+            { level: 67, meritPoints: 6700, name: "Hắc Ngọc Phán Cung", warden: "Hà Bá Hắc Hà • 67", minKarma: -61800, crime: "Kích động thù hằn, vu khống có tổ chức hoặc gây chia rẽ nghiêm trọng.", punish: "Buộc công khai sự thật đã được kiểm chứng, đính chính thông tin sai và thực hiện nghĩa vụ bồi hoàn." },
+            { level: 68, meritPoints: 6800, name: "Tịnh Nghiệp Liên Thành", warden: "Thiên Cơ Phán Sứ • 68", minKarma: -63000, crime: "Trục lợi từ khủng hoảng, thiên tai hoặc hoàn cảnh dễ bị tổn thương của người khác.", punish: "Chuyển đến khu vực tĩnh tâm, rà soát toàn bộ hành vi và lập kế hoạch sửa chữa hậu quả có giám sát." },
+            { level: 69, meritPoints: 6900, name: "Thiên La Vạn Giới", warden: "Chấp Điện Cửu Trùng • 69", minKarma: -64200, crime: "Che giấu sai phạm có hệ thống, làm sai lệch chứng cứ và cản trở việc xác minh sự thật.", punish: "Niêm phong quyền thao túng hồ sơ; mọi chứng cứ được phục hồi và đối chiếu công khai trong phiên mô phỏng." },
+            { level: 70, meritPoints: 7000, name: "Địa Võng Trùng Thiên", warden: "Luân Đài Đại Giám • 70", minKarma: -65400, crime: "Lạm dụng quyền hạn, thao túng quy trình hoặc gây thiệt hại kéo dài cho cộng đồng.", punish: "Buộc đối diện chuỗi hậu quả, lời khai và dữ liệu đã được xác minh; chỉ kết thúc khi hoàn tất trách nhiệm khắc phục." },
+            { level: 71, meritPoints: 7100, name: "Thất Tinh Trấn Hồn", warden: "Ảnh Vệ U Minh • 71", minKarma: -66600, crime: "Phá hoại môi trường sống, tài nguyên chung hoặc di sản có giá trị lâu dài.", punish: "Cách ly khỏi công cụ và nguồn lực từng bị lạm dụng; chuyển toàn bộ lợi ích bất chính vào quỹ hoàn trả giả tưởng." },
+            { level: 72, meritPoints: 7200, name: "Bát Hoang Tịch Cảnh", warden: "Tinh Lao Thống Lĩnh • 72", minKarma: -67800, crime: "Tổ chức đường dây lừa đảo, cưỡng ép, bóc lột hoặc tiếp tay cho hành vi xâm hại.", punish: "Triệu tập các bên liên quan vào phiên đối chất minh bạch, có cơ chế bảo vệ người bị hại và nhân chứng." },
+            { level: 73, meritPoints: 7300, name: "Cửu U Huyền Môn", warden: "Kính Giới Minh Quan • 73", minKarma: -69000, crime: "Tái phạm nhiều lần, cố tình né tránh trách nhiệm và không khắc phục hậu quả.", punish: "Thực hiện chương trình cải tạo nhiều giai đoạn, kiểm tra tiến độ và đánh giá khả năng tái hòa nhập." },
+            { level: 74, meritPoints: 7400, name: "Thập Điện Đồng Tâm", warden: "Cấm Vực Trấn Thủ • 74", minKarma: -70200, crime: "Lợi dụng công nghệ để xâm phạm quyền riêng tư, đánh cắp dữ liệu hoặc gây tổn hại diện rộng.", punish: "Khóa quyền truy cập hệ thống trong mô phỏng; phục hồi dữ liệu và lập báo cáo tác động cho các bên liên quan." },
+            { level: 75, meritPoints: 7500, name: "Vạn Cổ Minh Ước", warden: "Nghiệp Môn Sứ Giả • 75", minKarma: -71400, crime: "Kích động thù hằn, vu khống có tổ chức hoặc gây chia rẽ nghiêm trọng.", punish: "Buộc công khai sự thật đã được kiểm chứng, đính chính thông tin sai và thực hiện nghĩa vụ bồi hoàn." },
+            { level: 76, meritPoints: 7600, name: "Vô Lượng Nghiệp Luân", warden: "Trấn Giới Đại Tướng • 76", minKarma: -72600, crime: "Trục lợi từ khủng hoảng, thiên tai hoặc hoàn cảnh dễ bị tổn thương của người khác.", punish: "Chuyển đến khu vực tĩnh tâm, rà soát toàn bộ hành vi và lập kế hoạch sửa chữa hậu quả có giám sát." },
+            { level: 77, meritPoints: 7700, name: "Thái Cổ U Lao", warden: "Giám Ngục Ngục Môn • 77", minKarma: -73800, crime: "Che giấu sai phạm có hệ thống, làm sai lệch chứng cứ và cản trở việc xác minh sự thật.", punish: "Niêm phong quyền thao túng hồ sơ; mọi chứng cứ được phục hồi và đối chiếu công khai trong phiên mô phỏng." },
+            { level: 78, meritPoints: 7800, name: "Huyền Thiên Phản Tỉnh", warden: "Thư Lại Tàng Thư • 78", minKarma: -75000, crime: "Lạm dụng quyền hạn, thao túng quy trình hoặc gây thiệt hại kéo dài cho cộng đồng.", punish: "Buộc đối diện chuỗi hậu quả, lời khai và dữ liệu đã được xác minh; chỉ kết thúc khi hoàn tất trách nhiệm khắc phục." },
+            { level: 79, meritPoints: 7900, name: "Vạn Pháp Quy Kính", warden: "Hà Bá Hắc Hà • 79", minKarma: -76200, crime: "Phá hoại môi trường sống, tài nguyên chung hoặc di sản có giá trị lâu dài.", punish: "Cách ly khỏi công cụ và nguồn lực từng bị lạm dụng; chuyển toàn bộ lợi ích bất chính vào quỹ hoàn trả giả tưởng." },
+            { level: 80, meritPoints: 8000, name: "Tịch Chiếu Minh Hồ", warden: "Thiên Cơ Phán Sứ • 80", minKarma: -77400, crime: "Tổ chức đường dây lừa đảo, cưỡng ép, bóc lột hoặc tiếp tay cho hành vi xâm hại.", punish: "Triệu tập các bên liên quan vào phiên đối chất minh bạch, có cơ chế bảo vệ người bị hại và nhân chứng." },
+            { level: 81, meritPoints: 8100, name: "Cửu Long Trấn Vực", warden: "Chấp Điện Cửu Trùng • 81", minKarma: -78600, crime: "Tái phạm nhiều lần, cố tình né tránh trách nhiệm và không khắc phục hậu quả.", punish: "Thực hiện chương trình cải tạo nhiều giai đoạn, kiểm tra tiến độ và đánh giá khả năng tái hòa nhập." },
+            { level: 82, meritPoints: 8200, name: "Thập Nhị U Quan", warden: "Luân Đài Đại Giám • 82", minKarma: -79800, crime: "Lợi dụng công nghệ để xâm phạm quyền riêng tư, đánh cắp dữ liệu hoặc gây tổn hại diện rộng.", punish: "Khóa quyền truy cập hệ thống trong mô phỏng; phục hồi dữ liệu và lập báo cáo tác động cho các bên liên quan." },
+            { level: 83, meritPoints: 8300, name: "Thiên Địa Định Nghiệp", warden: "Ảnh Vệ U Minh • 83", minKarma: -81000, crime: "Kích động thù hằn, vu khống có tổ chức hoặc gây chia rẽ nghiêm trọng.", punish: "Buộc công khai sự thật đã được kiểm chứng, đính chính thông tin sai và thực hiện nghĩa vụ bồi hoàn." },
+            { level: 84, meritPoints: 8400, name: "Vô Tướng Phán Đường", warden: "Tinh Lao Thống Lĩnh • 84", minKarma: -82200, crime: "Trục lợi từ khủng hoảng, thiên tai hoặc hoàn cảnh dễ bị tổn thương của người khác.", punish: "Chuyển đến khu vực tĩnh tâm, rà soát toàn bộ hành vi và lập kế hoạch sửa chữa hậu quả có giám sát." },
+            { level: 85, meritPoints: 8500, name: "Hắc Hải Hồi Âm", warden: "Kính Giới Minh Quan • 85", minKarma: -83400, crime: "Che giấu sai phạm có hệ thống, làm sai lệch chứng cứ và cản trở việc xác minh sự thật.", punish: "Niêm phong quyền thao túng hồ sơ; mọi chứng cứ được phục hồi và đối chiếu công khai trong phiên mô phỏng." },
+            { level: 86, meritPoints: 8600, name: "U Minh Tận Cùng", warden: "Cấm Vực Trấn Thủ • 86", minKarma: -84600, crime: "Lạm dụng quyền hạn, thao túng quy trình hoặc gây thiệt hại kéo dài cho cộng đồng.", punish: "Buộc đối diện chuỗi hậu quả, lời khai và dữ liệu đã được xác minh; chỉ kết thúc khi hoàn tất trách nhiệm khắc phục." },
+            { level: 87, meritPoints: 8700, name: "Vạn Kiếp Tĩnh Tâm", warden: "Nghiệp Môn Sứ Giả • 87", minKarma: -85800, crime: "Phá hoại môi trường sống, tài nguyên chung hoặc di sản có giá trị lâu dài.", punish: "Cách ly khỏi công cụ và nguồn lực từng bị lạm dụng; chuyển toàn bộ lợi ích bất chính vào quỹ hoàn trả giả tưởng." },
+            { level: 88, meritPoints: 8800, name: "Huyền Môn Chân Cảnh", warden: "Trấn Giới Đại Tướng • 88", minKarma: -87000, crime: "Tổ chức đường dây lừa đảo, cưỡng ép, bóc lột hoặc tiếp tay cho hành vi xâm hại.", punish: "Triệu tập các bên liên quan vào phiên đối chất minh bạch, có cơ chế bảo vệ người bị hại và nhân chứng." },
+            { level: 89, meritPoints: 8900, name: "Thái Sơ Nghiệp Điện", warden: "Giám Ngục Ngục Môn • 89", minKarma: -88200, crime: "Tái phạm nhiều lần, cố tình né tránh trách nhiệm và không khắc phục hậu quả.", punish: "Thực hiện chương trình cải tạo nhiều giai đoạn, kiểm tra tiến độ và đánh giá khả năng tái hòa nhập." },
+            { level: 90, meritPoints: 9000, name: "Cửu Thiên Trấn Giới", warden: "Thư Lại Tàng Thư • 90", minKarma: -89400, crime: "Lợi dụng công nghệ để xâm phạm quyền riêng tư, đánh cắp dữ liệu hoặc gây tổn hại diện rộng.", punish: "Khóa quyền truy cập hệ thống trong mô phỏng; phục hồi dữ liệu và lập báo cáo tác động cho các bên liên quan." },
+            { level: 91, meritPoints: 9100, name: "Vô Cực Minh Cung", warden: "Hà Bá Hắc Hà • 91", minKarma: -90600, crime: "Kích động thù hằn, vu khống có tổ chức hoặc gây chia rẽ nghiêm trọng.", punish: "Buộc công khai sự thật đã được kiểm chứng, đính chính thông tin sai và thực hiện nghĩa vụ bồi hoàn." },
+            { level: 92, meritPoints: 9200, name: "Vạn Linh Đại Định", warden: "Thiên Cơ Phán Sứ • 92", minKarma: -91800, crime: "Trục lợi từ khủng hoảng, thiên tai hoặc hoàn cảnh dễ bị tổn thương của người khác.", punish: "Chuyển đến khu vực tĩnh tâm, rà soát toàn bộ hành vi và lập kế hoạch sửa chữa hậu quả có giám sát." },
+            { level: 93, meritPoints: 9300, name: "Thiên Đạo Hồi Quang", warden: "Chấp Điện Cửu Trùng • 93", minKarma: -93000, crime: "Che giấu sai phạm có hệ thống, làm sai lệch chứng cứ và cản trở việc xác minh sự thật.", punish: "Niêm phong quyền thao túng hồ sơ; mọi chứng cứ được phục hồi và đối chiếu công khai trong phiên mô phỏng." },
+            { level: 94, meritPoints: 9400, name: "U Minh Tối Thượng", warden: "Luân Đài Đại Giám • 94", minKarma: -94200, crime: "Lạm dụng quyền hạn, thao túng quy trình hoặc gây thiệt hại kéo dài cho cộng đồng.", punish: "Buộc đối diện chuỗi hậu quả, lời khai và dữ liệu đã được xác minh; chỉ kết thúc khi hoàn tất trách nhiệm khắc phục." },
+            { level: 95, meritPoints: 9500, name: "Ngục Môn Chung Ấn", warden: "Ảnh Vệ U Minh • 95", minKarma: -95400, crime: "Phá hoại môi trường sống, tài nguyên chung hoặc di sản có giá trị lâu dài.", punish: "Cách ly khỏi công cụ và nguồn lực từng bị lạm dụng; chuyển toàn bộ lợi ích bất chính vào quỹ hoàn trả giả tưởng." },
+            { level: 96, meritPoints: 9600, name: "Vạn Giới Quy Phán", warden: "Tinh Lao Thống Lĩnh • 96", minKarma: -96600, crime: "Tổ chức đường dây lừa đảo, cưỡng ép, bóc lột hoặc tiếp tay cho hành vi xâm hại.", punish: "Triệu tập các bên liên quan vào phiên đối chất minh bạch, có cơ chế bảo vệ người bị hại và nhân chứng." },
+            { level: 97, meritPoints: 9700, name: "Cửu U Tận Độ", warden: "Kính Giới Minh Quan • 97", minKarma: -97800, crime: "Tái phạm nhiều lần, cố tình né tránh trách nhiệm và không khắc phục hậu quả.", punish: "Thực hiện chương trình cải tạo nhiều giai đoạn, kiểm tra tiến độ và đánh giá khả năng tái hòa nhập." },
+            { level: 98, meritPoints: 9800, name: "Đại Thiên Nghiệp Chủ", warden: "Cấm Vực Trấn Thủ • 98", minKarma: -99000, crime: "Lợi dụng công nghệ để xâm phạm quyền riêng tư, đánh cắp dữ liệu hoặc gây tổn hại diện rộng.", punish: "Khóa quyền truy cập hệ thống trong mô phỏng; phục hồi dữ liệu và lập báo cáo tác động cho các bên liên quan." },
+            { level: 99, meritPoints: 9900, name: "Vạn Cổ Ngục Môn", warden: "Vạn Cổ Trấn Ngục Sứ • 99", minKarma: -100200, crime: "Gây hậu quả đặc biệt rộng, có chủ đích và kéo dài qua nhiều thế hệ; cố tình cản trở việc khắc phục.", punish: "Khóa mọi đặc quyền trong mô phỏng, mở phiên đối chiếu toàn bộ chứng cứ và buộc hoàn thành lộ trình khắc phục hậu quả." },
+            { level: 100, meritPoints: 10000, name: "Chung Cực Ngục Môn", warden: "Ngục Môn Tối Cao • 100", minKarma: -101400, crime: "Mức độ vi phạm tối nghiêm trọng trong thế giới giả tưởng, gây tổn hại diện rộng và tái phạm có hệ thống.", punish: "Phán quyết tối cao mang tính biểu tượng: cách ly quyền gây hại, bảo vệ người bị ảnh hưởng và giám sát cải tạo vô thời hạn trong mô phỏng." }
         ];
 const SIN_PRESETS = [
             { label: "Hứa trả nợ rồi sủi", karma: -250, years: 35, hell: 1 },
@@ -1097,6 +1310,7 @@ const SIN_PRESETS = [
             renderSinPresets();
             populateHellFilter();
             loadDatabase();
+            loadDeathBook();
             loadActivityLog();
             refreshAllUI();
             switchTab("dashboard");
@@ -1233,7 +1447,7 @@ const SIN_PRESETS = [
                 icon.textContent = "🔊";
                 btn.classList.add("border-cyan-400", "bg-cyan-500/20");
                 playSound("gong");
-                showToast("🔊 Đã bật hiệu ứng âm thanh Địa Phủ 8.0");
+                showToast("🔊 Đã bật âm thanh hologram 11.0");
             } else {
                 icon.textContent = "🔇";
                 btn.classList.remove("border-cyan-400", "bg-cyan-500/20");
@@ -1263,6 +1477,24 @@ const SIN_PRESETS = [
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
                 osc.start(now);
                 osc.stop(now + 0.35);
+            } else if (type === "scan") {
+                osc.type = "sine";
+                osc.frequency.setValueAtTime(420, now);
+                osc.frequency.exponentialRampToValueAtTime(980, now + 0.22);
+                osc.frequency.exponentialRampToValueAtTime(520, now + 0.48);
+                gain.gain.setValueAtTime(0.08, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+                osc.start(now);
+                osc.stop(now + 0.5);
+            } else if (type === "verdict") {
+                osc.type = "triangle";
+                osc.frequency.setValueAtTime(392, now);
+                osc.frequency.setValueAtTime(587.33, now + 0.16);
+                osc.frequency.setValueAtTime(783.99, now + 0.32);
+                gain.gain.setValueAtTime(0.14, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+                osc.start(now);
+                osc.stop(now + 0.8);
             } else if (type === "merit") {
                 osc.type = "triangle";
                 osc.frequency.setValueAtTime(523.25, now);
@@ -1286,7 +1518,7 @@ const SIN_PRESETS = [
                 s.karma = Number(s.karma) || 0;
                 s.yearsLeft = Math.max(0, Number(s.yearsLeft) || 0);
                 s.totalYears = Math.max(s.yearsLeft, Number(s.totalYears) || s.yearsLeft);
-                s.hellLevel = Math.max(1, Math.min(28, Number(s.hellLevel) || 1));
+                s.hellLevel = Math.max(1, Math.min(100, Number(s.hellLevel) || 1));
                 s.sins = Array.isArray(s.sins) ? s.sins.map(String) : [];
                 s.confession = String(s.confession || "");
                 s.status = ["PUNISHING", "READY_REBORN", "REBORN"].includes(s.status) ? s.status : (s.yearsLeft > 0 ? "PUNISHING" : "READY_REBORN");
@@ -1446,25 +1678,101 @@ const SIN_PRESETS = [
             document.getElementById("verdict-placeholder").classList.remove("hidden");
         }
 
+        const HOLO11_HISTORY_KEY = "UNDERWORLD_OS_HOLO11_HISTORY";
+        let holo11ScanTimer = null;
+
+        function getHolo11History() {
+            try {
+                const value = JSON.parse(localStorage.getItem(HOLO11_HISTORY_KEY) || "[]");
+                return Array.isArray(value) ? value : [];
+            } catch (_) { return []; }
+        }
+
+        function renderHolo11History() {
+            const host = document.getElementById("holo11-history");
+            const count = document.getElementById("holo11-history-count");
+            if (!host || !count) return;
+            const history = getHolo11History();
+            count.textContent = `${history.length} lượt`;
+            host.innerHTML = history.length
+                ? history.slice(0, 5).map(item => `
+                    <div class="flex items-start justify-between gap-3 border-t border-slate-800/80 pt-2">
+                        <div class="min-w-0"><div class="text-cyan-200 font-semibold truncate">${escapeHTML(item.name)}</div>
+                        <div class="text-slate-500">${escapeHTML(item.id)} • Tầng ${Number(item.hellLevel) || "—"}</div></div>
+                        <div class="text-right shrink-0"><div class="text-amber-300">${Number(item.years) || 0} năm</div>
+                        <div class="text-slate-500">${escapeHTML(item.at || "")}</div></div>
+                    </div>`).join("")
+                : "Chưa có lần xét xử nào trên thiết bị này.";
+        }
+
+        function updateHolo11Progress(percent, label, activeStep) {
+            const bar = document.getElementById("holo11-progress-bar");
+            const text = document.getElementById("holo11-progress-label");
+            if (bar) bar.style.width = `${Math.max(0, Math.min(100, percent))}%`;
+            if (text) text.textContent = label;
+            [1,2,3].forEach(step => {
+                const el = document.getElementById(`holo11-step-${step}`);
+                if (!el) return;
+                el.classList.toggle("active", step === activeStep);
+                el.classList.toggle("done", step < activeStep || percent >= 100);
+            });
+        }
+
+        function findDuplicateSoul(name) {
+            const normalized = normalizeVietnameseName(name);
+            return soulsDB.find(s => s && normalizeVietnameseName(s.name) === normalized && !isRestrictedSoulName(s.name));
+        }
+
         function executeJudgment() {
             const nameInputEl = document.getElementById("soul-name");
-            const nameInput = nameInputEl.value.trim();
-            const age = parseInt(document.getElementById("soul-age").value, 10) || 30;
+            const nameInput = nameInputEl.value.trim().replace(/\s+/g, " ");
+            const ageValue = Number(document.getElementById("soul-age").value);
+            const age = Number.isFinite(ageValue) ? ageValue : 0;
             const confession = document.getElementById("soul-confession").value.trim();
 
             if (isRestrictedSoulName(nameInput)) {
                 nameInputEl.value = "";
                 document.getElementById("blocked-name-hint").classList.remove("hidden");
-                showToast("🛡️ Họ tên này nằm trong danh sách cấm ghi sổ phán quyết — không thể ghi và không bị chịu phạt!");
+                showToast("🛡️ Tên thuộc danh sách hạn chế — đã chặn ghi hồ sơ.");
                 return;
             }
-
             if (!nameInput) {
-                showToast("⚠️ Vui lòng nhập Họ Tên Linh Hồn trước khi phán quyết!");
+                showToast("⚠️ Vui lòng nhập họ tên trước khi kích hoạt gương!");
+                nameInputEl.focus();
+                return;
+            }
+            if (!Number.isInteger(age) || age < 1 || age > 150) {
+                showToast("⚠️ Tuổi phải là số nguyên từ 1 đến 150.");
+                document.getElementById("soul-age").focus();
+                return;
+            }
+            if (window.__holo11Busy) {
+                showToast("🔄 Gương đang quét hồ sơ, vui lòng chờ hoàn tất.");
                 return;
             }
 
-            const chosen = Array.from(selectedPresets).map(i => SIN_PRESETS[i]);
+            const duplicate = findDuplicateSoul(nameInput);
+            if (duplicate) {
+                showToast(`🛡️ Hồ sơ trùng tên đã tồn tại: ${duplicate.id}. Không tạo bản ghi thứ hai.`);
+                const result = document.getElementById("verdict-result");
+                const placeholder = document.getElementById("verdict-placeholder");
+                if (result && placeholder) {
+                    placeholder.classList.add("hidden");
+                    result.classList.remove("hidden");
+                    document.getElementById("res-id").textContent = `MÃ HỒ SƠ: #${duplicate.id}`;
+                    document.getElementById("res-name").textContent = duplicate.name;
+                    document.getElementById("res-meta").textContent = `Hồ sơ đã tồn tại • ${duplicate.createdAt || "Không rõ ngày tạo"}`;
+                    document.getElementById("res-karma").textContent = `${duplicate.karma} Karma`;
+                    document.getElementById("res-years").textContent = `${duplicate.totalYears || duplicate.yearsLeft} Năm`;
+                    const info = EIGHTEEN_HELLS[duplicate.hellLevel - 1] || EIGHTEEN_HELLS[0];
+                    document.getElementById("res-hell").textContent = `Tầng ${info.level}: ${info.name}`;
+                    document.getElementById("res-punishment").textContent = "Đây là hồ sơ hiện có; hệ thống không ghi thêm hồ sơ trùng tên.";
+                    document.getElementById("res-quote").textContent = "Gương Nghiệp Kính đã nhận diện hồ sơ trùng khớp trong Sổ Sinh Tử.";
+                }
+                return;
+            }
+
+            const chosen = Array.from(selectedPresets).map(i => SIN_PRESETS[i]).filter(Boolean);
             let totalKarma = chosen.reduce((sum, item) => sum + item.karma, 0);
             let totalYears = chosen.reduce((sum, item) => sum + item.years, 0);
             let targetHell = chosen.length ? Math.max(...chosen.map(item => item.hell)) : 4;
@@ -1479,56 +1787,85 @@ const SIN_PRESETS = [
                 totalYears = 20;
                 targetHell = 4;
             }
-
             const hellByKarma = EIGHTEEN_HELLS.slice().reverse().find(h => totalKarma <= h.minKarma);
-            if (hellByKarma && hellByKarma.level > targetHell) {
-                targetHell = hellByKarma.level;
-            }
+            if (hellByKarma && hellByKarma.level > targetHell) targetHell = hellByKarma.level;
+            targetHell = Math.max(1, Math.min(100, targetHell));
 
+            window.__holo11Busy = true;
             const overlay = document.getElementById("scanner-overlay");
             overlay.classList.remove("hidden");
-            playSound("laser");
+            playSound("scan");
+            updateHolo11Progress(8, "Đang nhận diện dữ liệu đầu vào...", 1);
 
-            setTimeout(() => {
-                overlay.classList.add("hidden");
-                if (isRestrictedSoulName(nameInput)) {
-                    showToast("🛡️ Họ tên nằm trong diện cấm ghi sổ — hủy lưu hồ sơ!");
-                    return;
+            let progress = 8;
+            const labels = [
+                { at: 28, text: "Đang đối chiếu danh tính và dữ liệu hồ sơ...", step: 1 },
+                { at: 52, text: "Đang phân tích tội danh và lời khai...", step: 2 },
+                { at: 76, text: "Đang tính nghiệp lực và thời hạn mô phỏng...", step: 2 },
+                { at: 94, text: "Đang đồng bộ tầng phán xét và kiểm tra trùng lặp...", step: 3 }
+            ];
+            if (holo11ScanTimer) clearInterval(holo11ScanTimer);
+            holo11ScanTimer = setInterval(() => {
+                progress = Math.min(100, progress + 4);
+                const stage = labels.filter(x => progress >= x.at).pop() || labels[0];
+                updateHolo11Progress(progress, stage.text, stage.step);
+                if (progress >= 100) {
+                    clearInterval(holo11ScanTimer);
+                    holo11ScanTimer = null;
+                    setTimeout(() => {
+                        overlay.classList.add("hidden");
+                        // Re-check at commit time to protect against a second tab or fast repeated action.
+                        if (isRestrictedSoulName(nameInput) || findDuplicateSoul(nameInput)) {
+                            window.__holo11Busy = false;
+                            updateHolo11Progress(0, "Đã hủy: hồ sơ không hợp lệ hoặc đã tồn tại.", 1);
+                            showToast("🛡️ Đã hủy lưu vì tên bị hạn chế hoặc hồ sơ vừa được tạo ở nơi khác.");
+                            return;
+                        }
+                        const hellInfo = EIGHTEEN_HELLS[targetHell - 1] || EIGHTEEN_HELLS[0];
+                        const now = new Date();
+                        const record = {
+                            id: "UW-" + now.getTime().toString(36).toUpperCase() + "-" + Math.floor(100 + Math.random() * 900),
+                            name: nameInput, age,
+                            sins: chosen.length ? chosen.map(c => c.label) : ["Lời khai chưa rõ ràng trên Nghiệp Kính"],
+                            confession: confession || "Không có lời bào chữa.",
+                            karma: totalKarma, yearsLeft: totalYears, totalYears,
+                            hellLevel: targetHell, status: totalYears > 0 ? "PUNISHING" : "READY_REBORN",
+                            rebornDest: null,
+                            createdAt: now.toLocaleDateString("vi-VN"),
+                            createdAtISO: now.toISOString(),
+                            verdictVersion: "11.0"
+                        };
+                        soulsDB.unshift(record);
+                        const history = getHolo11History();
+                        history.unshift({
+                            id: record.id, name: record.name, hellLevel: record.hellLevel,
+                            years: record.totalYears, karma: record.karma,
+                            at: now.toLocaleString("vi-VN"), version: "11.0"
+                        });
+                        try { localStorage.setItem(HOLO11_HISTORY_KEY, JSON.stringify(history.slice(0, 100))); } catch (_) {}
+                        recordActivity("Phán quyết hologram 11.0", `${record.name} • ${record.id} • Tầng ${record.hellLevel}`);
+                        saveDatabase();
+
+                        document.getElementById("verdict-placeholder").classList.add("hidden");
+                        document.getElementById("verdict-result").classList.remove("hidden");
+                        document.getElementById("res-id").textContent = `MÃ HỒ SƠ: #${record.id}`;
+                        document.getElementById("res-name").textContent = record.name;
+                        document.getElementById("res-meta").textContent = `Dương thọ: ${record.age} tuổi • Ngày nhập sổ: ${record.createdAt}`;
+                        document.getElementById("res-karma").textContent = `${record.karma} Karma`;
+                        document.getElementById("res-years").textContent = `${record.totalYears} Năm`;
+                        document.getElementById("res-hell").textContent = `Tầng ${hellInfo.level}: ${hellInfo.name}`;
+                        document.getElementById("res-punishment").textContent =
+                            `Tội hình: ${hellInfo.crime} Hình phạt mô phỏng: ${hellInfo.punish} Điểm công trạng tham chiếu: ${hellInfo.meritPoints.toLocaleString("vi-VN")}.`;
+                        document.getElementById("res-quote").textContent =
+                            `“Gương đã ghi nhận hồ sơ ${record.name}. Tầng ${hellInfo.level} — ${hellInfo.name}; cai quản bởi ${hellInfo.warden}.”`;
+                        updateHolo11Progress(100, "Hoàn tất! Phán quyết đã được lưu vào Sổ Sinh Tử.", 3);
+                        renderHolo11History();
+                        playSound("verdict");
+                        showToast(`⚖️ Hologram 11.1 đã hoàn tất và lưu hồ sơ #${record.id}!`);
+                        window.__holo11Busy = false;
+                    }, 180);
                 }
-                playSound("gong");
-              const hellInfo = EIGHTEEN_HELLS[targetHell - 1];
-                const record = {
-                    id: "UW-" + Date.now().toString(36).toUpperCase() + "-" + Math.floor(100 + Math.random() * 900),
-                    name: nameInput,
-                    age,
-                    sins: chosen.length ? chosen.map(c => c.label) : ["Lời khai chưa rõ ràng trên Nghiệp Kính"],
-                    confession: confession || "Không có lời bào chữa.",
-                    karma: totalKarma,
-                    yearsLeft: totalYears,
-                    totalYears,
-                    hellLevel: targetHell,
-                    status: totalYears > 0 ? "PUNISHING" : "READY_REBORN",
-                    rebornDest: null,
-                    createdAt: new Date().toLocaleDateString('vi-VN')
-                };
-
-                soulsDB.unshift(record);
-                recordActivity("Phán quyết mới", `${record.name} • ${record.id} • Tầng ${record.hellLevel}`);
-                saveDatabase();
-
-                document.getElementById("verdict-placeholder").classList.add("hidden");
-                document.getElementById("verdict-result").classList.remove("hidden");
-                document.getElementById("res-id").textContent = `MÃ HỒ SƠ: #${record.id}`;
-                document.getElementById("res-name").textContent = record.name;
-                document.getElementById("res-meta").textContent = `Dương thọ: ${record.age} tuổi • Ngày nhập sổ: ${record.createdAt}`;
-                document.getElementById("res-karma").textContent = `${record.karma} Karma`;
-                document.getElementById("res-years").textContent = `${record.totalYears} Năm`;
-                document.getElementById("res-hell").textContent = `Tầng ${hellInfo.level}: ${hellInfo.name}`;
-                document.getElementById("res-punishment").textContent = `Tội hình: ${hellInfo.crime} Hình phạt mô phỏng: ${hellInfo.punish} Điểm công trạng tham chiếu của tầng: ${hellInfo.meritPoints.toLocaleString("vi-VN")}.`;
-                document.getElementById("res-quote").textContent = `"Lưới trời lồng lộng, tuy thưa mà khó thoát. Áp giải ${record.name} xuống Tầng ${hellInfo.level} giao cho ${hellInfo.warden} thi hành án ngay!"`;
-
-                showToast(`⚖️ Đã phán quyết & lưu hồ sơ #${record.id} vào Sổ Sinh Tử!`);
-            }, 1300);
+            }, 65);
         }
 
         function populateHellFilter() {
@@ -1548,6 +1885,139 @@ const SIN_PRESETS = [
             if (globalInput && globalInput.value !== val) globalInput.value = val;
             if (ledgerInput && ledgerInput.value !== val) ledgerInput.value = val;
             renderLedger();
+        }
+
+
+        // Sổ Sinh Tử 11.2: dữ liệu riêng, lưu trên trình duyệt hiện tại.
+        const DEATHBOOK_STORAGE_KEY = "QUY_MON_QUAN_DEATHBOOK_112";
+        let deathBookRecords = [];
+        function loadDeathBook() {
+            try {
+                const raw = localStorage.getItem(DEATHBOOK_STORAGE_KEY);
+                const parsed = raw ? JSON.parse(raw) : [];
+                deathBookRecords = Array.isArray(parsed)
+                    ? parsed.filter(r => r && !isRestrictedSoulName(r.name))
+                    : [];
+                // Làm sạch cả dữ liệu cũ để tên bị cấm không còn xuất hiện trong Sổ Sinh Tử.
+                if (Array.isArray(parsed) && parsed.length !== deathBookRecords.length) {
+                    localStorage.setItem(DEATHBOOK_STORAGE_KEY, JSON.stringify(deathBookRecords));
+                }
+            } catch (e) { deathBookRecords = []; }
+            renderDeathBook();
+        }
+        function saveDeathBook() {
+            // Lọc lần cuối trước khi lưu để chặn cả dữ liệu được thêm từ các đường khác.
+            deathBookRecords = deathBookRecords.filter(r => r && !isRestrictedSoulName(r.name));
+            try { localStorage.setItem(DEATHBOOK_STORAGE_KEY, JSON.stringify(deathBookRecords)); }
+            catch (e) { showToast("⚠️ Không thể lưu Sổ Sinh Tử. Hãy kiểm tra dung lượng trình duyệt."); }
+            renderDeathBook();
+        }
+        function deathBookEligible(r) {
+            return Number(r.age) >= Number(r.lifespan) && Number(r.repeatCount) >= 3 && r.reformStatus === "Không chịu sửa đổi";
+        }
+        function addDeathBookRecord(event) {
+            event.preventDefault();
+            const name = document.getElementById("db-name").value.trim();
+            // Dùng chung danh sách cấm với Gương Nghiệp Kính; không phân biệt dấu/hoa/thường.
+            if (isRestrictedSoulName(name)) {
+                const nameInput = document.getElementById("db-name");
+                nameInput.value = "";
+                nameInput.focus();
+                nameInput.classList.add("border-amber-400");
+                showToast("🛡️ Tên này thuộc danh sách cấm — không được lập hồ sơ Sổ Sinh Tử.");
+                return;
+            }
+            const crime = document.getElementById("db-crime").value.trim();
+            const age = Number(document.getElementById("db-age").value);
+            const lifespan = Number(document.getElementById("db-lifespan").value);
+            const repeatCount = Number(document.getElementById("db-repeat").value);
+            if (!name || !crime || !Number.isFinite(age) || !Number.isFinite(lifespan) || age < 0 || lifespan < 1 || age > 150 || lifespan > 150 || repeatCount < 0) {
+                showToast("⚠️ Vui lòng kiểm tra tên, tội danh, tuổi thọ và số lần tái phạm."); return;
+            }
+            const id = "ST-" + Date.now().toString(36).toUpperCase();
+            deathBookRecords.unshift({
+                id, name, crime, age, lifespan, repeatCount,
+                reformStatus: document.getElementById("db-reform").value,
+                pastLives: document.getElementById("db-past").value.trim(),
+                notes: document.getElementById("db-notes").value.trim(),
+                createdAt: new Date().toISOString(), archived: false, archivedAt: ""
+            });
+            saveDeathBook();
+            document.getElementById("deathbook-form").reset();
+            recordActivity("Lập hồ sơ Sổ Sinh Tử", name + " • " + crime);
+            showToast("📜 Đã ghi phạm nhân vào Sổ Sinh Tử.");
+        }
+        function archiveDeathBookRecord(id) {
+            const r = deathBookRecords.find(x => x.id === id);
+            if (!r) return;
+            if (!deathBookEligible(r)) {
+                showToast("🔒 Chưa đủ điều kiện gạch tên: cần tận dương thọ, tái phạm ít nhất 3 lần và không chịu sửa đổi."); return;
+            }
+            if (!confirm("Xác nhận gạch tên khỏi danh sách đang quản lý? Hồ sơ sẽ được chuyển vào lưu trữ, không bị xóa.")) return;
+            r.archived = true;
+            r.archivedAt = new Date().toISOString();
+            saveDeathBook();
+            recordActivity("Gạch tên Sổ Sinh Tử", r.name + " • chuyển lưu trữ");
+            showToast("📚 Đã gạch tên khỏi danh sách đang quản lý và lưu hồ sơ.");
+        }
+        function restoreDeathBookRecord(id) {
+            const r = deathBookRecords.find(x => x.id === id);
+            if (!r) return;
+            r.archived = false; r.archivedAt = "";
+            saveDeathBook();
+            recordActivity("Khôi phục Sổ Sinh Tử", r.name);
+            showToast("Đã khôi phục hồ sơ vào danh sách đang quản lý.");
+        }
+        function renderDeathBook() {
+            const list = document.getElementById("deathbook-list");
+            if (!list) return;
+            const q = (document.getElementById("deathbook-search")?.value || "").trim().toLocaleLowerCase("vi");
+            const filter = document.getElementById("deathbook-filter")?.value || "active";
+            const total = deathBookRecords.length;
+            const archived = deathBookRecords.filter(r => r.archived).length;
+            const eligible = deathBookRecords.filter(r => !r.archived && deathBookEligible(r)).length;
+            const active = total - archived;
+            const put = (id, n) => { const el = document.getElementById(id); if (el) el.textContent = String(n); };
+            put("deathbook-total", total); put("deathbook-active", active); put("deathbook-eligible", eligible); put("deathbook-archived", archived);
+            const rows = deathBookRecords.filter(r => {
+                if (filter === "active" && r.archived) return false;
+                if (filter === "archived" && !r.archived) return false;
+                return !q || [r.name, r.crime, r.pastLives, r.notes].join(" ").toLocaleLowerCase("vi").includes(q);
+            });
+            if (!rows.length) {
+                list.innerHTML = '<div class="lg:col-span-2 rounded-xl border border-slate-700 bg-slate-950/50 p-6 text-center text-xs text-slate-400">Chưa có hồ sơ phù hợp. Hãy lập hồ sơ mới ở biểu mẫu phía trên.</div>';
+                return;
+            }
+            list.innerHTML = rows.map(r => {
+                const eligibleNow = deathBookEligible(r);
+                const remaining = Math.max(0, Number(r.lifespan) - Number(r.age));
+                const state = r.archived
+                    ? '<span class="text-[10px] rounded-full px-2 py-1 bg-slate-700 text-slate-200">ĐÃ GẠCH TÊN • LƯU TRỮ</span>'
+                    : eligibleNow
+                        ? '<span class="text-[10px] rounded-full px-2 py-1 bg-amber-500/20 text-amber-200 border border-amber-500/30">ĐỦ ĐIỀU KIỆN GẠCH TÊN</span>'
+                        : '<span class="text-[10px] rounded-full px-2 py-1 bg-cyan-500/10 text-cyan-200 border border-cyan-500/20">ĐANG QUẢN LÝ</span>';
+                const action = r.archived
+                    ? `<button onclick="restoreDeathBookRecord('${r.id}')" class="px-3 py-2 rounded-lg bg-cyan-950/60 border border-cyan-500/30 text-cyan-200 text-xs">↩ Khôi phục</button>`
+                    : `<button onclick="archiveDeathBookRecord('${r.id}')" ${eligibleNow ? "" : "disabled"} title="${eligibleNow ? "Gạch tên và lưu trữ hồ sơ" : "Chưa đủ điều kiện"}" class="px-3 py-2 rounded-lg border text-xs ${eligibleNow ? "bg-amber-950/60 border-amber-500/40 text-amber-200" : "bg-slate-900 border-slate-700 text-slate-600 cursor-not-allowed"}">Gạch tên khỏi danh sách</button>`;
+                return `<article class="rounded-xl border border-slate-700 bg-slate-950/60 p-4 space-y-3">
+                    <div class="flex flex-wrap justify-between items-start gap-2"><div><div class="text-[10px] text-cyan-300 font-mono-tech">${escapeHTML(r.id)} • LẬP ${new Date(r.createdAt).toLocaleDateString("vi-VN")}</div><h4 class="text-base font-bold text-white mt-1">${escapeHTML(r.name)}</h4></div>${state}</div>
+                    <div class="text-sm text-rose-200"><b>Tội danh:</b> ${escapeHTML(r.crime)}</div>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="rounded-lg bg-slate-900 p-2"><span class="text-slate-400">Dương thọ</span><div class="text-white font-semibold">${r.age}/${r.lifespan} tuổi</div><div class="text-[10px] text-slate-500">${remaining ? "Còn " + remaining + " năm" : "Đã tận dương thọ"}</div></div>
+                        <div class="rounded-lg bg-slate-900 p-2"><span class="text-slate-400">Tái phạm</span><div class="text-white font-semibold">${Number(r.repeatCount)} lần</div><div class="text-[10px] text-slate-500">${escapeHTML(r.reformStatus)}</div></div>
+                    </div>
+                    <div class="text-xs text-slate-300"><b class="text-amber-200">Tiền kiếp / truyền kiếp:</b><p class="mt-1 whitespace-pre-wrap">${escapeHTML(r.pastLives || "Chưa ghi nhận")}</p></div>
+                    <div class="text-xs text-slate-400"><b>Ghi chú xác thân và linh hồn:</b><p class="mt-1 whitespace-pre-wrap">${escapeHTML(r.notes || "Chưa có ghi chú")}</p></div>
+                    ${r.archivedAt ? `<div class="text-[10px] text-slate-500">Lưu trữ: ${new Date(r.archivedAt).toLocaleString("vi-VN")}</div>` : ""}
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-t border-slate-800 pt-3"><span class="text-[10px] text-slate-500">${eligibleNow || r.archived ? "Hồ sơ được giữ trong kho lưu trữ." : "Cần đủ cả 3 điều kiện mới được gạch tên."}</span>${action}</div>
+                </article>`;
+            }).join("");
+        }
+        function exportDeathBook() {
+            const payload = { app: "QUỶ MÔN QUAN", module: "SỔ SINH TỬ 11.2", exportedAt: new Date().toISOString(), records: deathBookRecords };
+            const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json;charset=utf-8"});
+            downloadBlob(blob, "so-sinh-tu-11.2-" + new Date().toISOString().slice(0,10) + ".json");
+            showToast("⬇️ Đã xuất bản sao Sổ Sinh Tử.");
         }
 
         function renderLedger() {
@@ -1662,6 +2132,8 @@ const SIN_PRESETS = [
             const age = Number(document.getElementById("profile-age").value);
             const years = Number(document.getElementById("profile-years").value);
             if (!name || isRestrictedSoulName(name)) return showToast("🛡️ Tên trống hoặc thuộc danh sách cấm, không thể lưu.");
+            const duplicate = soulsDB.find(item => String(item.id) !== String(id) && normalizeVietnameseName(item.name) === normalizeVietnameseName(name));
+            if (duplicate) return showToast(`🛡️ Tên đã thuộc hồ sơ ${duplicate.id}; không thể đổi thành tên trùng.`);
             if (!Number.isFinite(age) || age < 1 || age > 150) return showToast("⚠️ Tuổi phải từ 1 đến 150.");
             if (!Number.isFinite(years) || years < 0) return showToast("⚠️ Số năm còn lại không hợp lệ.");
             s.name = name;
@@ -1691,7 +2163,8 @@ const SIN_PRESETS = [
         function exportDatabase() {
             const payload = {
                 app: "QUỶ MÔN QUAN",
-                version: "10.0",
+                module: "GƯƠNG NGHIỆP KÍNH HOLOGRAM",
+                version: "11.2",
                 exportedAt: new Date().toISOString(),
                 souls: soulsDB.filter(s => !isRestrictedSoulName(s.name))
             };
@@ -1955,13 +2428,13 @@ const SIN_PRESETS = [
             renderActivityLog();
         }
         function bountyForFloor(level) {
-            const floor = Math.min(28, Math.max(1, Number(level) || 1));
+            const floor = Math.min(100, Math.max(1, Number(level) || 1));
             return floor * 500;
         }
         function renderBountyFloorTable() {
             const el = document.getElementById("bounty-floor-table");
             if (!el) return;
-            el.innerHTML = Array.from({length:28}, (_,i) => {
+            el.innerHTML = Array.from({length:100}, (_,i) => {
                 const floor=i+1, reward=bountyForFloor(floor);
                 return `<div class="rounded-lg border border-slate-800 bg-slate-900/80 p-2 text-center">
                     <div class="text-[10px] text-slate-400">TẦNG ${floor}</div>
@@ -2068,6 +2541,12 @@ const SIN_PRESETS = [
             clearTimeout(toastTimer);
             toastTimer = setTimeout(() => t.classList.add("hidden"), 3600);
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderHolo11History();
+            updateHolo11Progress(0, "Hệ thống đang chờ dữ liệu đầu vào", 1);
+        });
+
     </script>
 </body>
 </html>
