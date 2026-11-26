@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUỶ MÔN QUAN 11.2 | Sổ Sinh Tử Truyền Kiếp</title>
+    <title>QUỶ MÔN QUAN 12.0 | Thiên Giới & Âm Phủ OS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=JetBrains+Mono:wght@400;600;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -285,11 +285,11 @@
             <div class="rune-orbit" aria-hidden="true"><span class="font-cinzel text-4xl text-violet-200">冥</span></div>
             <div class="relative max-w-3xl">
                 <div class="flex flex-wrap items-center gap-2 mb-3">
-                    <span class="text-[10px] font-mono-tech tracking-[.22em] text-cyan-200 border border-cyan-300/30 bg-cyan-300/10 rounded-full px-3 py-1">HOLOGRAM AI • VERSION 11.2</span>
+                    <span class="text-[10px] font-mono-tech tracking-[.22em] text-cyan-200 border border-cyan-300/30 bg-cyan-300/10 rounded-full px-3 py-1">UNDERWORLD OS • VERSION 12.0</span>
                     <span class="text-[10px] font-mono-tech text-amber-200">26 • 11 • 2026</span>
                 </div>
-                <h2 class="font-cinzel font-extrabold text-2xl sm:text-3xl text-white leading-tight">QUỶ MÔN QUAN <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-amber-200 to-cyan-200">11.1</span></h2>
-                <p class="text-sm sm:text-base text-slate-200 mt-2 max-w-2xl">Bản nâng cấp Sổ Sinh Tử 11.2 — quét đa giai đoạn, phân tích hồ sơ, chống trùng tên, lưu lịch sử xét xử và tối ưu trải nghiệm di động.</p>
+                <h2 class="font-cinzel font-extrabold text-2xl sm:text-3xl text-white leading-tight">QUỶ MÔN QUAN <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-300 via-amber-200 to-cyan-200">12.0</span></h2>
+                <p class="text-sm sm:text-base text-slate-200 mt-2 max-w-2xl">Bản phát hành 12.0 — giao diện điều hành mới, bổ sung Trung枢 Thiên Giới để giám sát và phối hợp các phân hệ Âm Phủ.</p>
                 <div class="visual-spectrum mt-5 max-w-xl"></div>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-6 relative">
@@ -353,6 +353,11 @@
             </button>
             <button onclick="switchTab('missions')" id="tab-missions" class="tab-btn px-4 py-2.5 rounded-xl border border-amber-500/30 text-xs sm:text-sm font-semibold text-amber-200 hover:text-white transition flex items-center gap-2">
                 <span>🎖️</span> Nhiệm Vụ Truy Bắt
+            </button>
+            <button onclick="switchTab('ai17')" id="tab-ai17" class="tab-btn px-4 py-2.5 rounded-xl border border-violet-400/30 text-xs sm:text-sm font-semibold text-violet-200 hover:text-white transition flex items-center gap-2"><span>🤖</span> AI & Phân Tích 17.0</button>
+            <button onclick="switchTab('os20')" id="tab-os20" class="tab-btn px-4 py-2.5 rounded-xl border border-emerald-400/30 text-xs sm:text-sm font-semibold text-emerald-200 hover:text-white transition flex items-center gap-2"><span>🌌</span> Ultimate OS 20.0</button>
+            <button onclick="switchTab('heaven')" id="tab-heaven" class="tab-btn px-4 py-2.5 rounded-xl border border-sky-400/30 text-xs sm:text-sm font-semibold text-sky-200 hover:text-white transition flex items-center gap-2">
+                <span>☁️</span> Thiên Giới Quản Lý
             </button>
         </nav>
 
@@ -949,6 +954,101 @@
         </div>
     </div>
 
+
+        <!-- VERSION 17.0: AI & ANALYTICS -->
+        <section id="view-ai17" class="hidden space-y-4">
+            <div class="glass-panel rounded-2xl p-5 border border-violet-400/40 bg-gradient-to-br from-violet-950/60 via-slate-950 to-cyan-950/30">
+                <p class="text-[10px] font-mono-tech tracking-[.25em] text-violet-200">AI & ANALYTICS • RELEASE 17.0</p>
+                <h2 class="font-cinzel text-2xl font-extrabold text-white mt-1">🤖 AI VÀ PHÂN TÍCH ÂM PHỦ</h2>
+                <p class="text-xs text-slate-300 mt-2">Tổng hợp dữ liệu đang có, cảnh báo trùng lặp và hỗ trợ quản trị. Phân tích chạy cục bộ theo quy tắc; không gửi dữ liệu lên AI bên ngoài.</p>
+                <div class="flex flex-wrap gap-2 mt-4"><button onclick="runAIAnalysis()" class="rounded-lg px-4 py-2 bg-violet-500 text-slate-950 text-xs font-bold">▶ Chạy phân tích</button><button onclick="exportAIReport()" class="rounded-lg px-4 py-2 border border-violet-300/40 text-violet-100 text-xs">⬇ Xuất báo cáo</button></div>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="glass-panel rounded-xl p-3 border border-cyan-400/25"><div class="text-[10px] text-cyan-200">TỔNG HỒ SƠ</div><div id="ai-total" class="text-2xl font-bold">0</div></div>
+                <div class="glass-panel rounded-xl p-3 border border-rose-400/25"><div class="text-[10px] text-rose-200">ĐANG CHỊU PHẠT</div><div id="ai-punishing" class="text-2xl font-bold">0</div></div>
+                <div class="glass-panel rounded-xl p-3 border border-amber-400/25"><div class="text-[10px] text-amber-200">CẢNH BÁO TRÙNG</div><div id="ai-duplicates" class="text-2xl font-bold">0</div></div>
+                <div class="glass-panel rounded-xl p-3 border border-emerald-400/25"><div class="text-[10px] text-emerald-200">TẦNG NGỤC CÓ HỒ SƠ</div><div id="ai-active-hells" class="text-2xl font-bold">0</div></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="glass-panel rounded-2xl p-4 border border-rose-400/25"><h3 class="font-bold text-rose-200">⚠️ CẢNH BÁO DỮ LIỆU TRÙNG LẶP</h3><div id="ai-duplicate-list" class="space-y-2 mt-3 text-xs text-slate-300">Nhấn “Chạy phân tích” để kiểm tra.</div></div>
+                <div class="glass-panel rounded-2xl p-4 border border-cyan-400/25"><h3 class="font-bold text-cyan-200">📊 PHÂN TÍCH TÌNH TRẠNG NGỤC MÔN</h3><div id="ai-hell-analysis" class="space-y-2 mt-3 text-xs text-slate-300">Chưa có báo cáo.</div></div>
+            </div>
+            <div class="glass-panel rounded-2xl p-4 border border-violet-400/25"><h3 class="font-bold text-violet-200">🧠 TRỢ LÝ AI HỖ TRỢ QUẢN TRỊ</h3><p class="text-[11px] text-slate-400 mt-1">Trợ lý nội bộ trả lời dựa trên số liệu hiện có trong trình duyệt.</p><div class="flex flex-col sm:flex-row gap-2 mt-3"><input id="ai-assistant-question" class="flex-1 bg-slate-950 border border-slate-700 rounded-lg p-3 text-white text-sm" placeholder="VD: Tình trạng Ngục Môn hiện nay thế nào?"><button onclick="askUnderworldAssistant()" class="px-4 py-2 rounded-lg bg-violet-500 text-slate-950 font-bold text-xs">Gửi câu hỏi</button></div><div id="ai-assistant-answer" class="mt-3 rounded-lg bg-slate-950/80 p-3 text-xs text-slate-300">Xin chào. Tôi có thể tổng hợp số liệu và gợi ý kiểm tra dữ liệu.</div></div>
+        </section>
+
+        <!-- VERSION 20.0: ULTIMATE UNDERWORLD OS -->
+        <section id="view-os20" class="hidden space-y-4">
+            <div class="glass-panel rounded-2xl p-5 border border-emerald-400/40 bg-gradient-to-br from-emerald-950/50 via-slate-950 to-sky-950/40">
+                <p class="text-[10px] font-mono-tech tracking-[.25em] text-emerald-200">ULTIMATE UNDERWORLD OS • RELEASE 20.0</p>
+                <h2 class="font-cinzel text-2xl font-extrabold text-white mt-1">🌌 TRUNG TÂM ĐIỀU HÀNH THIÊN GIỚI – ÂM PHỦ</h2>
+                <p class="text-xs text-slate-300 mt-2">Bảng điều hành hợp nhất, bản đồ nghiệp vụ, báo cáo tập trung và trung tâm kiểm soát dữ liệu.</p>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="glass-panel rounded-xl p-3"><div class="text-[10px] text-cyan-200">HỒ SƠ</div><div id="os-total" class="text-2xl font-bold">0</div></div>
+                <div class="glass-panel rounded-xl p-3"><div class="text-[10px] text-rose-200">ĐANG THI HÀNH</div><div id="os-punishing" class="text-2xl font-bold">0</div></div>
+                <div class="glass-panel rounded-xl p-3"><div class="text-[10px] text-sky-200">CHỈ THỊ THIÊN GIỚI</div><div id="os-orders" class="text-2xl font-bold">0</div></div>
+                <div class="glass-panel rounded-xl p-3"><div class="text-[10px] text-emerald-200">NHẬT KÝ VẬN HÀNH</div><div id="os-logs" class="text-2xl font-bold">0</div></div>
+            </div>
+            <div class="glass-panel rounded-2xl p-4 border border-sky-400/25"><div class="flex flex-wrap justify-between gap-2"><div><h3 class="font-bold text-sky-200">🗺️ BẢN ĐỒ QUẢN LÝ TOÀN KHU VỰC</h3><p class="text-[11px] text-slate-400">Sơ đồ phân hệ nghiệp vụ, không phải bản đồ địa lý.</p></div><button onclick="renderUltimateOS()" class="text-xs px-3 py-2 border border-slate-600 rounded-lg">↻ Đồng bộ bảng điều khiển</button></div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4 text-center"><div class="rounded-xl p-4 border border-sky-400/40 bg-sky-950/40"><div class="text-2xl">☁️</div><b class="text-sky-200 text-sm">THIÊN GIỚI</b><p class="text-[10px] text-slate-400 mt-1">Giám sát • Chỉ thị • Phê duyệt</p></div><div class="rounded-xl p-4 border border-violet-400/40 bg-violet-950/40"><div class="text-2xl">⚖️</div><b class="text-violet-200 text-sm">TRUNG TÂM NGHIỆP VỤ</b><p class="text-[10px] text-slate-400 mt-1">Tòa án • Sổ Sinh Tử • Công Hội</p></div><div class="rounded-xl p-4 border border-rose-400/40 bg-rose-950/40"><div class="text-2xl">🌋</div><b class="text-rose-200 text-sm">ÂM PHỦ</b><p class="text-[10px] text-slate-400 mt-1">Ngục Môn • Tuần ngục • Luân hồi</p></div></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="glass-panel rounded-2xl p-4 border border-amber-400/25"><h3 class="font-bold text-amber-200">📑 BÁO CÁO & PHÂN TÍCH TẬP TRUNG</h3><div id="os-central-report" class="text-xs text-slate-300 mt-3 space-y-2"></div><button onclick="exportCentralReport()" class="mt-3 px-3 py-2 rounded-lg bg-amber-500/15 border border-amber-400/30 text-amber-100 text-xs">⬇ Xuất báo cáo tổng hợp</button></div>
+                <div class="glass-panel rounded-2xl p-4 border border-emerald-400/25"><h3 class="font-bold text-emerald-200">🛡️ TRUNG TÂM AN NINH & KIỂM SOÁT DỮ LIỆU</h3><div id="os-security-report" class="text-xs text-slate-300 mt-3 space-y-2"></div><div class="flex flex-wrap gap-2 mt-3"><button onclick="runAIAnalysis();renderUltimateOS()" class="px-3 py-2 rounded-lg border border-emerald-400/30 text-emerald-100 text-xs">Quét dữ liệu</button><button onclick="exportFullBackup()" class="px-3 py-2 rounded-lg bg-emerald-500 text-slate-950 text-xs font-bold">Sao lưu toàn bộ</button></div></div>
+            </div>
+        </section>
+        <!-- TAB THIÊN GIỚI: QUẢN LÝ ÂM PHỦ -->
+        <section id="view-heaven" class="hidden space-y-4">
+            <div class="glass-panel rounded-2xl p-5 sm:p-6 border border-sky-400/40 bg-gradient-to-br from-sky-950/60 via-slate-950 to-violet-950/40">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <p class="text-[10px] font-mono-tech tracking-[.25em] text-sky-200">CELESTIAL ADMINISTRATION • RELEASE 12.0</p>
+                        <h2 class="font-cinzel text-2xl font-extrabold text-white mt-1">THIÊN GIỚI QUẢN LÝ ÂM PHỦ</h2>
+                        <p class="text-xs text-slate-300 mt-2 max-w-3xl">Phân hệ giám sát cấp cao: tiếp nhận báo cáo, ban hành chỉ thị, phê duyệt đề xuất và theo dõi vận hành. Đây là trung tâm quản trị nghiệp vụ, không tạo hệ thống 100 cấp chức danh hay phong quan.</p>
+                    </div>
+                    <span class="rounded-full px-3 py-1.5 text-[10px] font-mono-tech border border-sky-300/40 bg-sky-300/10 text-sky-100">☁️ THIÊN ĐÌNH</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="glass-panel rounded-xl p-3 border border-sky-400/25"><div class="text-[10px] text-sky-200">TỔNG CHỈ THỊ</div><div id="heaven-stat-orders" class="text-2xl font-bold text-white mt-1">0</div></div>
+                <div class="glass-panel rounded-xl p-3 border border-amber-400/25"><div class="text-[10px] text-amber-200">CHỜ PHÊ DUYỆT</div><div id="heaven-stat-pending" class="text-2xl font-bold text-white mt-1">0</div></div>
+                <div class="glass-panel rounded-xl p-3 border border-emerald-400/25"><div class="text-[10px] text-emerald-200">ĐÃ BAN HÀNH</div><div id="heaven-stat-approved" class="text-2xl font-bold text-white mt-1">0</div></div>
+                <div class="glass-panel rounded-xl p-3 border border-violet-400/25"><div class="text-[10px] text-violet-200">BÁO CÁO ÂM PHỦ</div><div id="heaven-stat-reports" class="text-2xl font-bold text-white mt-1">0</div></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+                <div class="lg:col-span-2 glass-panel rounded-2xl p-4 sm:p-5 border border-sky-400/25 space-y-3">
+                    <h3 class="font-cinzel font-bold text-sky-200">📜 SOẠN CHỈ THỊ THIÊN GIỚI</h3>
+                    <label class="block text-xs text-slate-300">Tiêu đề chỉ thị<input id="heaven-order-title" maxlength="100" placeholder="VD: Tổng kiểm tra hồ sơ Ngục Môn" class="mt-1 w-full bg-slate-950 border border-sky-400/30 rounded-lg p-3 text-white"></label>
+                    <label class="block text-xs text-slate-300">Phân hệ nhận chỉ thị<select id="heaven-order-target" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white"><option>Toàn Âm Phủ</option><option>Sổ Sinh Tử</option><option>Ngục Môn</option><option>Công Hội</option><option>Nhiệm Vụ & Sự Kiện</option><option>Kho Báu & Vật Phẩm</option><option>Hệ Thống & Dữ Liệu</option></select></label>
+                    <label class="block text-xs text-slate-300">Mức độ ưu tiên<select id="heaven-order-priority" class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white"><option value="Thông thường">Thông thường</option><option value="Quan trọng">Quan trọng</option><option value="Khẩn cấp">Khẩn cấp</option></select></label>
+                    <label class="block text-xs text-slate-300">Nội dung / yêu cầu<textarea id="heaven-order-body" rows="4" maxlength="1200" placeholder="Ghi rõ mục tiêu, phạm vi và thời hạn thực hiện..." class="mt-1 w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white"></textarea></label>
+                    <button onclick="createHeavenOrder()" class="w-full rounded-xl py-3 bg-gradient-to-r from-sky-500 to-indigo-500 text-slate-950 font-extrabold">➕ TẠO CHỈ THỊ</button>
+                    <p class="text-[10px] text-slate-500">Chỉ thị được lưu trên trình duyệt hiện tại. Trạng thái phê duyệt là quy trình mô phỏng nội bộ, chưa gửi lệnh tới máy chủ.</p>
+                </div>
+                <div class="lg:col-span-3 glass-panel rounded-2xl p-4 sm:p-5 border border-violet-400/25">
+                    <div class="flex flex-wrap items-center justify-between gap-2"><div><h3 class="font-cinzel font-bold text-violet-200">🏛️ BẢN ĐỒ CƠ QUAN THIÊN – ÂM</h3><p class="text-[11px] text-slate-400">Các đầu mối nghiệp vụ và trách nhiệm quản lý</p></div><button onclick="renderHeavenAdmin()" class="text-xs px-3 py-2 rounded-lg border border-slate-600 text-slate-300">↻ Làm mới</button></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                        <div class="rounded-xl p-3 bg-sky-950/40 border border-sky-400/25"><div class="text-sky-200 font-bold text-sm">☁️ Thiên Giới – Giám Sát</div><p class="text-[11px] text-slate-400 mt-1">Ban hành chỉ thị, kiểm tra định kỳ, duyệt đề xuất và theo dõi báo cáo.</p></div>
+                        <div class="rounded-xl p-3 bg-rose-950/30 border border-rose-400/25"><div class="text-rose-200 font-bold text-sm">⚖️ Tòa Án Diêm Vương</div><p class="text-[11px] text-slate-400 mt-1">Thẩm định hồ sơ, kết luận nghiệp vụ và lưu lịch sử xét xử.</p></div>
+                        <div class="rounded-xl p-3 bg-violet-950/30 border border-violet-400/25"><div class="text-violet-200 font-bold text-sm">📚 Sổ Sinh Tử & Luân Hồi</div><p class="text-[11px] text-slate-400 mt-1">Quản lý hồ sơ linh hồn, trạng thái, tiền kiếp và kết quả chuyển sinh.</p></div>
+                        <div class="rounded-xl p-3 bg-orange-950/30 border border-orange-400/25"><div class="text-orange-200 font-bold text-sm">🌋 Ngục Môn & Tuần Ngục</div><p class="text-[11px] text-slate-400 mt-1">Theo dõi tầng ngục, phạm nhân, cai ngục và tình trạng thi hành.</p></div>
+                        <div class="rounded-xl p-3 bg-amber-950/30 border border-amber-400/25"><div class="text-amber-200 font-bold text-sm">🎖️ Công Hội & Nhiệm Vụ</div><p class="text-[11px] text-slate-400 mt-1">Quản lý thành viên, giao việc, ghi nhận thành tích và sự kiện.</p></div>
+                        <div class="rounded-xl p-3 bg-emerald-950/30 border border-emerald-400/25"><div class="text-emerald-200 font-bold text-sm">🛡️ Thanh Tra & An Ninh</div><p class="text-[11px] text-slate-400 mt-1">Ghi nhận sự cố, kiểm tra quyền truy cập và phát hiện dữ liệu bất thường.</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 border border-sky-400/25">
+                <div class="flex flex-wrap items-center justify-between gap-2"><div><h3 class="font-cinzel font-bold text-sky-200">🗂️ SỔ CHỈ THỊ & PHÊ DUYỆT</h3><p class="text-[11px] text-slate-400">Theo dõi người tạo, phân hệ nhận, ưu tiên và trạng thái</p></div><button onclick="exportHeavenOrders()" class="text-xs px-3 py-2 rounded-lg bg-sky-400/10 border border-sky-300/30 text-sky-200">⬇ Xuất JSON</button></div>
+                <div id="heaven-orders-list" class="space-y-2 mt-4"><p class="text-xs text-slate-500">Chưa có chỉ thị.</p></div>
+            </div>
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 border border-emerald-400/20">
+                <h3 class="font-cinzel font-bold text-emerald-200">💡 ĐỀ XUẤT CÁC PHÂN HỆ MỞ RỘNG</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-3 text-xs text-slate-300">
+                    <div class="rounded-lg bg-slate-950/70 p-3">🔐 Trung tâm tài khoản, vai trò và nhật ký đăng nhập</div><div class="rounded-lg bg-slate-950/70 p-3">📡 Bảng giám sát máy chủ, sao lưu và đồng bộ đa thiết bị</div><div class="rounded-lg bg-slate-950/70 p-3">🧠 AI phân tích hồ sơ, cảnh báo trùng lặp và gợi ý xử lý</div><div class="rounded-lg bg-slate-950/70 p-3">🎒 Kho báu, vật phẩm, cửa hàng và lịch sử giao dịch</div><div class="rounded-lg bg-slate-950/70 p-3">📅 Lịch sự kiện, nhiệm vụ ngày/tuần và phần thưởng</div><div class="rounded-lg bg-slate-950/70 p-3">📈 Bảng xếp hạng theo mùa, thống kê thành tích</div><div class="rounded-lg bg-slate-950/70 p-3">🧾 Trung tâm khiếu nại, tiếp nhận và xử lý yêu cầu</div><div class="rounded-lg bg-slate-950/70 p-3">🛡️ Sao lưu tự động, phục hồi phiên bản và nhật ký thay đổi</div><div class="rounded-lg bg-slate-950/70 p-3">🗺️ Bản đồ điều phối, tình trạng từng khu vực âm phủ</div>
+                </div>
+            </div>
+        </section>
+
         <!-- TAB 5: NHẬT KÝ HỆ THỐNG -->
         <section id="view-activity" class="hidden space-y-4">
             <div class="glass-panel rounded-2xl p-4 sm:p-5 border border-cyan-400/30 bg-gradient-to-r from-cyan-950/40 via-slate-950/80 to-amber-950/25">
@@ -1312,6 +1412,7 @@ const SIN_PRESETS = [
             loadDatabase();
             loadDeathBook();
             loadActivityLog();
+            loadHeavenOrders();
             refreshAllUI();
             switchTab("dashboard");
         });
@@ -2489,8 +2590,99 @@ const SIN_PRESETS = [
             showToast(newRank>oldRank?`🏅 Hoàn thành nhiệm vụ! Thăng cấp: ${RANKS[newRank].name}. +${reward.toLocaleString("vi-VN")} công trạng.`:`⚔️ Áp giải thành công! Nhận +${reward.toLocaleString("vi-VN")} công trạng.`);
         }
 
+        // THIÊN GIỚI 12.0 — sổ chỉ thị quản trị cục bộ
+        const HEAVEN_STORAGE_KEY = "QUY_MON_QUAN_HEAVEN_120";
+        let heavenOrders = [];
+        function loadHeavenOrders() {
+            try { const raw = JSON.parse(localStorage.getItem(HEAVEN_STORAGE_KEY) || "[]"); heavenOrders = Array.isArray(raw) ? raw : []; }
+            catch (e) { heavenOrders = []; }
+            renderHeavenAdmin();
+        }
+        function saveHeavenOrders() {
+            try { localStorage.setItem(HEAVEN_STORAGE_KEY, JSON.stringify(heavenOrders)); }
+            catch (e) { showToast("⚠️ Không thể lưu dữ liệu Thiên Giới trên thiết bị này."); }
+        }
+        function createHeavenOrder() {
+            const title = document.getElementById("heaven-order-title").value.trim();
+            const body = document.getElementById("heaven-order-body").value.trim();
+            if (!title || !body) { showToast("⚠️ Vui lòng nhập tiêu đề và nội dung chỉ thị."); return; }
+            heavenOrders.unshift({ id:"THIEN-" + Date.now(), title, body, target:document.getElementById("heaven-order-target").value, priority:document.getElementById("heaven-order-priority").value, status:"Chờ phê duyệt", createdAt:new Date().toISOString() });
+            saveHeavenOrders();
+            document.getElementById("heaven-order-title").value = "";
+            document.getElementById("heaven-order-body").value = "";
+            renderHeavenAdmin();
+            showToast("☁️ Đã tạo chỉ thị và đưa vào hàng chờ phê duyệt.");
+        }
+        function updateHeavenOrder(id, status) {
+            const item = heavenOrders.find(x => x.id === id); if (!item) return;
+            item.status = status; item.updatedAt = new Date().toISOString();
+            saveHeavenOrders(); renderHeavenAdmin();
+            showToast(status === "Đã ban hành" ? "✅ Chỉ thị đã được đánh dấu ban hành." : "📌 Đã cập nhật trạng thái chỉ thị.");
+        }
+        function deleteHeavenOrder(id) {
+            if (!confirm("Xóa chỉ thị này khỏi sổ Thiên Giới?")) return;
+            heavenOrders = heavenOrders.filter(x => x.id !== id); saveHeavenOrders(); renderHeavenAdmin();
+        }
+        function renderHeavenAdmin() {
+            const pending = heavenOrders.filter(x => x.status === "Chờ phê duyệt").length;
+            const approved = heavenOrders.filter(x => x.status === "Đã ban hành").length;
+            const reports = activityLog.length;
+            const put = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = String(value); };
+            put("heaven-stat-orders", heavenOrders.length); put("heaven-stat-pending", pending); put("heaven-stat-approved", approved); put("heaven-stat-reports", reports);
+            const list = document.getElementById("heaven-orders-list"); if (!list) return;
+            if (!heavenOrders.length) { list.innerHTML = '<p class="text-xs text-slate-500">Chưa có chỉ thị. Hãy tạo chỉ thị đầu tiên ở khung bên trên.</p>'; return; }
+            list.innerHTML = heavenOrders.map(x => `<article class="rounded-xl border border-slate-700 bg-slate-950/70 p-3"><div class="flex flex-wrap items-start justify-between gap-2"><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><span class="text-[10px] font-mono-tech text-sky-300">${escapeHTML(x.id)}</span><span class="text-[10px] rounded-full px-2 py-0.5 border ${x.priority === 'Khẩn cấp' ? 'border-rose-400/40 text-rose-200' : x.priority === 'Quan trọng' ? 'border-amber-400/40 text-amber-200' : 'border-slate-600 text-slate-300'}">${escapeHTML(x.priority)}</span><span class="text-[10px] rounded-full px-2 py-0.5 border border-sky-400/30 text-sky-200">${escapeHTML(x.status)}</span></div><h4 class="text-sm font-bold text-white mt-2">${escapeHTML(x.title)}</h4><p class="text-[11px] text-slate-400 mt-1">Đơn vị nhận: ${escapeHTML(x.target)} • ${new Date(x.createdAt).toLocaleString('vi-VN')}</p><p class="text-xs text-slate-300 mt-2 whitespace-pre-wrap">${escapeHTML(x.body)}</p></div><div class="flex flex-wrap gap-1"><button onclick="updateHeavenOrder('${x.id}','Đã ban hành')" class="text-[10px] px-2 py-1 rounded bg-emerald-500/10 border border-emerald-400/30 text-emerald-200" ${x.status === 'Đã ban hành' ? 'disabled' : ''}>✓ Ban hành</button><button onclick="updateHeavenOrder('${x.id}','Tạm hoãn')" class="text-[10px] px-2 py-1 rounded bg-amber-500/10 border border-amber-400/30 text-amber-200">Tạm hoãn</button><button onclick="deleteHeavenOrder('${x.id}')" class="text-[10px] px-2 py-1 rounded bg-rose-500/10 border border-rose-400/30 text-rose-200">Xóa</button></div></div></article>`).join("");
+        }
+        function exportHeavenOrders() {
+            const payload = { app:"QUỶ MÔN QUAN", module:"THIÊN GIỚI 12.0", exportedAt:new Date().toISOString(), orders:heavenOrders };
+            const blob = new Blob([JSON.stringify(payload,null,2)], {type:"application/json;charset=utf-8"});
+            downloadBlob(blob, "thien-gioi-chi-thi-" + new Date().toISOString().slice(0,10) + ".json");
+            showToast("⬇️ Đã xuất sổ chỉ thị Thiên Giới.");
+        }
+
+
+        // RELEASE 17.0 — phân tích quy tắc cục bộ, không giả lập kết nối AI cloud.
+        let latestAIReport = null;
+        function buildUnderworldReport() {
+            const valid = soulsDB.filter(s => s && !isRestrictedSoulName(s.name));
+            const normalize = v => String(v || "").trim().toLocaleLowerCase("vi").replace(/\s+/g," ");
+            const seen = new Map(), duplicates = [];
+            valid.forEach(s => { const key = normalize(s.name); if (!key) return; if (seen.has(key)) duplicates.push({name:s.name, ids:[seen.get(key),s.id]}); else seen.set(key,s.id); });
+            const byHell = new Map();
+            valid.forEach(s => { const k = Number(s.hellLevel)||0; byHell.set(k,(byHell.get(k)||0)+1); });
+            const status = { punishing:valid.filter(s=>s.status==="PUNISHING").length, ready:valid.filter(s=>s.status==="READY_REBORN").length, reborn:valid.filter(s=>s.status==="REBORN").length };
+            return { generatedAt:new Date().toISOString(), total:valid.length, status, duplicates, byHell:[...byHell.entries()].sort((a,b)=>a[0]-b[0]), activeHells:byHell.size, orders:heavenOrders.length, logs:activityLog.length };
+        }
+        function runAIAnalysis() {
+            const r = buildUnderworldReport(); latestAIReport = r;
+            const put=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=String(v)};
+            put("ai-total",r.total);put("ai-punishing",r.status.punishing);put("ai-duplicates",r.duplicates.length);put("ai-active-hells",r.activeHells);
+            const dup=document.getElementById("ai-duplicate-list"); if(dup) dup.innerHTML=r.duplicates.length?r.duplicates.map(d=>`<div class="rounded-lg border border-rose-400/30 bg-rose-950/30 p-2"><b>${escapeHTML(d.name)}</b><div class="text-slate-400">Mã hồ sơ: ${escapeHTML(d.ids.join(" • "))}</div></div>`).join(""):'<p class="text-emerald-300">Không phát hiện tên hồ sơ trùng theo kiểm tra hiện tại.</p>';
+            const hell=document.getElementById("ai-hell-analysis"); if(hell) hell.innerHTML=r.byHell.length?r.byHell.map(([level,count])=>`<div><div class="flex justify-between"><span>Tầng ${level||"Chưa phân tầng"}</span><b>${count} hồ sơ</b></div><div class="h-1.5 bg-slate-800 rounded mt-1"><div class="h-1.5 bg-cyan-400 rounded" style="width:${Math.min(100,count/Math.max(1,r.total)*100)}%"></div></div></div>`).join(""):'<p>Chưa có hồ sơ được phân tầng.</p>';
+            showToast("🤖 Đã hoàn tất phân tích dữ liệu cục bộ."); return r;
+        }
+        function exportAIReport() { const r=latestAIReport||runAIAnalysis(); downloadBlob(new Blob([JSON.stringify({app:"QUỶ MÔN QUAN",version:"17.0",report:r},null,2)],{type:"application/json;charset=utf-8"}),"bao-cao-ai-am-phu-17.0.json"); }
+        function askUnderworldAssistant() {
+            const q=(document.getElementById("ai-assistant-question").value||"").trim().toLocaleLowerCase("vi"); const r=latestAIReport||buildUnderworldReport();
+            let answer=`Tổng hợp hiện tại: ${r.total} hồ sơ; ${r.status.punishing} đang chịu phạt; ${r.status.ready} chờ đầu thai; ${r.status.reborn} đã đầu thai. Có ${r.duplicates.length} nhóm tên trùng và ${r.activeHells} tầng đang có hồ sơ.`;
+            if(q.includes("trùng")) answer=`Phát hiện ${r.duplicates.length} trường hợp tên hồ sơ trùng. Hãy mở danh sách cảnh báo, đối chiếu mã hồ sơ và xác minh trước khi hợp nhất hoặc xóa.`;
+            else if(q.includes("ngục")||q.includes("tầng")) answer=`Ngục Môn hiện có hồ sơ tại ${r.activeHells} tầng. Chi tiết: ${r.byHell.map(([l,c])=>`tầng ${l}: ${c}`).join("; ")||"chưa có dữ liệu"}.`;
+            else if(q.includes("báo cáo")||q.includes("tổng hợp")) answer=`Báo cáo: ${r.total} hồ sơ; đang chịu phạt ${r.status.punishing}; chờ đầu thai ${r.status.ready}; đã đầu thai ${r.status.reborn}; chỉ thị Thiên Giới ${r.orders}; nhật ký ${r.logs}.`;
+            else if(q) answer += " Gợi ý: kiểm tra cảnh báo trùng lặp, rà soát tầng ngục đông hồ sơ và xuất báo cáo định kỳ.";
+            document.getElementById("ai-assistant-answer").textContent=answer+" (Trợ lý nội bộ dựa trên quy tắc, không phải mô hình AI trực tuyến.)";
+        }
+        // RELEASE 20.0 — bảng điều hành hợp nhất và kiểm soát cục bộ.
+        function renderUltimateOS() {
+            const r=latestAIReport||buildUnderworldReport(); const put=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=String(v)};
+            put("os-total",r.total);put("os-punishing",r.status.punishing);put("os-orders",heavenOrders.length);put("os-logs",activityLog.length);
+            const report=document.getElementById("os-central-report"); if(report) report.innerHTML=[`Tổng hồ sơ: <b>${r.total}</b>`,`Đang chịu phạt: <b>${r.status.punishing}</b>`,`Chờ đầu thai: <b>${r.status.ready}</b>`,`Đã đầu thai: <b>${r.status.reborn}</b>`,`Nhóm tên trùng cần xác minh: <b class="${r.duplicates.length?'text-rose-300':'text-emerald-300'}">${r.duplicates.length}</b>`,`Chỉ thị Thiên Giới: <b>${heavenOrders.length}</b>`].map(x=>`<div class="border-b border-slate-800 pb-2">${x}</div>`).join("");
+            const security=document.getElementById("os-security-report"); if(security) security.innerHTML=[`Lưu trữ: <b>LocalStorage trên thiết bị hiện tại</b>`,`Kiểm tra trùng tên: <b>${r.duplicates.length} cảnh báo</b>`,`Nhật ký thao tác: <b>${activityLog.length} mục</b>`,`Đồng bộ máy chủ: <b class="text-amber-200">Chưa cấu hình</b>`,`Khuyến nghị: xuất bản sao định kỳ và chỉ xóa dữ liệu sau khi xác minh.`].map(x=>`<div class="border-b border-slate-800 pb-2">${x}</div>`).join("");
+        }
+        function exportCentralReport(){const r=latestAIReport||buildUnderworldReport();downloadBlob(new Blob([JSON.stringify({app:"QUỶ MÔN QUAN",version:"20.0",generatedAt:new Date().toISOString(),report:r,heavenOrders,activityLog},null,2)],{type:"application/json;charset=utf-8"}),"ultimate-underworld-report-20.0.json");}
+        function exportFullBackup(){const payload={app:"QUỶ MÔN QUAN",version:"20.0",exportedAt:new Date().toISOString(),soulsDB,deathBookRecords,heavenOrders,activityLog,hunterProfile};downloadBlob(new Blob([JSON.stringify(payload,null,2)],{type:"application/json;charset=utf-8"}),"ultimate-underworld-full-backup.json");showToast("Đã tạo bản sao dữ liệu hiện có trên thiết bị.");}
+
         function switchTab(tabName) {
-            ["dashboard", "court", "ledger", "hells", "mengpo", "activity", "missions"].forEach(t => {
+            ["dashboard", "court", "ledger", "hells", "mengpo", "activity", "missions", "heaven", "ai17", "os20"].forEach(t => {
                 document.getElementById(`view-${t}`).classList.add("hidden");
                 document.getElementById(`tab-${t}`).classList.remove("active");
                 document.getElementById(`tab-${t}`).classList.add("text-slate-300");
@@ -2505,6 +2697,9 @@ const SIN_PRESETS = [
             if (tabName === "ledger") renderLedger();
             if (tabName === "hells") renderHellsMap();
             if (tabName === "mengpo") populateMeritSelect();
+            if (tabName === "heaven") renderHeavenAdmin();
+            if (tabName === "ai17") runAIAnalysis();
+            if (tabName === "os20") { runAIAnalysis(); renderUltimateOS(); }
         }
 
         function refreshAllUI() {
